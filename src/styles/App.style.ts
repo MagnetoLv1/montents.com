@@ -1,6 +1,8 @@
 import { css } from '@emotion/core';
 
-export const GlobalStyle = css`
+import { TTheme } from 'styles/Themes';
+
+export const GlobalStyle = (theme: TTheme) => css`
     @font-face {
         font-family: 'Nanum Gothic';
         font-style: normal;
@@ -49,5 +51,6 @@ export const GlobalStyle = css`
 
     body {
         font-size: 1.4rem;
+        background: ${theme.colors.background};
     }
 `;
