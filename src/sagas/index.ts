@@ -1,12 +1,9 @@
 import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
 
-import { PostSaga } from 'sagas/PostSaga';
-import { PostsSaga } from 'sagas/PostsSaga';
-
 // root saga
 function* rootSaga() {
-    yield all([PostsSaga(), PostSaga()]);
+    yield all([]);
 }
 
 // saga middleware object
