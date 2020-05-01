@@ -12,6 +12,7 @@ module.exports = {
     verbose: true,
     transform: {
         '^.+\\.(ts|tsx)?$': 'ts-jest',
-        '^.+\\.[t|j]sx?$': 'babel-jest'
+        '^.+\\.[t|j]sx?$': 'babel-jest',
+        '^.+\\.svg$': 'jest-svg-transformer'
     }
 };
