@@ -51,6 +51,23 @@ export const GlobalStyle = (theme: TTheme) => css`
 
     body {
         font-size: 1.4rem;
-        background: ${theme.colors.background};
+        background: ${theme.colors.bodyBackground};
+        margin: 0;
+        padding: 0;
+        line-height: 1.34;
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    span,
+    button,
+    input {
+        margin: 0;
+        padding: 0;
+        font-family: inherit;
     }
 `;

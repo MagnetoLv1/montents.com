@@ -1,13 +1,19 @@
+import deepmerge from 'deepmerge';
+
 export const theme = {
     colors: {
-        background: '#f0f2f5'
+        bodyBackground: '#f0f2f5',
+        headerBackground: 'white'
+    },
+    size: {
+        headerHeight: '6rem'
     }
 };
 
-export const darkTheme = {
+export const darkTheme = deepmerge(theme, {
     colors: {
-        background: 'black'
+        bodyBackground: 'black'
     }
-};
+});
 
 export type TTheme = typeof theme | typeof darkTheme;
