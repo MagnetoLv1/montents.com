@@ -3,6 +3,7 @@ import { FC, PropsWithChildren } from 'react';
 import { css, jsx } from '@emotion/core';
 
 import Header from 'components/organisms/Header';
+import LeftPanel from 'components/organisms/LeftPanel';
 
 import { TTheme } from 'styles/Themes';
 
@@ -14,11 +15,12 @@ const bodyStyle = (theme: TTheme) => css`
     min-height: calc(100vh - ${theme.size.headerHeight});
 `;
 
-const GnbLayout: FC = ({ children }: PropsWithChildren<{}>) => (
+const MainGnb: FC = ({ children }: PropsWithChildren<{}>) => (
     <div>
         <Header />
+        <LeftPanel />
         <div css={bodyStyle}>{children}</div>
     </div>
 );
 
-export default GnbLayout;
+export default MainGnb;

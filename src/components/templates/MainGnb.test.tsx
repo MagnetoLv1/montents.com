@@ -2,15 +2,15 @@ import React from 'react';
 
 import render from 'libs/test-utils';
 
-import GnbLayout from 'components/templates/GnbLayout';
+import MainGnb from 'components/templates/MainGnb';
 
 describe('<GnbLayout/>', () => {
     const testChildrenText = 'Test Children';
     const initTest = () => {
         const { getByTestId, getByText } = render(
-            <GnbLayout>
+            <MainGnb>
                 <div>{testChildrenText}</div>
-            </GnbLayout>
+            </MainGnb>
         );
 
         return { getByTestId, getByText };

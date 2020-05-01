@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { NextPage } from 'next';
 
-import GnbLayout from 'components/templates/GnbLayout';
+import MainGnb from 'components/templates/MainGnb';
 
 const Home: NextPage = () => {
     return (
-        <GnbLayout>
+        <MainGnb>
             <p>Hello, Next Ts</p>
-        </GnbLayout>
+        </MainGnb>
     );
 };
 
