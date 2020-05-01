@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 
-import { PostReducer } from 'modules/PostModule';
+import { GroupsReducer } from 'modules/GroupsModule';
 
 // root reducer
 export default combineReducers({
-    PostReducer
+    GroupsReducer
 });

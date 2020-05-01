@@ -1,9 +1,11 @@
 import createSagaMiddleware from 'redux-saga';
-import { all } from 'redux-saga/effects';
+import { all, fork } from 'redux-saga/effects';
+
+import { GroupsSaga } from 'sagas/GroupsSaga';
 
 // root saga
 function* rootSaga() {
-    yield all([]);
+    yield all([fork(GroupsSaga)]);
 }
 
 // saga middleware object
