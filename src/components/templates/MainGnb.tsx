@@ -7,19 +7,42 @@ import LeftPanel from 'components/organisms/LeftPanel';
 
 import { TTheme } from 'styles/Themes';
 
-const bodyStyle = (theme: TTheme) => css`
-    position: relative;
-    z-index: 0;
-    display: block;
-    top: ${theme.size.headerHeight};
-    min-height: calc(100vh - ${theme.size.headerHeight});
+const style = (theme: TTheme) => css`
+    & > #header {
+        position: fixed;
+        z-index: 1;
+        right: 0;
+        top: 0;
+        left: 0;
+    }
+
+    & > #body {
+        position: relative;
+        z-index: 0;
+        display: flex;
+        flex-direction: row;
+        top: ${theme.size.headerHeight};
+        min-height: calc(100vh - ${theme.size.headerHeight});
+
+        & > #left-panel {
+            width: 36rem;
+            flex-grow: 0;
+        }
+
+        & > #contents {
+            display: flex;
+            flex-grow: 1;
+        }
+    }
 `;
 
 const MainGnb: FC = ({ children }: PropsWithChildren<{}>) => (
-    <div>
+    <div css={style}>
         <Header />
-        <LeftPanel />
-        <div css={bodyStyle}>{children}</div>
+        <div id="body">
+            <LeftPanel />
+            <div id="contents">{children}</div>
+        </div>
     </div>
 );
 

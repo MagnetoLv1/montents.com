@@ -7,7 +7,8 @@ export const theme = {
     },
     size: {
         headerHeight: '6rem'
-    }
+    },
+    shadow: '0 0 0.7rem #dbdbdb'
 };
 
 export const darkTheme = deepmerge(theme, {

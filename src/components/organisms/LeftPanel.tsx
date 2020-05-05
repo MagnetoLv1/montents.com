@@ -1,11 +1,20 @@
-import React, { FC, useEffect } from 'react';
+/** @jsx jsx */
+import { FC, useEffect } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { css, jsx } from '@emotion/core';
 
 import TStoreState from 'types/TStoreState';
 
 import ApiStatus from 'constants/ApiStatus';
 
 import { GroupsAction } from 'modules/GroupsModule';
+
+import { TTheme } from 'styles/Themes';
+
+const style = (theme: TTheme) => css`
+    background: white;
+    box-shadow: ${theme.shadow};
+`;
 
 const LeftPanel: FC = () => {
     const dispatch = useDispatch();
@@ -28,21 +37,19 @@ const LeftPanel: FC = () => {
         };
     }, []);
 
-    if (status === ApiStatus.LOADING || status === ApiStatus.CLEAR) {
-        return <nav>로딩중...</nav>;
-    }
-
-    if (status === ApiStatus.ERROR) {
-        return <nav>{error}</nav>;
-    }
-
     return (
-        <nav>
-            <ul>
-                {data.map((group) => (
-                    <li key={group.idx}>{group.name}</li>
-                ))}
-            </ul>
+        <nav id="left-panel" data-testid="left-panel" css={style}>
+            {status === ApiStatus.ERROR && <nav>{error}</nav>}
+            {(status === ApiStatus.LOADING || status === ApiStatus.CLEAR) && (
+                <nav>로딩중...</nav>
+            )}
+            {status === ApiStatus.SUCCESS && (
+                <ul>
+                    {data.map((group) => (
+                        <li key={group.idx}>{group.name}</li>
+                    ))}
+                </ul>
+            )}
         </nav>
     );
 };

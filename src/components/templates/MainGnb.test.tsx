@@ -24,6 +24,13 @@ describe('<GnbLayout/>', () => {
             expect(header).toBeTruthy();
         });
 
+        it('LeftPanel exists', () => {
+            const { getByTestId } = initTest();
+            const leftPanel = getByTestId('left-panel');
+
+            expect(leftPanel).toBeTruthy();
+        });
+
         it('Children exists', () => {
             const { getByText } = initTest();
 
