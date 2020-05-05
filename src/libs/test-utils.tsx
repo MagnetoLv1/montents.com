@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
-import { Provider } from 'react-redux';
-import { Global } from '@emotion/core';
 import { render as reactRender } from '@testing-library/react';
-import { ThemeProvider } from 'emotion-theming';
+
+import AppProvider from 'libs/AppProvider';
 
 import { initStore } from 'modules/store';
 
@@ -13,12 +12,9 @@ const AllTheProviders = (
     store: ReturnType<typeof initStore> = initStore()
 ): FC => ({ children }) => {
     return (
-        <Provider store={store}>
-            <ThemeProvider theme={theme}>
-                <Global styles={GlobalStyle} />
-                {children}
-            </ThemeProvider>
-        </Provider>
+        <AppProvider store={store} theme={theme} style={GlobalStyle}>
+            {children}
+        </AppProvider>
     );
 };
 

@@ -1,11 +1,9 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import withRedux, { ReduxWrapperAppProps } from 'next-redux-wrapper';
 import RootApp, { AppContext } from 'next/app';
-import { Global } from '@emotion/core';
-import { ThemeProvider } from 'emotion-theming';
 import { END } from 'redux-saga';
 
+import AppProvider from 'libs/AppProvider';
 import axios from 'libs/axios';
 
 import TStoreState from 'types/TStoreState';
@@ -43,12 +41,9 @@ class App extends RootApp<ReduxWrapperAppProps<TStoreState>> {
     render() {
         const { Component, pageProps, store } = this.props;
         return (
-            <Provider store={store}>
-                <ThemeProvider theme={theme}>
-                    <Global styles={GlobalStyle} />
-                    <Component {...pageProps} />
-                </ThemeProvider>
-            </Provider>
+            <AppProvider store={store} theme={theme} style={GlobalStyle}>
+                <Component {...pageProps} />
+            </AppProvider>
         );
     }
 }
