@@ -7,6 +7,19 @@ module.exports = ({ config }) => {
 
     config.resolve.plugins.push(new TsconfigPathsPlugin());
 
+    const fileLoaderRule = config.module.rules.find((rule) =>
+        rule.test.test('.svg')
+    );
+    fileLoaderRule.exclude = /\.svg$/;
+
+    config.module.rules.push({
+        test: /\.svg$/,
+        issuer: {
+            test: /\.(js|ts)x?$/
+        },
+        use: '@svgr/webpack'
+    });
+
     config.module.rules.push({
         test: /\.(ts|tsx)$/,
         use: [
