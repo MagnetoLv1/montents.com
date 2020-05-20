@@ -39,6 +39,7 @@
                     ["^data"],
                     ["^modules"],
                     ["^sagas"],
+                    ["^hooks"],
                     ["^pages"],
                     ["^components/templates"],
                     ["^components/organisms"],

@@ -25,7 +25,10 @@ const style = (theme: TTheme) => css`
         min-height: calc(100vh - ${theme.size.headerHeight});
 
         & > #left-panel {
-            width: 36rem;
+            width: 25vw;
+            flex-basis: 25%;
+            max-width: 32rem;
+            min-width: 28rem;
             flex-grow: 0;
         }
 

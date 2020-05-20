@@ -67,3 +67,18 @@ export const textButton = () => {
         </Button>
     );
 };
+
+export const loadingButton = () => {
+    const buttonWidth = number('width rem', 10, { min: 10 }),
+        buttonHeight = number('height rem (0 is auto)', 0),
+        buttonBackground = color('background', '#fff');
+
+    return (
+        <Button
+            css={buttonStyle(buttonWidth, buttonHeight, buttonBackground)}
+            loading>
+            <div className="icon" />
+            <div className="text" />
+        </Button>
+    );
+};

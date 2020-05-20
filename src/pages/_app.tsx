@@ -12,7 +12,7 @@ import { initStore } from 'modules/store';
 
 import { sagaTask } from 'sagas';
 
-import { GlobalStyle } from 'styles/App.style';
+import { GlobalStyle } from 'styles/GlobalStyle';
 import { theme } from 'styles/Themes';
 
 class App extends RootApp<ReduxWrapperAppProps<TStoreState>> {

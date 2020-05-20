@@ -1,65 +1,97 @@
-import React, { Fragment, ReactElement } from 'react';
+import React, { Fragment } from 'react';
 import { fireEvent } from '@testing-library/dom';
 
 import render from 'libs/test-utils';
 
-import Button, { IButton } from 'components/atoms/Button';
+import Button from 'components/atoms/Button';
+
+import { theme } from 'styles/Themes';
 
 describe('<Button />', () => {
-    const initTest = (children: ReactElement | string, props?: IButton) => {
-        return render(<Button {...props}>{children}</Button>);
-    };
-
     describe('UI test', () => {
         it('Text children exists', () => {
             const testText = 'My Button';
-            const { getByText } = initTest(testText);
+
+            const { getByText } = render(<Button>{testText}</Button>);
 
             const button = getByText(testText);
             expect(button).toHaveTextContent(testText);
         });
 
         it('Icon children exists', () => {
+            const testIconAlt = 'logo';
             const testIcon = (
                 <img
                     className="icon"
-                    src="http://static.inven.co.kr/image_2011/common/channel/icon_14x14_webzine.gif?v=200424b"
-                    alt="inven logo"
+                    src="/images/logo.png"
+                    alt={testIconAlt}
                 />
             );
-            const { getByAltText } = initTest(testIcon);
 
-            const icon = getByAltText('inven logo');
-            expect(icon).toHaveAttribute('alt', 'inven logo');
+            const { getByAltText } = render(<Button>{testIcon}</Button>);
+
+            const icon = getByAltText(testIconAlt);
+            expect(icon).toHaveAttribute('alt', testIconAlt);
         });
 
         it('Icon and text children exists', () => {
+            const testText = 'logo button';
+            const testIconAlt = 'logo';
             const testElement = (
                 <Fragment>
                     <img
                         className="icon"
-                        src="http://static.inven.co.kr/image_2011/common/channel/icon_14x14_webzine.gif?v=200424b"
-                        alt="inven logo"
+                        src="/images/logo.png"
+                        alt={testIconAlt}
                     />
-                    Inven
+                    {testText}
                 </Fragment>
             );
-            const { getByAltText, getByText } = initTest(testElement);
 
-            const icon = getByAltText('inven logo');
-            const text = getByText('Inven');
+            const { getByAltText, getByText } = render(
+                <Button>{testElement}</Button>
+            );
 
-            expect(icon).toHaveAttribute('alt', 'inven logo');
-            expect(text).toHaveTextContent('Inven');
+            const icon = getByAltText(testIconAlt);
+            const text = getByText(testText);
+
+            expect(icon).toHaveAttribute('alt', testIconAlt);
+            expect(text).toHaveTextContent(testText);
+        });
+
+        it('button loading', () => {
+            const { getByTestId } = render(
+                <Button loading data-testid="button">
+                    <div className="icon" />
+                    <div className="text" />
+                </Button>
+            );
+
+            const button = getByTestId('button');
+
+            expect(button).toHaveStyleRule(
+                'background',
+                theme.colors.loadingBackground,
+                { target: '.icon' }
+            );
+            expect(button).toHaveStyleRule(
+                'background',
+                theme.colors.loadingBackground,
+                { target: '.text' }
+            );
         });
     });
 
     describe('Action test', () => {
         it('Button click', () => {
             const onClick = jest.fn();
-            const { getByText } = initTest('My Button', { onClick });
+            const testText = 'My Button';
 
-            const button = getByText('My Button');
+            const { getByText } = render(
+                <Button onClick={onClick}>{testText}</Button>
+            );
+
+            const button = getByText(testText);
 
             fireEvent.click(button);
             expect(onClick).toBeCalled();

@@ -5,7 +5,7 @@ import AppProvider from 'libs/AppProvider';
 
 import { initStore } from 'modules/store';
 
-import { GlobalStyle } from 'styles/App.style';
+import { GlobalStyle } from 'styles/GlobalStyle';
 import { theme } from 'styles/Themes';
 
 const AllTheProviders = (

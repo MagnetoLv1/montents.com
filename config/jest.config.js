@@ -3,7 +3,7 @@ module.exports = {
     testEnvironment: 'jsdom',
     rootDir: '../',
     modulePaths: ['<rootDir>/src/'],
-    setupFilesAfterEnv: ['<rootDir>/config/jest.setup.js'],
+    setupFilesAfterEnv: ['<rootDir>/config/jest.setup.ts'],
     globals: {
         'ts-jest': {
             tsConfig: '<rootDir>/config/tsconfig.jest.json'

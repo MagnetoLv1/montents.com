@@ -82,7 +82,7 @@ $ yarn git-hook-reset
 |   |-- webpack.config.js
 |--[config          : directory for other settings
 |   |-- jest.config.js
-|   |-- jest.setup.js
+|   |-- jest.setup.ts
 |   |-- lint-staged.config.js
 |   |-- tsconfig.jest.json
 |--[public          : resource directory

@@ -65,9 +65,15 @@ export const GlobalStyle = (theme: TTheme) => css`
     h5,
     span,
     button,
-    input {
+    input,
+    ul,
+    li {
         margin: 0;
         padding: 0;
         font-family: inherit;
+    }
+
+    li {
+        list-style: none;
     }
 `;
