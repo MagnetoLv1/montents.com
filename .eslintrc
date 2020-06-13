@@ -40,13 +40,13 @@
                     ["^modules"],
                     ["^sagas"],
                     ["^hooks"],
+                    ["^svg"],
+                    ["^styles"],
                     ["^pages"],
                     ["^components/templates"],
                     ["^components/organisms"],
                     ["^components/molecules"],
-                    ["^components/atoms"],
-                    ["^svg"],
-                    ["^styles"]
+                    ["^components/atoms"]
                 ]
             }
         ]
