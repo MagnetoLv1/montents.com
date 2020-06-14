@@ -1,8 +1,6 @@
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import TStoreState from 'types/TStoreState';
-
 import rootReducer from 'modules/reducer';
 
 import {
@@ -10,6 +8,8 @@ import {
     runSagaMiddleware,
     sagaMiddleware
 } from 'sagas';
+
+export type TStoreState = ReturnType<typeof rootReducer>;
 
 export const initStore = (initialState?: TStoreState) => {
     createNewSagaMiddleware();
