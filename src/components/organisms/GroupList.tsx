@@ -3,11 +3,10 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
 import styled from 'libs/styled';
 
-import TStoreState from 'types/TStoreState';
-
 import ApiStatus from 'constants/ApiStatus';
 
 import { GroupsAction } from 'modules/GroupsModule';
+import { TStoreState } from 'modules/store';
 
 import GroupItem from 'components/molecules/GroupItem';
 

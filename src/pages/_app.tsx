@@ -6,9 +6,7 @@ import { END } from 'redux-saga';
 import AppProvider from 'libs/AppProvider';
 import axios from 'libs/axios';
 
-import TStoreState from 'types/TStoreState';
-
-import { initStore } from 'modules/store';
+import { initStore, TStoreState } from 'modules/store';
 
 import { sagaTask } from 'sagas';
 
