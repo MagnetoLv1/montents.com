@@ -3,36 +3,36 @@
         "idx": 1,
         "name": "Inven",
         "url": "http://www.inven.co.kr/",
-        "icon": "http://static.inven.co.kr/image_2011/common/channel/icon_14x14_webzine.gif?v=200424b"
+        "icon": "http://www.montents.com/images/logo.png"
     },
     {
         "idx": 2,
         "name": "dcinside",
         "url": "https://www.dcinside.com/",
-        "icon": "http://static.inven.co.kr/image_2011/common/channel/icon_14x14_webzine.gif?v=200424b"
+        "icon": "http://www.montents.com/images/logo.png"
     },
     {
         "idx": 3,
-        "name": "Inven",
+        "name": "Youtube",
         "url": "http://www.inven.co.kr/",
-        "icon": "http://static.inven.co.kr/image_2011/common/channel/icon_14x14_webzine.gif?v=200424b"
+        "icon": "http://www.montents.com/images/logo.png"
     },
     {
         "idx": 4,
-        "name": "Inven",
+        "name": "Netflix",
         "url": "http://www.inven.co.kr/",
-        "icon": "http://static.inven.co.kr/image_2011/common/channel/icon_14x14_webzine.gif?v=200424b"
+        "icon": "http://www.montents.com/images/logo.png"
     },
     {
         "idx": 5,
-        "name": "Inven",
+        "name": "Google",
         "url": "http://www.inven.co.kr/",
-        "icon": "http://static.inven.co.kr/image_2011/common/channel/icon_14x14_webzine.gif?v=200424b"
+        "icon": "http://www.montents.com/images/logo.png"
     },
     {
         "idx": 6,
-        "name": "Inven",
+        "name": "Naver",
         "url": "http://www.inven.co.kr/",
-        "icon": "http://static.inven.co.kr/image_2011/common/channel/icon_14x14_webzine.gif?v=200424b"
+        "icon": "http://www.montents.com/images/logo.png"
     }
 ]

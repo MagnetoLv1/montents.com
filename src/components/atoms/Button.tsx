@@ -24,7 +24,7 @@ const ButtonWrap = styled.div`
             top: 0;
             bottom: 0;
             content: '';
-            background-color: rgba(0, 0, 0, 0.05);
+            background-color: ${({ theme }) => theme.colors.hoverBackground};
         }
     }
 `;
@@ -32,8 +32,14 @@ const ButtonWrap = styled.div`
 export const Icon = styled.div`
     width: 3rem;
     height: 3rem;
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0.8rem 1.2rem 0.8rem 0;
+
+    & > * {
+        width: 100%;
+    }
 `;
 
 export const Text = styled.p``;
