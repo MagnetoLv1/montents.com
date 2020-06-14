@@ -1,7 +1,7 @@
-/** @jsx jsx */
-import { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { css, jsx } from '@emotion/core';
+
+import styled from 'libs/styled';
 
 import TStoreState from 'types/TStoreState';
 
@@ -9,34 +9,19 @@ import ApiStatus from 'constants/ApiStatus';
 
 import { GroupsAction } from 'modules/GroupsModule';
 
-import Button from 'components/atoms/Button';
+import GroupItem from 'components/molecules/GroupItem';
 
-const style = css`
+const GroupListWrap = styled.ul`
     display: flex;
 
     flex-direction: column;
     align-items: stretch;
-
-    & > li {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 0 0.8rem;
-        box-sizing: border-box;
-    }
-`;
-
-const buttonStyle = css`
-    & > .icon {
-        width: 3.6rem;
-        height: 3.6rem;
-    }
 `;
 
 const GroupList = () => {
     const dispatch = useDispatch();
 
-    const { status, data, error } = useSelector(
+    const { status, data } = useSelector(
         ({ GroupsReducer }: TStoreState) => ({
             status: GroupsReducer.status,
             data: GroupsReducer.data,
@@ -55,28 +40,18 @@ const GroupList = () => {
     }, []);
 
     return (
-        <Fragment>
-            {status === ApiStatus.ERROR && <nav>{error}</nav>}
-            {(status === ApiStatus.LOADING || status === ApiStatus.CLEAR) && (
-                <nav>로딩중...</nav>
-            )}
-            {status === ApiStatus.SUCCESS && (
-                <ul css={style}>
-                    {data.map((group) => (
-                        <li key={group.idx}>
-                            <Button css={buttonStyle}>
-                                <img
-                                    src={group.icon}
-                                    alt={group.name}
-                                    className="icon"
-                                />
-                                {group.name}
-                            </Button>
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </Fragment>
+        <GroupListWrap>
+            {(status === ApiStatus.LOADING ||
+                status === ApiStatus.CLEAR ||
+                status === ApiStatus.ERROR) &&
+                Array(3).map((value) => (
+                    <GroupItem loading key={`loading_${value}`} />
+                ))}
+            {status === ApiStatus.SUCCESS &&
+                data.map((group) => (
+                    <GroupItem group={group} key={group.idx} />
+                ))}
+        </GroupListWrap>
     );
 };
 

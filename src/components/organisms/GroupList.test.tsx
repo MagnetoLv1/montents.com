@@ -8,18 +8,12 @@ import groups from 'data/groups.json';
 import GroupList from 'components/organisms/GroupList';
 
 describe('<GroupList />', () => {
-    const initTest = () => {
-        const { findByText, findAllByText } = render(<GroupList />);
-
-        return { findByText, findAllByText };
-    };
-
     describe('Get group list', () => {
         it('Loading and success', async () => {
             const mock = axiosMock({ delayResponse: 2000 });
             mock.onGet('/groups').reply(200, groups);
 
-            const { findAllByText } = initTest();
+            const { findAllByText } = render(<GroupList />);
 
             for (const group of groups) {
                 const groupName = await findAllByText(group.name, undefined, {

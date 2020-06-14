@@ -1,51 +1,47 @@
-/** @jsx jsx */
-import { FC, PropsWithChildren } from 'react';
-import { css, jsx } from '@emotion/core';
+import React, { FC, PropsWithChildren } from 'react';
 
-import Header from 'components/organisms/Header';
-import LeftPanel from 'components/organisms/LeftPanel';
+import styled from 'libs/styled';
 
-import { TTheme } from 'styles/Themes';
+import HeaderBase from 'components/organisms/Header';
+import LeftPanelBase from 'components/organisms/LeftPanel';
 
-const style = (theme: TTheme) => css`
-    & > #header {
-        position: fixed;
-        z-index: 1;
-        right: 0;
-        top: 0;
-        left: 0;
-    }
+const Header = styled(HeaderBase)`
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    left: 0;
+`;
 
-    & > #body {
-        position: relative;
-        z-index: 0;
-        display: flex;
-        flex-direction: row;
-        top: ${theme.size.headerHeight};
-        min-height: calc(100vh - ${theme.size.headerHeight});
+const Container = styled.div`
+    position: relative;
+    z-index: 0;
+    display: flex;
+    flex-direction: row;
+    top: ${({ theme }) => theme.size.headerHeight};
+    min-height: calc(100vh - ${({ theme }) => theme.size.headerHeight});
+`;
 
-        & > #left-panel {
-            width: 25vw;
-            flex-basis: 25%;
-            max-width: 32rem;
-            min-width: 28rem;
-            flex-grow: 0;
-        }
+const LeftPanel = styled(LeftPanelBase)`
+    width: 25vw;
+    flex-basis: 25%;
+    max-width: 32rem;
+    min-width: 28rem;
+    flex-grow: 0;
+`;
 
-        & > #contents {
-            display: flex;
-            flex-grow: 1;
-        }
-    }
+const Contents = styled.div`
+    display: flex;
+    flex-grow: 1;
 `;
 
 const MainGnb: FC = ({ children }: PropsWithChildren<{}>) => (
-    <div css={style}>
+    <div>
         <Header />
-        <div id="body">
+        <Container>
             <LeftPanel />
-            <div id="contents">{children}</div>
-        </div>
+            <Contents>{children}</Contents>
+        </Container>
     </div>
 );
 

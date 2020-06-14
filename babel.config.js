@@ -7,11 +7,13 @@ module.exports = (api) => {
             presets: [
                 ['@babel/preset-env', { targets: { node: 'current' } }],
                 '@babel/preset-typescript'
-            ]
+            ],
+            plugins: ['emotion']
         };
     }
 
     return {
-        presets: ['next/babel']
+        presets: ['next/babel'],
+        plugins: ['emotion']
     };
 };

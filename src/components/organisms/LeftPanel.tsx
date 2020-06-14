@@ -1,17 +1,19 @@
-/** @jsx jsx */
-import { FC } from 'react';
-import { css, jsx } from '@emotion/core';
+import React, { FC, HTMLAttributes } from 'react';
+
+import styled from 'libs/styled';
 
 import GroupList from 'components/organisms/GroupList';
 
-const style = css`
+const LeftPanelWrap = styled.nav`
     padding-top: 1.6rem;
 `;
 
-const LeftPanel: FC = () => (
-    <nav id="left-panel" data-testid="left-panel" css={style}>
+const LeftPanel: FC<HTMLAttributes<HTMLDivElement>> = ({
+    className
+}: HTMLAttributes<HTMLDivElement>) => (
+    <LeftPanelWrap className={className} data-testid="left-panel">
         <GroupList />
-    </nav>
+    </LeftPanelWrap>
 );
 
 export default LeftPanel;
