@@ -11,7 +11,7 @@ const LeftPanelWrap = styled.nav`
 const LeftPanel: FC<HTMLAttributes<HTMLDivElement>> = ({
     className
 }: HTMLAttributes<HTMLDivElement>) => (
-    <LeftPanelWrap className={className}>
+    <LeftPanelWrap className={className} data-testid="left-panel">
         <GroupList />
     </LeftPanelWrap>
 );

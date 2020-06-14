@@ -4,7 +4,7 @@ import render from 'libs/test-utils';
 
 import MainGnb from 'components/templates/MainGnb';
 
-describe('<GnbLayout/>', () => {
+describe('<MainGnb/>', () => {
     const testChildrenText = 'Test Children';
     const initTest = () => {
         const { getByTestId, getByText } = render(
