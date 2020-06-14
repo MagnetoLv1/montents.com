@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { css, jsx } from '@emotion/core';
+import React from 'react';
 import { action } from '@storybook/addon-actions';
 import {
     boolean,
@@ -9,9 +8,16 @@ import {
     withKnobs
 } from '@storybook/addon-knobs';
 
-import Button from 'components/atoms/Button';
+import styled from 'libs/styled';
 
 import Logo from 'svg/logo.svg';
+
+import Button, {
+    Icon,
+    LoadingIcon,
+    LoadingText,
+    Text
+} from 'components/atoms/Button';
 
 export default {
     title: 'components|atoms/Button',
@@ -20,16 +26,22 @@ export default {
     decorators: [withKnobs]
 };
 
-const iconStyle = css`
-    width: 2rem;
-    height: 2rem;
+interface IStoryButton {
+    width: number;
+    height: number;
+    background: string;
+}
+
+const StoryButton = styled(Button)<IStoryButton>`
+    margin: 1rem;
+    width: ${({ width }) => (width > 0 ? `${width}rem` : 'auto')};
+    height: ${({ height }) => (height > 0 ? `${height}rem` : 'auto')};
+    background: ${({ background }) => background};
 `;
 
-const buttonStyle = (width: number, height: number, background: string) => css`
-    margin: 1rem;
-    width: ${width > 0 ? `${width}rem` : 'auto'};
-    height: ${height > 0 ? `${height}rem` : 'auto'};
-    background: ${background};
+const StoryButtonIcon = styled(Icon)`
+    width: 2rem;
+    height: 2rem;
 `;
 
 export const button = () => {
@@ -40,12 +52,18 @@ export const button = () => {
         buttonBackground = color('background', '#fff');
 
     return (
-        <Button
-            css={buttonStyle(buttonWidth, buttonHeight, buttonBackground)}
+        <StoryButton
+            width={buttonWidth}
+            height={buttonHeight}
+            background={buttonBackground}
             onClick={action('onClick')}>
-            {icon && <Logo className="icon" css={iconStyle} />}
-            {buttonText}
-        </Button>
+            {icon && (
+                <StoryButtonIcon>
+                    <Logo className="icon" />
+                </StoryButtonIcon>
+            )}
+            <Text>{buttonText}</Text>
+        </StoryButton>
     );
 };
 
@@ -60,11 +78,13 @@ export const textButton = () => {
         buttonBackground = color('background', '#fff');
 
     return (
-        <Button
-            css={buttonStyle(buttonWidth, buttonHeight, buttonBackground)}
+        <StoryButton
+            width={buttonWidth}
+            height={buttonHeight}
+            background={buttonBackground}
             onClick={action('onClick')}>
-            {buttonText}
-        </Button>
+            <Text>{buttonText}</Text>
+        </StoryButton>
     );
 };
 
@@ -74,11 +94,12 @@ export const loadingButton = () => {
         buttonBackground = color('background', '#fff');
 
     return (
-        <Button
-            css={buttonStyle(buttonWidth, buttonHeight, buttonBackground)}
-            loading>
-            <div className="icon" />
-            <div className="text" />
-        </Button>
+        <StoryButton
+            width={buttonWidth}
+            height={buttonHeight}
+            background={buttonBackground}>
+            <LoadingIcon />
+            <LoadingText />
+        </StoryButton>
     );
 };

@@ -3,16 +3,18 @@ import { fireEvent } from '@testing-library/dom';
 
 import render from 'libs/test-utils';
 
-import Button from 'components/atoms/Button';
-
-import { theme } from 'styles/Themes';
+import Button, { Icon, Text } from 'components/atoms/Button';
 
 describe('<Button />', () => {
     describe('UI test', () => {
         it('Text children exists', () => {
             const testText = 'My Button';
 
-            const { getByText } = render(<Button>{testText}</Button>);
+            const { getByText } = render(
+                <Button>
+                    <Text>{testText}</Text>
+                </Button>
+            );
 
             const button = getByText(testText);
             expect(button).toHaveTextContent(testText);
@@ -28,7 +30,11 @@ describe('<Button />', () => {
                 />
             );
 
-            const { getByAltText } = render(<Button>{testIcon}</Button>);
+            const { getByAltText } = render(
+                <Button>
+                    <Icon>{testIcon}</Icon>
+                </Button>
+            );
 
             const icon = getByAltText(testIconAlt);
             expect(icon).toHaveAttribute('alt', testIconAlt);
@@ -37,19 +43,19 @@ describe('<Button />', () => {
         it('Icon and text children exists', () => {
             const testText = 'logo button';
             const testIconAlt = 'logo';
-            const testElement = (
-                <Fragment>
-                    <img
-                        className="icon"
-                        src="/images/logo.png"
-                        alt={testIconAlt}
-                    />
-                    {testText}
-                </Fragment>
+            const testIcon = (
+                <img
+                    className="icon"
+                    src="/images/logo.png"
+                    alt={testIconAlt}
+                />
             );
 
             const { getByAltText, getByText } = render(
-                <Button>{testElement}</Button>
+                <Button>
+                    <Icon>{testIcon}</Icon>
+                    <Text>{testText}</Text>
+                </Button>
             );
 
             const icon = getByAltText(testIconAlt);
@@ -57,28 +63,6 @@ describe('<Button />', () => {
 
             expect(icon).toHaveAttribute('alt', testIconAlt);
             expect(text).toHaveTextContent(testText);
-        });
-
-        it('button loading', () => {
-            const { getByTestId } = render(
-                <Button loading data-testid="button">
-                    <div className="icon" />
-                    <div className="text" />
-                </Button>
-            );
-
-            const button = getByTestId('button');
-
-            expect(button).toHaveStyleRule(
-                'background',
-                theme.colors.loadingBackground,
-                { target: '.icon' }
-            );
-            expect(button).toHaveStyleRule(
-                'background',
-                theme.colors.loadingBackground,
-                { target: '.text' }
-            );
         });
     });
 
@@ -88,7 +72,9 @@ describe('<Button />', () => {
             const testText = 'My Button';
 
             const { getByText } = render(
-                <Button onClick={onClick}>{testText}</Button>
+                <Button onClick={onClick}>
+                    <Text>{testText}</Text>
+                </Button>
             );
 
             const button = getByText(testText);
