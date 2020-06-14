@@ -26,7 +26,8 @@ module.exports = ({ config }) => {
             {
                 loader: require.resolve('babel-loader'),
                 options: {
-                    presets: [['react-app', { flow: false, typescript: true }]]
+                    presets: [['react-app', { flow: false, typescript: true }]],
+                    plugins: ['emotion']
                 }
             },
             require.resolve('react-docgen-typescript-loader')
