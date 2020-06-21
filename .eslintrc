@@ -33,6 +33,7 @@
             {
                 "groups": [
                     ["^react", "^next", "^\\u0000", "^@?\\w"],
+                    ["^mocks"],
                     ["^libs"],
                     ["^types"],
                     ["^constants"],
