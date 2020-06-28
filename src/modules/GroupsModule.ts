@@ -4,34 +4,50 @@ import {
     ImmerReducer
 } from 'immer-reducer';
 
-import IApiModule from 'types/IApiModule';
-import IGroups from 'types/IGroups';
+import IPagination from 'types/IPagination';
+import IGroup from 'types/response/IGroup';
 
 import ApiStatus from 'constants/ApiStatus';
 
-type TGroupsModule = IApiModule<IGroups[]>;
+type TGroupsModule = IPagination<IGroup[]>;
+
+const initMeta = {
+    more: false,
+    last: null
+};
 
 const initState: TGroupsModule = {
     data: [],
     status: ApiStatus.CLEAR,
-    error: null
+    error: null,
+    meta: initMeta
 };
 
 class GroupsModule extends ImmerReducer<TGroupsModule> {
     /**
      * 그릅 리스트 조회
+     * @param last
      */
-    public fetchGroups() {
-        this.draftState.status = ApiStatus.LOADING;
+    public fetchGroups(last: number | null) {
+        this.draftState.status =
+            last === null || last <= 0
+                ? ApiStatus.LOADING
+                : ApiStatus.MORE_LOADING;
     }
 
     /**
      * 그룹 리스트 조회 성공
      * @param data
+     * @param more
      */
-    public fetchGroupsSuccess(data: IGroups[]) {
+    public fetchGroupsSuccess(data: IGroup[], more: boolean) {
         this.draftState.status = ApiStatus.SUCCESS;
         this.draftState.data = data;
+
+        this.draftState.meta = {
+            more,
+            last: data.length === 0 ? null : data[data.length - 1].idx
+        };
     }
 
     /**
@@ -48,6 +64,7 @@ class GroupsModule extends ImmerReducer<TGroupsModule> {
      */
     public clearGroups() {
         this.draftState.status = ApiStatus.CLEAR;
+        this.draftState.meta = initMeta;
     }
 }
 

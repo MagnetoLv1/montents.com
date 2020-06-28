@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 
 import styled from 'libs/styled';
 
-import IGroups from 'types/IGroups';
 import ILoadable from 'types/ILoadable';
+import IGroup from 'types/response/IGroup';
 
 import Button, {
     Icon as IconBase,
@@ -13,7 +13,7 @@ import Button, {
 } from 'components/atoms/Button';
 
 interface IGroupItem extends ILoadable {
-    group?: IGroups;
+    group?: IGroup;
 }
 
 const GroupItemWrap = styled.li`
@@ -34,9 +34,13 @@ const LoadingIcon = styled(LoadingIconBase)`
     height: 3.6rem;
 `;
 
-const GroupItem: FC<IGroupItem> = ({ group, loading }: IGroupItem) => {
+const GroupItem: FC<IGroupItem> = ({
+    group,
+    loading,
+    ...props
+}: IGroupItem) => {
     return (
-        <GroupItemWrap>
+        <GroupItemWrap {...props}>
             {loading || group === undefined ? (
                 <Button data-testid="loading-button">
                     <LoadingIcon />

@@ -9,8 +9,11 @@ const axios = originalAxios.create({
     headers: {
         'Content-Type': 'x-www-form-urlencoded', // default content type
         'Access-Control-Allow-Origin': '*'
-    }
+    },
+    withCredentials: true
 });
+
+axios.interceptors.response.use((response) => response.data);
 
 // axios-mock-adapter
 export const axiosMock = (options = {}) => new MockAdapter(axios, options);
