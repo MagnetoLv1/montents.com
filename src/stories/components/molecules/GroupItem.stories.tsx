@@ -3,7 +3,7 @@ import { object, withKnobs } from '@storybook/addon-knobs';
 
 import styled from 'libs/styled';
 
-import groups from 'data/groups.json';
+import groups from 'data/groups/get_1.json';
 
 import GroupItem, { Mode } from 'components/molecules/GroupItem';
 

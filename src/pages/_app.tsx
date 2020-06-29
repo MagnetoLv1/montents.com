@@ -15,7 +15,7 @@ import { sagaTask } from 'sagas';
 import { GlobalStyle } from 'styles/GlobalStyle';
 import { theme } from 'styles/Themes';
 
-initApiMock(axiosMock());
+initApiMock(axiosMock({ delayResponse: 300 }));
 
 class App extends RootApp<ReduxWrapperAppProps<TStoreState>> {
     static async getInitialProps({ Component, ctx }: AppContext) {

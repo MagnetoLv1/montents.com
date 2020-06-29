@@ -1,8 +1,12 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import styled from 'libs/styled';
 
 import IGroup from 'types/response/IGroup';
+
+import { GroupsAction } from 'modules/GroupsModule';
+import { TStoreState } from 'modules/store';
 
 import DownArrow from 'svg/down_arrow.svg';
 
@@ -56,11 +60,25 @@ const GroupItem: FC<IGroupItem> = ({
     mode = Mode.DATA,
     ...props
 }: IGroupItem) => {
+    const dispatch = useDispatch();
+
+    // 그룹 리스트 마지막 idx 조회
+    const last = useSelector(
+        ({ GroupsReducer }: TStoreState) => GroupsReducer.meta.last
+    );
+
+    // more 버튼 클릭 시 그룹 리스트 더보기
+    const handleFetchMoreGroups = useCallback(() => {
+        dispatch(GroupsAction.fetchGroups(last));
+    }, [last]);
+
     return (
         <GroupItemWrap {...props}>
             {/* 더 보기 버튼 */}
             {mode === Mode.MORE && (
-                <Button data-testid="more-button">
+                <Button
+                    data-testid="more-button"
+                    onClick={handleFetchMoreGroups}>
                     <MoreIcon>
                         <DownArrow />
                     </MoreIcon>

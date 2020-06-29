@@ -3,7 +3,7 @@ import React from 'react';
 import { axiosMock } from 'libs/axios';
 import render from 'libs/test-utils';
 
-import groupsResponse from 'data/groups.json';
+import groupsResponse from 'data/groups/get_1.json';
 
 import GroupList from 'components/organisms/GroupList';
 

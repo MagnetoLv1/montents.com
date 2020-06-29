@@ -13,8 +13,9 @@ import { GroupsAction } from 'modules/GroupsModule';
 // 그룹 리스트 api 호출
 function fetchGroupsApi(last: null | number) {
     const params = {
-        last: last ? last : 1
+        last
     };
+
     return axios.get(`/groups`, { params });
 }
 
@@ -33,7 +34,11 @@ function* fetchGroupsSaga(last: null | number) {
 
         yield put(GroupsAction.fetchGroupsSuccess(data, more));
     } catch (error) {
-        yield put(GroupsAction.fetchGroupsError(error.message));
+        let message = error instanceof Error ? error.message : error;
+        if (typeof message !== 'string') {
+            message = Exceptions.ERROR;
+        }
+        yield put(GroupsAction.fetchGroupsError(message));
     }
 }
 

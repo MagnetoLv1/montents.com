@@ -42,7 +42,7 @@ class GroupsModule extends ImmerReducer<TGroupsModule> {
      */
     public fetchGroupsSuccess(data: IGroup[], more: boolean) {
         this.draftState.status = ApiStatus.SUCCESS;
-        this.draftState.data = data;
+        this.draftState.data = this.draftState.data.concat(data);
 
         this.draftState.meta = {
             more,
@@ -55,6 +55,7 @@ class GroupsModule extends ImmerReducer<TGroupsModule> {
      * @param error
      */
     public fetchGroupsError(error: string) {
+        this.draftState = initState;
         this.draftState.status = ApiStatus.ERROR;
         this.draftState.error = error;
     }
@@ -63,8 +64,7 @@ class GroupsModule extends ImmerReducer<TGroupsModule> {
      * 그룹 리스트 초기화
      */
     public clearGroups() {
-        this.draftState.status = ApiStatus.CLEAR;
-        this.draftState.meta = initMeta;
+        this.draftState = initState;
     }
 }
 
