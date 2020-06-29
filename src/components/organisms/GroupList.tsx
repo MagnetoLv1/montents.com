@@ -8,7 +8,7 @@ import ApiStatus from 'constants/ApiStatus';
 import { GroupsAction } from 'modules/GroupsModule';
 import { TStoreState } from 'modules/store';
 
-import GroupItem from 'components/molecules/GroupItem';
+import GroupItem, { Mode } from 'components/molecules/GroupItem';
 
 const GroupListWrap = styled.ul`
     display: flex;
@@ -20,13 +20,12 @@ const GroupListWrap = styled.ul`
 const GroupList = () => {
     const dispatch = useDispatch();
 
-    const { status, data, last, more, error } = useSelector(
+    const { status, data, last, more } = useSelector(
         ({ GroupsReducer }: TStoreState) => ({
             status: GroupsReducer.status,
             data: GroupsReducer.data,
             more: GroupsReducer.meta.more,
-            last: GroupsReducer.meta.last,
-            error: GroupsReducer.error
+            last: GroupsReducer.meta.last
         }),
         shallowEqual
     );
@@ -47,7 +46,7 @@ const GroupList = () => {
                 status === ApiStatus.ERROR) &&
                 [...Array(3)].map((value, idx) => (
                     <GroupItem
-                        loading
+                        mode={Mode.LOADING}
                         key={`loading_${idx}`}
                         data-testid={
                             status === ApiStatus.ERROR
@@ -62,9 +61,12 @@ const GroupList = () => {
                     {data.map((group) => (
                         <GroupItem group={group} key={group.idx} />
                     ))}
-                    {/*{status === ApiStatus.SUCCESS && more && (*/}
-                    {/*    */}
-                    {/*)}*/}
+                    {status === ApiStatus.SUCCESS && more && (
+                        <GroupItem mode={Mode.MORE} />
+                    )}
+                    {status === ApiStatus.MORE_LOADING && (
+                        <GroupItem mode={Mode.LOADING} />
+                    )}
                 </Fragment>
             )}
         </GroupListWrap>

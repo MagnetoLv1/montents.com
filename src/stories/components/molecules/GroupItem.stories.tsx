@@ -5,7 +5,7 @@ import styled from 'libs/styled';
 
 import groups from 'data/groups.json';
 
-import GroupItem from 'components/molecules/GroupItem';
+import GroupItem, { Mode } from 'components/molecules/GroupItem';
 
 export default {
     title: 'components|molecules/GroupItem',
@@ -23,7 +23,7 @@ const GroupList = styled.ul`
 `;
 
 export const groupItem = () => {
-    const groupList = object('group list', groups);
+    const groupList = object('group list', groups.data);
 
     return (
         <GroupList>
@@ -40,8 +40,10 @@ groupItem.story = {
 
 export const loadingGroupItem = () => (
     <GroupList>
-        <GroupItem loading />
-        <GroupItem loading />
-        <GroupItem loading />
+        <GroupItem mode={Mode.LOADING} />
+        <GroupItem mode={Mode.LOADING} />
+        <GroupItem mode={Mode.LOADING} />
     </GroupList>
 );
+
+export const MoreGropuItem = () => <GroupItem mode={Mode.MORE} />;

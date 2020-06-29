@@ -2,7 +2,7 @@ import React from 'react';
 
 import render from 'libs/test-utils';
 
-import GroupItem from 'components/molecules/GroupItem';
+import GroupItem, { Mode } from 'components/molecules/GroupItem';
 
 describe('<GropuItem />', () => {
     const group = {
@@ -27,9 +27,17 @@ describe('<GropuItem />', () => {
         });
 
         it('loading group item', () => {
-            const { getByTestId } = render(<GroupItem loading />);
+            const { getByTestId } = render(<GroupItem mode={Mode.LOADING} />);
 
             const button = getByTestId('loading-button');
+
+            expect(button).toBeTruthy();
+        });
+
+        it('more group item', () => {
+            const { getByTestId } = render(<GroupItem mode={Mode.MORE} />);
+
+            const button = getByTestId('more-button');
 
             expect(button).toBeTruthy();
         });

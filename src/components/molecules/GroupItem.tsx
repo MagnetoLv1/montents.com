@@ -2,8 +2,9 @@ import React, { FC } from 'react';
 
 import styled from 'libs/styled';
 
-import ILoadable from 'types/ILoadable';
 import IGroup from 'types/response/IGroup';
+
+import DownArrow from 'svg/down_arrow.svg';
 
 import Button, {
     Icon as IconBase,
@@ -11,10 +12,6 @@ import Button, {
     LoadingText,
     Text
 } from 'components/atoms/Button';
-
-interface IGroupItem extends ILoadable {
-    group?: IGroup;
-}
 
 const GroupItemWrap = styled.li`
     display: flex;
@@ -34,19 +31,53 @@ const LoadingIcon = styled(LoadingIconBase)`
     height: 3.6rem;
 `;
 
+const MoreIcon = styled(Icon)`
+    background: ${({ theme }) => theme.colors.loadingBackground};
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+`;
+
+export enum Mode {
+    DATA,
+    LOADING,
+    MORE
+}
+
+interface IGroupItem {
+    group?: IGroup;
+    mode?: Mode;
+}
+
 const GroupItem: FC<IGroupItem> = ({
     group,
-    loading,
+    mode = Mode.DATA,
     ...props
 }: IGroupItem) => {
     return (
         <GroupItemWrap {...props}>
-            {loading || group === undefined ? (
+            {/* 더 보기 버튼 */}
+            {mode === Mode.MORE && (
+                <Button data-testid="more-button">
+                    <MoreIcon>
+                        <DownArrow />
+                    </MoreIcon>
+                    <Text>더 보기</Text>
+                </Button>
+            )}
+
+            {/* 로딩 버튼 */}
+            {mode === Mode.LOADING && (
                 <Button data-testid="loading-button">
                     <LoadingIcon />
                     <LoadingText />
                 </Button>
-            ) : (
+            )}
+
+            {/* 그룹 데이터 버튼 */}
+            {mode === Mode.DATA && group && (
                 <Button>
                     <Icon>
                         <img

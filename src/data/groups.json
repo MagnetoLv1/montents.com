@@ -4,7 +4,7 @@
             "idx": 1,
             "name": "Inven",
             "url": "http://www.inven.co.kr/",
-            "icon": "http://www.montents.com/images/logo.png"
+            "icon": "http://www.inven.co.kr/favicon.ico"
         },
         {
             "idx": 2,
@@ -33,6 +33,30 @@
         {
             "idx": 6,
             "name": "Naver",
+            "url": "http://www.inven.co.kr/",
+            "icon": "http://www.montents.com/images/logo.png"
+        },
+        {
+            "idx": 7,
+            "name": "Inven",
+            "url": "http://www.inven.co.kr/",
+            "icon": "http://www.montents.com/images/logo.png"
+        },
+        {
+            "idx": 8,
+            "name": "dcinside",
+            "url": "https://www.dcinside.com/",
+            "icon": "http://www.montents.com/images/logo.png"
+        },
+        {
+            "idx": 9,
+            "name": "Youtube",
+            "url": "http://www.inven.co.kr/",
+            "icon": "http://www.montents.com/images/logo.png"
+        },
+        {
+            "idx": 10,
+            "name": "Netflix",
             "url": "http://www.inven.co.kr/",
             "icon": "http://www.montents.com/images/logo.png"
         }
