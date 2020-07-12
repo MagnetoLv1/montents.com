@@ -18,11 +18,12 @@ const Container = styled.div`
     z-index: 0;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     top: ${({ theme }) => theme.size.headerHeight};
     min-height: calc(100vh - ${({ theme }) => theme.size.headerHeight});
 `;
 
-const LeftPanelContainer = styled.div`
+const SideContainer = styled.div`
     position: relative;
 
     width: 25vw;
@@ -38,7 +39,7 @@ const LeftPanelContainer = styled.div`
     flex-grow: 0;
 `;
 
-const LeftPanelSubContainer = styled.div`
+const SideScrollContainer = styled.div`
     position: fixed;
 
     display: flex;
@@ -61,6 +62,8 @@ const LeftPanel = styled(LeftPanelBase)`
 
 const Contents = styled.div`
     display: flex;
+    flex-basis: 50%;
+    padding: 0 3.2rem;
     flex-grow: 1;
 `;
 
@@ -69,14 +72,17 @@ const MainGnb: FC = ({ children }: PropsWithChildren<{}>) => (
         <Header />
         <Container>
             {/* 좌측 네비게이션 */}
-            <LeftPanelContainer>
-                <LeftPanelSubContainer>
+            <SideContainer data-testid="left-area">
+                <SideScrollContainer>
                     <LeftPanel />
-                </LeftPanelSubContainer>
-            </LeftPanelContainer>
+                </SideScrollContainer>
+            </SideContainer>
 
             {/* 내용 */}
             <Contents>{children}</Contents>
+
+            {/* 우측 네비게이션 */}
+            <SideContainer data-testid="right-area" />
         </Container>
     </div>
 );
