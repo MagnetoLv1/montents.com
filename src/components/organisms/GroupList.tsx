@@ -62,10 +62,16 @@ const GroupList = () => {
                         <GroupItem group={group} key={group.idx} />
                     ))}
                     {status === ApiStatus.SUCCESS && more && (
-                        <GroupItem mode={Mode.MORE} />
+                        <GroupItem
+                            mode={Mode.MORE}
+                            data-testid="more-group-item"
+                        />
                     )}
                     {status === ApiStatus.MORE_LOADING && (
-                        <GroupItem mode={Mode.LOADING} />
+                        <GroupItem
+                            mode={Mode.LOADING}
+                            data-testid="more-loading-group-item"
+                        />
                     )}
                 </Fragment>
             )}

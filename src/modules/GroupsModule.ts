@@ -55,7 +55,7 @@ class GroupsModule extends ImmerReducer<TGroupsModule> {
      * @param error
      */
     public fetchGroupsError(error: string) {
-        this.draftState = initState;
+        this.draftState = { ...initState };
         this.draftState.status = ApiStatus.ERROR;
         this.draftState.error = error;
     }
