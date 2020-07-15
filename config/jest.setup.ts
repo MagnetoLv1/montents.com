@@ -1,3 +1,7 @@
+import path from 'path';
+
+require('dotenv').config({ path: path.resolve(__dirname, '../.env.test') });
+
 import '@testing-library/jest-dom/extend-expect';
 import { matchers } from 'jest-emotion';
 
