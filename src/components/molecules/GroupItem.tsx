@@ -36,6 +36,8 @@ const LoadingIcon = styled(LoadingIconBase)`
 `;
 
 const MoreIcon = styled(Icon)`
+    width: 3.6rem;
+    height: 3.6rem;
     background: ${({ theme }) => theme.colors.loadingBackground};
     border-radius: 50%;
 
@@ -97,13 +99,7 @@ const GroupItem: FC<IGroupItem> = ({
             {/* 그룹 데이터 버튼 */}
             {mode === Mode.DATA && group && (
                 <Button>
-                    <Icon>
-                        <img
-                            src={group.icon}
-                            alt={group.name}
-                            className="icon"
-                        />
-                    </Icon>
+                    <Icon src={group.icon} alt={group.name} />
                     <Text>{group.name}</Text>
                 </Button>
             )}

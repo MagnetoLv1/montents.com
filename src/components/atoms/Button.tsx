@@ -2,6 +2,8 @@ import React, { FC, HTMLAttributes, PropsWithChildren } from 'react';
 
 import styled from 'libs/styled';
 
+import IconBase from 'components/atoms/Icon';
+
 const ButtonWrap = styled.div`
     position: relative;
     display: inline-flex;
@@ -29,17 +31,10 @@ const ButtonWrap = styled.div`
     }
 `;
 
-export const Icon = styled.div`
+export const Icon = styled(IconBase)`
     width: 3rem;
     height: 3rem;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
     margin: 0.8rem 1.2rem 0.8rem 0;
-
-    & > * {
-        width: 100%;
-    }
 `;
 
 export const Text = styled.p``;

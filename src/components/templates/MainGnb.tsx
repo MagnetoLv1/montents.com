@@ -61,10 +61,12 @@ const LeftPanel = styled(LeftPanelBase)`
 `;
 
 const Contents = styled.div`
+    flex-direction: column;
     display: flex;
     flex-basis: 50%;
     padding: 0 3.2rem;
     flex-grow: 1;
+    align-items: center;
 `;
 
 const MainGnb: FC = ({ children }: PropsWithChildren<{}>) => (
