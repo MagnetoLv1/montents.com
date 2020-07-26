@@ -58,6 +58,7 @@ export const GlobalStyle = (theme: TTheme) => css`
     }
 
     p,
+    a,
     h1,
     h2,
     h3,
@@ -75,5 +76,14 @@ export const GlobalStyle = (theme: TTheme) => css`
 
     li {
         list-style: none;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 `;
