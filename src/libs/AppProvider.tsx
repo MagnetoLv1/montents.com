@@ -1,5 +1,6 @@
 import React, { FC, PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
+import ReactTooltip from 'react-tooltip';
 import { css, Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 
@@ -23,6 +24,7 @@ export const AppProvider: FC<IAppProvider> = ({
         <ThemeProvider theme={theme}>
             <Global styles={style} />
             {children}
+            <ReactTooltip type="dark" multiline={true} effect="solid" />
         </ThemeProvider>
     </Provider>
 );
