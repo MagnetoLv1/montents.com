@@ -1,19 +1,13 @@
 import React, { AnchorHTMLAttributes, FC } from 'react';
 
-import { JAVASCRIPT_VOID } from 'constants/etc';
+import Anchor from 'components/atoms/Anchor';
 
 interface ITitle extends AnchorHTMLAttributes<{}> {
     text: string;
 }
 
-const Title: FC<ITitle> = ({
-    text,
-    href = JAVASCRIPT_VOID,
-    ...anchorProps
-}: ITitle) => (
-    <a href={href} {...anchorProps}>
-        {text}
-    </a>
+const Title: FC<ITitle> = ({ text, ...anchorProps }: ITitle) => (
+    <Anchor {...anchorProps}>{text}</Anchor>
 );
 
 export default Title;

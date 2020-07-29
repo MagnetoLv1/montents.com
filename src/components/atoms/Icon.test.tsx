@@ -5,11 +5,11 @@ import render from 'libs/test-utils';
 import Icon from 'components/atoms/Icon';
 
 describe('<Icon />', () => {
+    const alt = 'logo',
+        src = '/images/logo.png',
+        href = 'http://google.com';
     describe('UI test', () => {
         it('children exists', () => {
-            const alt = 'logo',
-                src = '/images/logo.png';
-
             const { getByAltText } = render(
                 <Icon>
                     <img src={src} alt={alt} />
@@ -21,13 +21,19 @@ describe('<Icon />', () => {
         });
 
         it('image props exists', () => {
-            const alt = 'logo',
-                src = '/images/logo.png';
-
             const { getByAltText } = render(<Icon src={src} alt={alt} />);
 
             const image = getByAltText(alt);
             expect(image).toHaveAttribute('src', src);
+        });
+
+        it('link exists', () => {
+            const { container } = render(
+                <Icon src={src} alt={alt} href={href} />
+            );
+
+            const icon = container.firstChild;
+            expect(icon).toHaveAttribute('href', href);
         });
     });
 });

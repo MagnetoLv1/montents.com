@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { AnchorHTMLAttributes } from 'react';
 import { FC, ImgHTMLAttributes } from 'react';
 
 import styled from 'libs/styled';
 
-const IconWrap = styled.div`
+import Anchor from 'components/atoms/Anchor';
+
+const IconWrap = styled(Anchor)`
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -13,18 +15,14 @@ const IconWrap = styled.div`
     }
 `;
 
-type TIcon = ImgHTMLAttributes<{}>;
+interface IIcon
+    extends Pick<ImgHTMLAttributes<{}>, 'src' | 'alt'>,
+        AnchorHTMLAttributes<{}> {}
 
-const Icon: FC<TIcon> = ({
-    className,
-    children,
-    src,
-    alt,
-    ...imageProps
-}: TIcon) => (
-    <IconWrap className={className}>
+const Icon: FC<IIcon> = ({ children, src, alt, ...anchorProps }: IIcon) => (
+    <IconWrap {...anchorProps}>
         {children && children}
-        {!children && src && <img src={src} alt={alt} {...imageProps} />}
+        {!children && src && <img src={src} alt={alt} />}
     </IconWrap>
 );
 
