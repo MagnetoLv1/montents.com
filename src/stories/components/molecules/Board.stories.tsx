@@ -18,7 +18,7 @@ const board = boards.data[0];
 
 const HeaderWrap = styled.div`
     margin: 1rem;
-    width: 20rem;
+    width: 40rem;
     background: white;
     border-radius: 0.8rem;
     padding: 1rem;
