@@ -32,7 +32,9 @@
             "error",
             {
                 "groups": [
-                    ["^react", "^next", "^\\u0000", "^@?\\w"],
+                    ["^react", "^next", "^@?\\w"],
+                    ["^\\u0000"],
+                    ["^config"],
                     ["^mocks"],
                     ["^libs"],
                     ["^types"],

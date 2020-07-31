@@ -4,6 +4,8 @@ import ReactTooltip from 'react-tooltip';
 import { css, Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 
+import 'config/moment/locale';
+
 import { initStore } from 'modules/store';
 
 import { TTheme } from 'styles/Themes';
@@ -24,7 +26,12 @@ export const AppProvider: FC<IAppProvider> = ({
         <ThemeProvider theme={theme}>
             <Global styles={style} />
             {children}
-            <ReactTooltip type="dark" multiline={true} effect="solid" />
+            <ReactTooltip
+                type="dark"
+                multiline={true}
+                effect="solid"
+                place="bottom"
+            />
         </ThemeProvider>
     </Provider>
 );
