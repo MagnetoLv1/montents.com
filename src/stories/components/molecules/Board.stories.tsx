@@ -16,18 +16,27 @@ export default {
 
 const board = boards.data[0];
 
+const BodyWrap = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
 const HeaderWrap = styled.div`
     margin: 1rem;
-    width: 40rem;
+    width: 68rem;
     background: white;
     border-radius: 0.8rem;
     padding: 1rem;
 `;
 
 export const boardHeader = () => (
-    <HeaderWrap>
-        <Header board={board} />
-    </HeaderWrap>
+    <BodyWrap>
+        <HeaderWrap>
+            <Header board={board} />
+        </HeaderWrap>
+    </BodyWrap>
 );
 
 boardHeader.story = {

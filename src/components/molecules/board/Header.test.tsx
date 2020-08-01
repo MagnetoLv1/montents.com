@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 import render from 'libs/test-utils';
 
@@ -17,11 +18,25 @@ describe('<Header />', () => {
             expect(icon).toHaveAttribute('src', group.icon);
         });
 
-        it('title exists', () => {
+        it('title and group name exists', () => {
             const { getByText } = render(<Header board={board} />);
 
-            const title = getByText(board.title);
+            const title = getByText(board.title.trim());
             expect(title).toHaveAttribute('href', board.url);
+
+            const groupName = getByText(group.name);
+            expect(groupName).toHaveAttribute('href', group.url);
+        });
+
+        it('date exists', () => {
+            const { getByText } = render(<Header board={board} />);
+
+            const date = moment(board.created_at),
+                pastTimeText = date.fromNow(),
+                dateText = date.format('YYYY년 M월 D일 dddd a h:m');
+
+            const dateArea = getByText(pastTimeText);
+            expect(dateArea).toHaveAttribute('data-tip', dateText);
         });
     });
 });

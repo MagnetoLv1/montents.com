@@ -5,7 +5,10 @@ export const theme = {
         bodyBackground: '#f0f2f5',
         headerBackground: 'white',
         loadingBackground: '#e4e6eb',
-        hoverBackground: 'rgba(0, 0, 0, 0.05)'
+        hoverBackground: 'rgba(0, 0, 0, 0.05)',
+
+        grayIcon: '#5e6871',
+        secondaryText: '#65676b'
     },
     size: {
         headerHeight: '6rem'

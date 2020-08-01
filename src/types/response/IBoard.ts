@@ -5,7 +5,7 @@ interface IBoard {
     title: string;
     content: string;
     url: string;
-    created_ad: string;
+    created_at: string;
     group: IGroup;
 }
 
@@ -15,7 +15,7 @@ export const isBoard = (item: any): item is IBoard => {
         typeof item.title === 'string' &&
         typeof item.content === 'string' &&
         typeof item.url === 'string' &&
-        typeof item.created_ad === 'string' &&
+        typeof item.created_at === 'string' &&
         isGroup(item)
     );
 };

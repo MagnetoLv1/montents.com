@@ -7,9 +7,9 @@ import Header from 'components/organisms/Header';
 describe('<Header/>', () => {
     describe('UI Test', () => {
         it('Icon exists', () => {
-            const component = render(<Header />);
+            const { getByTitle } = render(<Header />);
 
-            const icon = component.getByTitle('logo');
+            const icon = getByTitle('logo');
             expect(icon).toBeTruthy();
         });
     });

@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
+import moment from 'moment';
 
 import styled from 'libs/styled';
 
@@ -34,8 +35,9 @@ const TitleDateContainer = styled.div`
 
 const TitleContainer = styled.div`
     display: block;
-    margin: 0.5rem 0;
+    margin-bottom: 0.5rem;
     line-height: 1.33;
+    font-size: 1.5rem;
 `;
 
 const GroupAnchor = styled(Anchor)`
@@ -44,7 +46,7 @@ const GroupAnchor = styled(Anchor)`
 `;
 
 const RightArrow = styled(RightArrowBase)`
-    fill: #5e6871;
+    fill: ${({ theme }) => theme.colors.grayIcon};
     vertical-align: text-bottom;
 `;
 
@@ -52,12 +54,29 @@ const TitleAnchor = styled(Anchor)`
     display: inline;
 `;
 
+const DateContainer = styled.div`
+    display: block;
+    font-size: 1.2rem;
+`;
+
+const DateAnchor = styled(Anchor)`
+    color: ${({ theme }) => theme.colors.secondaryText};
+`;
+
 interface IHeader {
     board: IBoard;
 }
 
 const Header: FC<IHeader> = ({ board }: IHeader) => {
-    const { group } = board;
+    const { group, created_at: createAt } = board;
+
+    const { pastTimeText, dateText } = useMemo(() => {
+        const date = moment(createAt);
+        return {
+            pastTimeText: date.fromNow(),
+            dateText: date.format('YYYY년 M월 D일 dddd a h:m')
+        };
+    }, []);
 
     return (
         <HeaderWrap>
@@ -74,10 +93,16 @@ const Header: FC<IHeader> = ({ board }: IHeader) => {
                     <GroupAnchor href={group.url}>{group.name}</GroupAnchor>
                     <RightArrow />
 
+                    {/* 제목 영역 */}
                     <TitleAnchor href={board.url} target="_blank">
                         {board.title}
                     </TitleAnchor>
                 </TitleContainer>
+
+                {/* 날짜 노출 영역 */}
+                <DateContainer>
+                    <DateAnchor data-tip={dateText}>{pastTimeText}</DateAnchor>
+                </DateContainer>
             </TitleDateContainer>
         </HeaderWrap>
     );
