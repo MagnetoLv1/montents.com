@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { fireEvent } from '@testing-library/dom';
 
 import render from 'libs/test-utils';
 
 import Button, { Icon, Text } from 'components/atoms/Button';
 
-describe('<Button />', () => {
+describe('atoms | <Button />', () => {
     describe('UI test', () => {
         it('Text children exists', () => {
             const testText = 'My Button';

@@ -7,7 +7,7 @@ import boards from 'data/boards/get_1.json';
 
 import Header from 'components/molecules/board/Header';
 
-describe('<Header />', () => {
+describe('molecules | board > <Header />', () => {
     const board = boards.data[0],
         group = board.group;
     describe('UI Test', () => {

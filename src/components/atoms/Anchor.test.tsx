@@ -5,7 +5,7 @@ import render from 'libs/test-utils';
 
 import Anchor from 'components/atoms/Anchor';
 
-describe('<Anchor />', () => {
+describe('atoms | <Anchor />', () => {
     const text = 'test anchor',
         href = 'http://www.naver.com';
 

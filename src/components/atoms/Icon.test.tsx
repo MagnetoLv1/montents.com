@@ -4,7 +4,7 @@ import render from 'libs/test-utils';
 
 import Icon from 'components/atoms/Icon';
 
-describe('<Icon />', () => {
+describe('atoms | <Icon />', () => {
     const alt = 'logo',
         src = '/images/logo.png',
         href = 'http://google.com';

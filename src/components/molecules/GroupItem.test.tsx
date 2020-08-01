@@ -4,7 +4,7 @@ import render from 'libs/test-utils';
 
 import GroupItem, { Mode } from 'components/molecules/GroupItem';
 
-describe('<GropuItem />', () => {
+describe('molecules | <GropuItem />', () => {
     const group = {
         idx: 5,
         name: 'Inven',

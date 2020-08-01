@@ -8,7 +8,7 @@ import groupsResponse from 'data/groups/get_1.json';
 
 import GroupList from 'components/organisms/GroupList';
 
-describe('<GroupList />', () => {
+describe('organisms | <GroupList />', () => {
     describe('Get group list', () => {
         // 그룹 리스트 가져오기 테스트 (더보기 있을 경우)
         it('Loading and success (more data)', async () => {

@@ -4,7 +4,7 @@ import render from 'libs/test-utils';
 
 import Header from 'components/organisms/Header';
 
-describe('<Header/>', () => {
+describe('organisms | <Header/>', () => {
     describe('UI Test', () => {
         it('Icon exists', () => {
             const { getByTitle } = render(<Header />);
