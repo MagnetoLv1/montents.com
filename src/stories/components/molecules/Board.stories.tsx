@@ -1,20 +1,12 @@
 import React from 'react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { date, object, text, withKnobs } from '@storybook/addon-knobs';
+import moment from 'moment';
 
 import styled from 'libs/styled';
 
 import boards from 'data/boards/get_1.json';
 
-import Header from 'components/molecules/board/Header';
-
-export default {
-    title: 'components|molecules/board/Header',
-    subtitle: '게시판 제목 및 기타 정보를 보여주는 컴포넌트',
-    component: Header,
-    decorators: [withKnobs]
-};
-
-const board = boards.data[0];
+import BoardItemBase from 'components/molecules/board/BoardItem';
 
 const BodyWrap = styled.div`
     width: 100%;
@@ -23,22 +15,42 @@ const BodyWrap = styled.div`
     align-items: center;
 `;
 
-const HeaderWrap = styled.div`
-    margin: 1rem;
+const BoardItem = styled(BoardItemBase)`
     width: 68rem;
-    background: white;
-    border-radius: 0.8rem;
-    padding: 1rem;
+    margin: 0.8rem 0;
 `;
 
-export const boardHeader = () => (
-    <BodyWrap>
-        <HeaderWrap>
-            <Header board={board} />
-        </HeaderWrap>
-    </BodyWrap>
-);
+export default {
+    title: 'components|molecules/BoardItem',
+    subtitle: '게시글 기본 컴포넌트',
+    component: BoardItemBase,
+    decorators: [withKnobs]
+};
 
-boardHeader.story = {
+export const boardItem = () => {
+    let board = boards.data[0];
+
+    const title = text('title', board.title),
+        createAt = date('created_at', moment(board.created_at).toDate()),
+        content = text('content', board.content),
+        group = object('group', board.group);
+
+    board = {
+        ...board,
+        title,
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        created_at: moment(createAt).format('YYYY-MM-DD HH:mm:ss'),
+        group,
+        content
+    };
+
+    return (
+        <BodyWrap>
+            <BoardItem board={board} />
+        </BodyWrap>
+    );
+};
+
+boardItem.story = {
     name: 'default'
 };

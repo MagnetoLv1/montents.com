@@ -81,7 +81,7 @@ const Header: FC<IHeader> = ({ board, className }: IHeader) => {
     }, [createAt]);
 
     return (
-        <HeaderWrap className={className}>
+        <HeaderWrap className={className} data-testid={'board-header'}>
             {/* 커뮤니티 그룹 아이콘역 영역 */}
             <GroupIconContainer>
                 <GroupIcon src={group.icon} alt={group.name} href={group.url} />
