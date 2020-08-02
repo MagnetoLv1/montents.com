@@ -16,11 +16,11 @@ enum FIT_DIRECTION {
     WIDTH
 }
 
-interface IFUlledImageWrapper {
+interface IFulledImageWrapper {
     fit: FIT_DIRECTION;
 }
 
-const FulledImageWrapper = styled.div<IFUlledImageWrapper>`
+const FulledImageWrapper = styled.div<IFulledImageWrapper>`
     position: relative;
     overflow: hidden;
     display: flex;
