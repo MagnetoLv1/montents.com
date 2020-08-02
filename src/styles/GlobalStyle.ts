@@ -52,6 +52,7 @@ export const GlobalStyle = (theme: TTheme) => css`
     body {
         font-size: 1.4rem;
         background: ${theme.colors.bodyBackground};
+        color: ${theme.colors.primaryText};
         margin: 0;
         padding: 0;
         line-height: 1.34;
