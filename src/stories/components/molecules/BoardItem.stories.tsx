@@ -1,5 +1,6 @@
 import React from 'react';
 import { date, object, text, withKnobs } from '@storybook/addon-knobs';
+import he from 'he';
 import moment from 'moment';
 
 import styled from 'libs/styled';
@@ -41,7 +42,7 @@ export const boardItem = () => {
         // eslint-disable-next-line @typescript-eslint/camelcase
         created_at: moment(createAt).format('YYYY-MM-DD HH:mm:ss'),
         group,
-        content
+        content: he.decode(content)
     };
 
     return (
