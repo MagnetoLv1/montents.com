@@ -6,6 +6,7 @@ interface IBoard {
     content: string;
     url: string;
     created_at: string;
+    images: string[];
     group: IGroup;
 }
 
@@ -16,6 +17,8 @@ export const isBoard = (item: any): item is IBoard => {
         typeof item.content === 'string' &&
         typeof item.url === 'string' &&
         typeof item.created_at === 'string' &&
+        Array.isArray(item.images) &&
+        item.images.every((image: any) => typeof image === 'string') &&
         isGroup(item)
     );
 };

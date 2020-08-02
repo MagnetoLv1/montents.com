@@ -6,6 +6,11 @@
             "content": "이것은 테스트 텍스트입니다.\nhtml태그가 없는 내용입니다.\n\n제대로 나와야됩니다.",
             "url": "http://www.inven.co.kr/board/mhf/3749/8480",
             "created_at": "2020-07-30 00:57:30",
+            "images": [
+                "http://www.montents.com/images/temp/board_image_1.jpg",
+                "http://www.montents.com/images/temp/board_image_2.jpg",
+                "http://www.montents.com/images/temp/board_image_3.jpg"
+            ],
             "group": {
                 "idx": 1,
                 "name": "Inven",
@@ -19,6 +24,10 @@
             "content": "이것은 테스트 텍스트입니다.\nhtml태그가 없는 내용입니다.\n\n제대로 나와야됩니다.",
             "url": "https://gall.dcinside.com/board/view/?id=monsterhunter&no=1&_rk=OmR&page=1",
             "created_at": "2020-07-29 00:57:30",
+            "images": [
+                "http://www.montents.com/images/temp/board_image_1.jpg",
+                "http://www.montents.com/images/temp/board_image_2.jpg"
+            ],
             "group": {
                 "idx": 2,
                 "name": "dcinside",
@@ -32,6 +41,7 @@
             "content": "이것은 테스트 텍스트입니다.\nhtml태그가 없는 내용입니다.\n\n제대로 나와야됩니다.",
             "url": "https://www.youtube.com/watch?v=EWONANyhgWo",
             "created_at": "2020-07-28 00:57:30",
+            "images": [],
             "group": {
                 "idx": 3,
                 "name": "Youtube",
@@ -45,6 +55,13 @@
             "content": "이것은 테스트 텍스트입니다.\nhtml태그가 없는 내용입니다.\n\n제대로 나와야됩니다.",
             "url": "https://post.naver.com/viewer/postView.nhn?volumeNo=28880949&memberNo=44655917",
             "created_at": "2020-07-27 00:57:30",
+            "images": [
+                "http://www.montents.com/images/temp/board_image_1.jpg",
+                "http://www.montents.com/images/temp/board_image_2.jpg",
+                "http://www.montents.com/images/temp/board_image_3.jpg",
+                "http://www.montents.com/images/temp/board_image_4.jpg",
+                "http://www.montents.com/images/temp/board_image_5.jpg"
+            ],
             "group": {
                 "idx": 6,
                 "name": "Naver",
@@ -58,6 +75,12 @@
             "content": "이것은 테스트 텍스트입니다.\nhtml태그가 없는 내용입니다.\n\n제대로 나와야됩니다.",
             "url": "https://gall.dcinside.com/board/view/?id=monsterhunter&no=4064062&_rk=Zxh&exception_mode=recommend&page=1",
             "created_at": "2020-07-26 00:57:30",
+            "images": [
+                "http://www.montents.com/images/temp/board_image_2.jpg",
+                "http://www.montents.com/images/temp/board_image_3.jpg",
+                "http://www.montents.com/images/temp/board_image_4.jpg",
+                "http://www.montents.com/images/temp/board_image_5.jpg"
+            ],
             "group": {
                 "idx": 2,
                 "name": "dcinside",
@@ -71,6 +94,16 @@
             "content": "이것은 테스트 텍스트입니다.\nhtml태그가 없는 내용입니다.\n\n제대로 나와야됩니다.",
             "url": "http://www.inven.co.kr/board/mhf/3749/8480",
             "created_at": "2020-07-25 00:57:30",
+            "images": [
+                "http://www.montents.com/images/temp/board_image_2.jpg",
+                "http://www.montents.com/images/temp/board_image_3.jpg",
+                "http://www.montents.com/images/temp/board_image_4.jpg",
+                "http://www.montents.com/images/temp/board_image_5.jpg",
+                "http://www.montents.com/images/temp/board_image_2.jpg",
+                "http://www.montents.com/images/temp/board_image_3.jpg",
+                "http://www.montents.com/images/temp/board_image_4.jpg",
+                "http://www.montents.com/images/temp/board_image_5.jpg"
+            ],
             "group": {
                 "idx": 1,
                 "name": "Inven",
@@ -84,6 +117,10 @@
             "content": "이것은 테스트 텍스트입니다.\nhtml태그가 없는 내용입니다.\n\n제대로 나와야됩니다.",
             "url": "https://gall.dcinside.com/board/view/?id=monsterhunter&no=1&_rk=OmR&page=1",
             "created_at": "2020-07-25 00:57:30",
+            "images": [
+                "http://www.montents.com/images/temp/board_image_2.jpg",
+                "http://www.montents.com/images/temp/board_image_3.jpg"
+            ],
             "group": {
                 "idx": 2,
                 "name": "dcinside",
@@ -97,6 +134,12 @@
             "content": "이것은 테스트 텍스트입니다.\nhtml태그가 없는 내용입니다.\n\n제대로 나와야됩니다.",
             "url": "https://www.youtube.com/watch?v=EWONANyhgWo",
             "created_at": "2020-07-24 00:57:30",
+            "images": [
+                "http://www.montents.com/images/temp/board_image_2.jpg",
+                "http://www.montents.com/images/temp/board_image_3.jpg",
+                "http://www.montents.com/images/temp/board_image_2.jpg",
+                "http://www.montents.com/images/temp/board_image_3.jpg"
+            ],
             "group": {
                 "idx": 3,
                 "name": "Youtube",
@@ -110,6 +153,7 @@
             "content": "이것은 테스트 텍스트입니다.\nhtml태그가 없는 내용입니다.\n\n제대로 나와야됩니다.",
             "url": "https://post.naver.com/viewer/postView.nhn?volumeNo=28880949&memberNo=44655917",
             "created_at": "2020-07-23 00:57:30",
+            "images": ["http://www.montents.com/images/temp/board_image_2.jpg"],
             "group": {
                 "idx": 6,
                 "name": "Naver",
@@ -123,6 +167,7 @@
             "content": "이것은 테스트 텍스트입니다.\nhtml태그가 없는 내용입니다.\n\n제대로 나와야됩니다.",
             "url": "https://gall.dcinside.com/board/view/?id=monsterhunter&no=4064062&_rk=Zxh&exception_mode=recommend&page=1",
             "created_at": "2020-07-22 00:57:30",
+            "images": [],
             "group": {
                 "idx": 2,
                 "name": "dcinside",
