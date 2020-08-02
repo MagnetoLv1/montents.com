@@ -1,5 +1,5 @@
 import React from 'react';
-import { object, withKnobs } from '@storybook/addon-knobs';
+import { text, withKnobs } from '@storybook/addon-knobs';
 
 import styled from 'libs/styled';
 
@@ -23,13 +23,22 @@ const GroupList = styled.ul`
 `;
 
 export const groupItem = () => {
-    const groupList = object('group list', groups.data);
+    let group = groups.data[0];
+
+    const name = text('name', group.name),
+        icon = text('icon', group.icon),
+        url = text('url', group.url);
+
+    group = {
+        ...group,
+        name,
+        icon,
+        url
+    };
 
     return (
         <GroupList>
-            {groupList.map((group) => (
-                <GroupItem group={group} key={group.idx} />
-            ))}
+            <GroupItem group={group} />
         </GroupList>
     );
 };
@@ -41,9 +50,11 @@ groupItem.story = {
 export const loadingGroupItem = () => (
     <GroupList>
         <GroupItem mode={Mode.LOADING} />
-        <GroupItem mode={Mode.LOADING} />
-        <GroupItem mode={Mode.LOADING} />
     </GroupList>
 );
 
-export const MoreGropuItem = () => <GroupItem mode={Mode.MORE} />;
+export const MoreGropuItem = () => (
+    <GroupList>
+        <GroupItem mode={Mode.MORE} />
+    </GroupList>
+);
