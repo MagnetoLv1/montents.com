@@ -35,7 +35,7 @@ export const groupItem = () => {
 };
 
 groupItem.story = {
-    name: 'default'
+    name: 'Default'
 };
 
 export const loadingGroupItem = () => (

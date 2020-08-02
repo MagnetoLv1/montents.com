@@ -52,5 +52,5 @@ export const boardItem = () => {
 };
 
 boardItem.story = {
-    name: 'default'
+    name: 'Default'
 };
