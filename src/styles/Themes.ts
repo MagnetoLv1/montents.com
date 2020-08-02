@@ -3,12 +3,16 @@ import deepmerge from 'deepmerge';
 export const theme = {
     colors: {
         bodyBackground: '#f0f2f5',
-        headerBackground: 'white',
+        surfaceBackground: 'white',
         loadingBackground: '#e4e6eb',
         hoverBackground: 'rgba(0, 0, 0, 0.05)',
 
         grayIcon: '#5e6871',
-        secondaryText: '#65676b'
+        secondaryText: '#65676b',
+
+        contentShadow: 'rgba(0, 0, 0, 0.2)',
+
+        primaryText: '#050505'
     },
     size: {
         headerHeight: '6rem'

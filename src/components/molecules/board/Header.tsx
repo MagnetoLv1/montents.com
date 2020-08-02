@@ -3,6 +3,7 @@ import moment from 'moment';
 
 import styled from 'libs/styled';
 
+import IClassName from 'types/IClassName';
 import IBoard from 'types/response/IBoard';
 
 import RightArrowBase from 'svg/right_filled_arrow.svg';
@@ -14,6 +15,7 @@ const HeaderWrap = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: stretch;
+    padding: 1.2rem 1.6rem 0 1.6rem;
 `;
 
 const GroupIconContainer = styled.div`
@@ -35,7 +37,7 @@ const TitleDateContainer = styled.div`
 
 const TitleContainer = styled.div`
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     line-height: 1.33;
     font-size: 1.5rem;
 `;
@@ -63,11 +65,11 @@ const DateAnchor = styled(Anchor)`
     color: ${({ theme }) => theme.colors.secondaryText};
 `;
 
-interface IHeader {
+interface IHeader extends IClassName {
     board: IBoard;
 }
 
-const Header: FC<IHeader> = ({ board }: IHeader) => {
+const Header: FC<IHeader> = ({ board, className }: IHeader) => {
     const { group, created_at: createAt } = board;
 
     const { pastTimeText, dateText } = useMemo(() => {
@@ -76,10 +78,10 @@ const Header: FC<IHeader> = ({ board }: IHeader) => {
             pastTimeText: date.fromNow(),
             dateText: date.format('YYYY년 M월 D일 dddd a h:m')
         };
-    }, []);
+    }, [createAt]);
 
     return (
-        <HeaderWrap>
+        <HeaderWrap className={className}>
             {/* 커뮤니티 그룹 아이콘역 영역 */}
             <GroupIconContainer>
                 <GroupIcon src={group.icon} alt={group.name} href={group.url} />
@@ -91,6 +93,7 @@ const Header: FC<IHeader> = ({ board }: IHeader) => {
                 <TitleContainer>
                     {/* 커뮤니티 그룹 이름 */}
                     <GroupAnchor href={group.url}>{group.name}</GroupAnchor>
+
                     <RightArrow />
 
                     {/* 제목 영역 */}

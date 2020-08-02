@@ -30,7 +30,11 @@ const TextContent: FC<ITextContent> = ({
         .filter((content) => !content.match(newLineRegExp))
         .map((content, index) => <Text key={index}>{content}</Text>);
 
-    return <div className={className}>{contents}</div>;
+    return (
+        <div className={className} data-testid={'text-content'}>
+            {contents}
+        </div>
+    );
 };
 
 export default TextContent;

@@ -10,7 +10,7 @@ const HeaderWrap = styled('header')`
     justify-content: space-between;
     align-items: center;
     height: ${({ theme }) => theme.size.headerHeight};
-    background: ${({ theme }) => theme.colors.headerBackground};
+    background: ${({ theme }) => theme.colors.surfaceBackground};
     box-shadow: ${({ theme }) => theme.shadow};
     box-sizing: border-box;
     padding: 0 1.5rem;
