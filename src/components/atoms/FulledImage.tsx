@@ -16,12 +16,19 @@ enum FIT_DIRECTION {
     WIDTH
 }
 
-interface IFulledImageWrapper {
+const FulledImageWrapper = styled.div`
+    position: relative;
+`;
+
+interface IImageWrap {
     fit: FIT_DIRECTION;
+    width: number;
+    height: number;
 }
 
-const FulledImageWrapper = styled.div<IFulledImageWrapper>`
-    position: relative;
+const ImageWrap = styled.div<IImageWrap>`
+    width: ${({ width }) => `${width}px`};
+    height: ${({ height }) => `${height}px`};
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -46,6 +53,11 @@ const FulledImageWrapper = styled.div<IFulledImageWrapper>`
               `}
 `;
 
+interface IResizeDetectorRenderParameters {
+    width: number;
+    height: number;
+}
+
 interface IFulledImage
     extends HTMLAttributes<HTMLDivElement>,
         Pick<ImgHTMLAttributes<{}>, 'src' | 'alt' | 'title'> {}
@@ -56,19 +68,15 @@ const FulledImage: FC<IFulledImage> = ({
     title,
     ...divProps
 }: IFulledImage) => {
-    const divRef = useRef<HTMLDivElement>(null);
     const imageRef = useRef<HTMLImageElement>(null);
 
     const [fit, setFit] = useState(FIT_DIRECTION.HEIGHT);
 
-    const handleResize = useCallback(() => {
+    // 리사이즈 시 이미지가 wrap 사이즈에 맞도록 변경
+    const handleResize = useCallback((width, height) => {
         const image = imageRef.current;
-        const container = divRef.current;
 
-        let containerRatio = 1;
-        if (container !== null) {
-            containerRatio = container.offsetWidth / container.offsetHeight;
-        }
+        const containerRatio = width / height;
 
         let imageRatio = 1;
         if (image !== null) {
@@ -82,17 +90,29 @@ const FulledImage: FC<IFulledImage> = ({
         );
     }, []);
 
+    // 이미지 변경 시 wrap 사이즈에 맞도록 변경
+    const handleLoadImage = useCallback(
+        (width, height) => () => {
+            handleResize(width, height);
+        },
+        []
+    );
+
     return (
         <ResizeDetector onResize={handleResize}>
-            <FulledImageWrapper {...divProps} ref={divRef} fit={fit}>
-                <img
-                    src={src}
-                    alt={alt}
-                    title={title}
-                    onLoad={handleResize}
-                    ref={imageRef}
-                />
-            </FulledImageWrapper>
+            {({ width, height }: IResizeDetectorRenderParameters) => (
+                <FulledImageWrapper {...divProps}>
+                    <ImageWrap fit={fit} width={width} height={height}>
+                        <img
+                            src={src}
+                            alt={alt}
+                            title={title}
+                            onLoad={handleLoadImage(width, height)}
+                            ref={imageRef}
+                        />
+                    </ImageWrap>
+                </FulledImageWrapper>
+            )}
         </ResizeDetector>
     );
 };

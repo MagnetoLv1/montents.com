@@ -23,7 +23,7 @@ const FulledImage = styled(FulledImageBase)<IFulledImage>`
 `;
 
 export const fulledImage = () => {
-    const width = number('width', 100),
+    const width = number('width', 50),
         height = number('height', 40);
 
     const image = text(
