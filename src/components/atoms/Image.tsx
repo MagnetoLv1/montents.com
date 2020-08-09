@@ -52,6 +52,7 @@ const Image = forwardRef<HTMLImageElement, IImage>(
 
         return (
             <Img
+                data-testid="image"
                 empty={emptyImage}
                 alt={alt}
                 src={src}
