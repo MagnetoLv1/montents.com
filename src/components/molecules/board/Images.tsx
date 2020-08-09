@@ -14,8 +14,6 @@ interface IImages extends IClassName {
 const Images: FC<IImages> = ({ board }: IImages) => {
     const imagesInfo = useImagesInfo(board.images);
 
-    console.log(JSON.stringify(imagesInfo));
-
     return <SingleImage images={imagesInfo} />;
 };
 
