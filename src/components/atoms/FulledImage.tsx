@@ -7,9 +7,10 @@ import React, {
     useState
 } from 'react';
 import ResizeDetector from 'react-resize-detector';
-import css from '@emotion/css';
 
 import styled from 'libs/styled';
+
+import ImageBase from 'components/atoms/Image';
 
 enum FIT_DIRECTION {
     HEIGHT,
@@ -33,24 +34,17 @@ const ImageWrap = styled.div<IImageWrap>`
     display: flex;
     align-items: center;
 
-    ${({ fit }) =>
-        fit === FIT_DIRECTION.HEIGHT
-            ? css`
-                  flex-direction: column;
+    flex-direction: ${({ fit }) =>
+        fit === FIT_DIRECTION.HEIGHT ? 'column' : 'row'};
+`;
 
-                  & > img {
-                      height: 100%;
-                      width: auto;
-                  }
-              `
-            : css`
-                  flex-direction: row;
+interface IImage {
+    fit: FIT_DIRECTION;
+}
 
-                  & > img {
-                      width: 100%;
-                      height: auto;
-                  }
-              `}
+const Image = styled(ImageBase)<IImage>`
+    height: ${({ fit }) => (fit === FIT_DIRECTION.HEIGHT ? '100%' : 'auto')};
+    width: ${({ fit }) => (fit === FIT_DIRECTION.HEIGHT ? 'auto' : '100%')};
 `;
 
 interface IResizeDetectorRenderParameters {
@@ -103,7 +97,8 @@ const FulledImage: FC<IFulledImage> = ({
             {({ width, height }: IResizeDetectorRenderParameters) => (
                 <FulledImageWrapper {...divProps}>
                     <ImageWrap fit={fit} width={width} height={height}>
-                        <img
+                        <Image
+                            fit={fit}
                             src={src}
                             alt={alt}
                             title={title}

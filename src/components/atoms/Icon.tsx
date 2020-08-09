@@ -4,6 +4,7 @@ import { FC, ImgHTMLAttributes } from 'react';
 import styled from 'libs/styled';
 
 import Anchor from 'components/atoms/Anchor';
+import Image from 'components/atoms/Image';
 
 const IconWrap = styled(Anchor)`
     display: inline-flex;
@@ -22,7 +23,7 @@ interface IIcon
 const Icon: FC<IIcon> = ({ children, src, alt, ...anchorProps }: IIcon) => (
     <IconWrap {...anchorProps}>
         {children && children}
-        {!children && src && <img src={src} alt={alt} />}
+        {!children && src && <Image src={src} alt={alt} />}
     </IconWrap>
 );
 
