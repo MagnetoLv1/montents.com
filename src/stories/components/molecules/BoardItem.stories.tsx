@@ -34,6 +34,7 @@ export const boardItem = () => {
     const title = text('title', board.title),
         createAt = date('created_at', moment(board.created_at).toDate()),
         content = text('content', board.content),
+        images = object('images', board.images),
         group = object('group', board.group);
 
     board = {
@@ -41,6 +42,7 @@ export const boardItem = () => {
         title,
         // eslint-disable-next-line @typescript-eslint/camelcase
         created_at: moment(createAt).format('YYYY-MM-DD HH:mm:ss'),
+        images,
         group,
         content: he.decode(content)
     };

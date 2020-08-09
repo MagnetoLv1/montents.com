@@ -5,6 +5,8 @@ import styled from 'libs/styled';
 import IClassName from 'types/IClassName';
 import IBoard from 'types/response/IBoard';
 
+import Images from 'components/molecules/board/Images';
+
 import TextContentBase from 'components/atoms/TextContent';
 
 const ContentWrap = styled.div`
@@ -25,6 +27,9 @@ const Content: FC<IContent> = ({ board, className }: IContent) => {
         <ContentWrap className={className} data-testid={'board-content'}>
             {/* 문자 내용 영역 */}
             <TextContent content={board.content} />
+
+            {/* 이미지 영역 */}
+            <Images board={board} />
         </ContentWrap>
     );
 };
