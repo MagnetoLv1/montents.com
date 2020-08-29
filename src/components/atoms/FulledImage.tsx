@@ -2,112 +2,120 @@ import React, {
     FC,
     HTMLAttributes,
     ImgHTMLAttributes,
-    useCallback,
+    useEffect,
     useRef,
     useState
 } from 'react';
 import ResizeDetector from 'react-resize-detector';
+import { css } from '@emotion/core';
 
 import styled from 'libs/styled';
 
 import ImageBase from 'components/atoms/Image';
 
-enum FIT_DIRECTION {
-    HEIGHT,
-    WIDTH
+enum Type {
+    LOADING,
+    LOADED,
+    ERROR,
+    FIT_HEIGHT,
+    FIT_WIDTH
 }
 
-const FulledImageWrapper = styled.div`
-    position: relative;
-`;
-
 interface IImageWrap {
-    fit: FIT_DIRECTION;
-    width: number;
-    height: number;
+    type: Type;
 }
 
 const ImageWrap = styled.div<IImageWrap>`
-    width: ${({ width }) => `${width}px`};
-    height: ${({ height }) => `${height}px`};
+    position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
 
-    flex-direction: ${({ fit }) =>
-        fit === FIT_DIRECTION.HEIGHT ? 'column' : 'row'};
+    flex-direction: ${({ type }) =>
+        type === Type.FIT_HEIGHT ? 'column' : 'row'};
 `;
 
 interface IImage {
-    fit: FIT_DIRECTION;
+    type: Type;
 }
 
-const Image = styled(ImageBase)<IImage>`
-    height: ${({ fit }) => (fit === FIT_DIRECTION.HEIGHT ? '100%' : 'auto')};
-    width: ${({ fit }) => (fit === FIT_DIRECTION.HEIGHT ? 'auto' : '100%')};
-`;
+const Image = styled(ImageBase)<IImage>(({ type }) => {
+    switch (type) {
+        case Type.FIT_WIDTH:
+            return css`
+                width: 100%;
+                height: auto;
 
-interface IResizeDetectorRenderParameters {
-    width: number;
-    height: number;
-}
+                min-height: 100%;
+            `;
+        case Type.FIT_HEIGHT:
+            return css`
+                width: auto;
+                height: 100%;
+
+                min-width: 100%;
+            `;
+        default:
+            return css`
+                width: 100%;
+            `;
+    }
+});
 
 interface IFulledImage
     extends HTMLAttributes<HTMLDivElement>,
         Pick<ImgHTMLAttributes<{}>, 'src' | 'alt' | 'title'> {}
 
 const FulledImage: FC<IFulledImage> = ({
-    src,
-    alt,
-    title,
+    src = '',
+    alt = '',
+    title = '',
     ...divProps
 }: IFulledImage) => {
-    const imageRef = useRef<HTMLImageElement>(null);
+    const imageRef = useRef<HTMLImageElement>(null),
+        containerRef = useRef<HTMLDivElement>(null);
 
-    const [fit, setFit] = useState(FIT_DIRECTION.HEIGHT);
+    const [type, setType] = useState(Type.LOADING);
 
-    // 리사이즈 시 이미지가 wrap 사이즈에 맞도록 변경
-    const handleResize = useCallback((width, height) => {
-        const image = imageRef.current;
+    const handleChangeType = (type: Type) => () => {
+        setType(type);
+    };
 
-        const containerRatio = width / height;
-
-        let imageRatio = 1;
-        if (image !== null) {
-            imageRatio = image.width / image.height;
+    useEffect(() => {
+        if (type !== Type.LOADED) {
+            return;
         }
 
-        setFit(
-            imageRatio > containerRatio
-                ? FIT_DIRECTION.HEIGHT
-                : FIT_DIRECTION.WIDTH
-        );
-    }, []);
+        if (imageRef.current === null || containerRef.current === null) {
+            return;
+        }
 
-    // 이미지 변경 시 wrap 사이즈에 맞도록 변경
-    const handleLoadImage = useCallback(
-        (width, height) => () => {
-            handleResize(width, height);
-        },
-        []
-    );
+        const image = imageRef.current,
+            container = containerRef.current;
+
+        const imageRatio = image.width / image.height,
+            containerRatio = container.offsetWidth / container.offsetHeight;
+
+        setType(imageRatio > containerRatio ? Type.FIT_HEIGHT : Type.FIT_WIDTH);
+    }, [type]);
+
+    useEffect(() => {
+        setType(Type.LOADING);
+    }, [src]);
 
     return (
-        <ResizeDetector onResize={handleResize}>
-            {({ width, height }: IResizeDetectorRenderParameters) => (
-                <FulledImageWrapper {...divProps}>
-                    <ImageWrap fit={fit} width={width} height={height}>
-                        <Image
-                            fit={fit}
-                            src={src}
-                            alt={alt}
-                            title={title}
-                            onLoad={handleLoadImage(width, height)}
-                            ref={imageRef}
-                        />
-                    </ImageWrap>
-                </FulledImageWrapper>
-            )}
+        <ResizeDetector onResize={handleChangeType(Type.LOADED)}>
+            <ImageWrap type={type} {...divProps} ref={containerRef}>
+                <Image
+                    type={type}
+                    src={src}
+                    alt={alt}
+                    title={title}
+                    onLoad={handleChangeType(Type.LOADED)}
+                    onError={handleChangeType(Type.ERROR)}
+                    ref={imageRef}
+                />
+            </ImageWrap>
         </ResizeDetector>
     );
 };

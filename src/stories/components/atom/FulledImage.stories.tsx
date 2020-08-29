@@ -1,5 +1,5 @@
 import React from 'react';
-import { number, text, withKnobs } from '@storybook/addon-knobs';
+import { text, withKnobs } from '@storybook/addon-knobs';
 
 import styled from 'libs/styled';
 
@@ -13,18 +13,18 @@ export default {
 };
 
 interface IFulledImage {
-    width: number;
-    height: number;
+    width: string;
+    height: string;
 }
 
 const FulledImage = styled(FulledImageBase)<IFulledImage>`
-    width: ${({ width }) => `${width}rem`};
-    height: ${({ height }) => `${height}rem`};
+    width: ${({ width }) => width};
+    height: ${({ height }) => height};
 `;
 
 export const fulledImage = () => {
-    const width = number('width', 50),
-        height = number('height', 40);
+    const width = text('width', '40rem'),
+        height = text('height', 'auto');
 
     const image = text(
         'image',

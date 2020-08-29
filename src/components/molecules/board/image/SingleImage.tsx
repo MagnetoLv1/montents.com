@@ -23,11 +23,20 @@ const FulledImageWrap = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
+    overflow-y: hidden;
 `;
 
 const FulledImage = styled(FulledImageBase)`
     width: 100%;
     height: 100%;
+    position: relative;
+`;
+
+const LoadingImage = styled.div`
+    width: 100%;
+    height: 100%;
+    background: ${({ theme }) => theme.colors.loadingBackground};
+    opacity: ${({ theme }) => theme.effect.contentLoadingOpacity};
 `;
 
 interface ISingleImage {
@@ -35,16 +44,17 @@ interface ISingleImage {
 }
 
 const SingleImage: FC<ISingleImage> = ({ images }: ISingleImage) => {
-    const imageInfo = images[0];
+    const { src, height, width, status } = images[0];
 
-    if (imageInfo.status !== ApiStatus.SUCCESS) {
-        return null;
-    }
+    // 이미지 비율 계산
+    let ratio = height / width;
+    isNaN(ratio) && (ratio = 1);
 
     return (
-        <SingleImageWrap ratio={(imageInfo.height / imageInfo.width) * 100}>
+        <SingleImageWrap ratio={ratio * 100}>
             <FulledImageWrap>
-                <FulledImage src={imageInfo.src} />
+                {status !== ApiStatus.SUCCESS && <LoadingImage />}
+                {status === ApiStatus.SUCCESS && <FulledImage src={src} />}
             </FulledImageWrap>
         </SingleImageWrap>
     );

@@ -1,9 +1,7 @@
 import React from 'react';
-import { fireEvent, waitFor } from '@testing-library/dom';
+import { fireEvent } from '@testing-library/dom';
 
 import render from 'libs/test-utils';
-
-import { theme } from 'styles/Themes';
 
 import Image from 'components/atoms/Image';
 
@@ -17,16 +15,6 @@ describe('atoms | <Image />', () => {
 
             const image = getByAltText(alt);
             expect(image).toHaveAttribute('src', src);
-        });
-
-        it("image doesn't exists", () => {
-            const { getByAltText } = render(<Image alt={alt} />);
-
-            const image = getByAltText(alt);
-            expect(image).toHaveStyleRule(
-                'background',
-                theme.colors.loadingBackground
-            );
         });
     });
 
