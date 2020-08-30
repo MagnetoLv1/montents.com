@@ -40,11 +40,11 @@ const LoadingImage = styled.div`
 `;
 
 interface ISingleImage {
-    images: IImageInfo[];
+    imagesInfo: IImageInfo[];
 }
 
-const SingleImage: FC<ISingleImage> = ({ images }: ISingleImage) => {
-    const { src, height, width, status } = images[0];
+const SingleImage: FC<ISingleImage> = ({ imagesInfo }: ISingleImage) => {
+    const { src, height, width, status } = imagesInfo[0];
 
     // 이미지 비율 계산
     let ratio = height / width;
@@ -53,8 +53,10 @@ const SingleImage: FC<ISingleImage> = ({ images }: ISingleImage) => {
     return (
         <SingleImageWrap ratio={ratio * 100}>
             <FulledImageWrap>
-                {/* 이미지 로딩 중 */}
-                {status !== ApiStatus.SUCCESS && <LoadingImage />}
+                {/* 이미지를 불러오지 못함 */}
+                {status !== ApiStatus.SUCCESS && (
+                    <LoadingImage data-testid="loading" />
+                )}
 
                 {/* 이미지 로딩 완료 */}
                 {status === ApiStatus.SUCCESS && <FulledImage src={src} />}
