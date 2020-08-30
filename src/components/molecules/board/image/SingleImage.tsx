@@ -53,7 +53,10 @@ const SingleImage: FC<ISingleImage> = ({ images }: ISingleImage) => {
     return (
         <SingleImageWrap ratio={ratio * 100}>
             <FulledImageWrap>
+                {/* 이미지 로딩 중 */}
                 {status !== ApiStatus.SUCCESS && <LoadingImage />}
+
+                {/* 이미지 로딩 완료 */}
                 {status === ApiStatus.SUCCESS && <FulledImage src={src} />}
             </FulledImageWrap>
         </SingleImageWrap>

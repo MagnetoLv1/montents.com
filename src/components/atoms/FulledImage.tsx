@@ -2,6 +2,7 @@ import React, {
     FC,
     HTMLAttributes,
     ImgHTMLAttributes,
+    useCallback,
     useEffect,
     useRef,
     useState
@@ -75,12 +76,27 @@ const FulledImage: FC<IFulledImage> = ({
     const imageRef = useRef<HTMLImageElement>(null),
         containerRef = useRef<HTMLDivElement>(null);
 
+    // 현재 상태
     const [type, setType] = useState(Type.LOADING);
 
-    const handleChangeType = (type: Type) => () => {
-        setType(type);
-    };
+    // 크기 변경 액션
+    const handleResizeContainer = useCallback(() => {
+        if (type === Type.LOADING || type === Type.ERROR) {
+            return;
+        }
 
+        setType(Type.LOADED);
+    }, [type]);
+
+    // 상태 변경 액션
+    const handleChangeType = useCallback(
+        (type: Type) => () => {
+            setType(type);
+        },
+        []
+    );
+
+    // 로딩 완료 시
     useEffect(() => {
         if (type !== Type.LOADED) {
             return;
@@ -90,6 +106,7 @@ const FulledImage: FC<IFulledImage> = ({
             return;
         }
 
+        // 이미지 비율 계산
         const image = imageRef.current,
             container = containerRef.current;
 
@@ -99,12 +116,13 @@ const FulledImage: FC<IFulledImage> = ({
         setType(imageRatio > containerRatio ? Type.FIT_HEIGHT : Type.FIT_WIDTH);
     }, [type]);
 
+    // 이미지 링크 변경
     useEffect(() => {
         setType(Type.LOADING);
     }, [src]);
 
     return (
-        <ResizeDetector onResize={handleChangeType(Type.LOADED)}>
+        <ResizeDetector onResize={handleResizeContainer}>
             <ImageWrap type={type} {...divProps} ref={containerRef}>
                 <Image
                     type={type}
