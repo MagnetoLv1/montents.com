@@ -11,6 +11,7 @@ import ApiStatus from 'constants/ApiStatus';
 
 import useImagesInfo from 'hooks/useImagesInfo';
 
+import DualImage from 'components/molecules/board/image/DualImage';
 import SingleImage from 'components/molecules/board/image/SingleImage';
 
 const Loading = styled.div`
@@ -44,7 +45,12 @@ const Images: FC<IImages> = ({ board }: IImages) => {
         return <Loading data-testid="loading" />;
     }
 
-    return <SingleImage imagesInfo={imagesInfo} />;
+    // 이미지가 한개인 경우
+    if (imagesInfo.length === 1) {
+        return <SingleImage imagesInfo={imagesInfo} />;
+    }
+
+    return <DualImage imagesInfo={imagesInfo} />;
 };
 
 export default Images;
