@@ -9,17 +9,29 @@ interface IUseImagesInfo {
     (images: string[]): IImageInfo[];
 }
 
+const defaultImageInfo: IImageInfo = {
+    src: '',
+    width: 0,
+    height: 0,
+    status: ApiStatus.CLEAR
+};
+
 const useImagesInfo: IUseImagesInfo = (images) => {
     const [imagesInfo, setImagesInfo] = useState<IImageInfo[]>(
         images.map((image) => ({
-            src: image,
-            width: 0,
-            height: 0,
-            status: ApiStatus.CLEAR
+            ...defaultImageInfo,
+            src: image
         }))
     );
 
     useEffect(() => {
+        setImagesInfo(
+            images.map((image) => ({
+                ...defaultImageInfo,
+                src: image
+            }))
+        );
+
         images.forEach((image, index) => {
             const imageObject = new Image();
             imageObject.src = image;
