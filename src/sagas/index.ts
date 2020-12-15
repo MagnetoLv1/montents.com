@@ -1,11 +1,12 @@
 import createSagaMiddleware from 'redux-saga';
 import { all, fork } from 'redux-saga/effects';
 
+import { ContentsSaga } from 'sagas/ContentsSaga';
 import { GroupsSaga } from 'sagas/GroupsSaga';
 
 // root saga
 function* rootSaga() {
-    yield all([fork(GroupsSaga)]);
+    yield all([fork(GroupsSaga), fork(ContentsSaga)]);
 }
 
 // saga middleware object
