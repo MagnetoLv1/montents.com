@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 
@@ -28,7 +29,7 @@ const AppProvider: FC = ({ children }) => (
     <Provider store={store}>
         <ThemeProvider theme={theme}>
             <Global styles={GlobalStyle} />
-            {children}
+            <Router>{children}</Router>
         </ThemeProvider>
     </Provider>
 );

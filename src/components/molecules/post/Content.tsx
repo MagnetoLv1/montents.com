@@ -1,7 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, HTMLAttributes } from 'react';
 
-import Board from 'types/api/response/Board';
-import ClassName from 'types/ClassName';
+import Post from 'types/api/response/Post';
 
 import styled from 'libs/styled';
 
@@ -17,17 +16,17 @@ const TextContent = styled(TextContentBase)`
     padding: 0.4rem 1.6rem 1.6rem 1.6rem;
 `;
 
-interface ContentProps extends ClassName {
-    board: Board;
+interface ContentProps extends HTMLAttributes<HTMLDivElement> {
+    post: Post;
 }
 
-const Content: FC<ContentProps> = ({ board, className }: ContentProps) => (
-    <ContentStyle className={className} data-testid={'board-content'}>
+const Content: FC<ContentProps> = ({ post, ...props }: ContentProps) => (
+    <ContentStyle {...props}>
         {/* 문자 내용 영역 */}
-        <TextContent content={board.content} />
+        <TextContent content={post.content} />
 
         {/* 이미지 영역 */}
-        <Images images={board.images} />
+        <Images images={post.images} />
     </ContentStyle>
 );
 

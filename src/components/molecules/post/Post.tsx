@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 
-import Board from 'types/api/response/Board';
+import Post from 'types/api/response/Post';
 import ClassName from 'types/ClassName';
 
 import styled from 'libs/styled';
 
-import ContentBase from 'components/molecules/board/Content';
-import HeaderBase from 'components/molecules/board/Header';
+import ContentBase from 'components/molecules/post/Content';
+import HeaderBase from 'components/molecules/post/Header';
 
-const BoardItemStyle = styled.div`
+const PostStyle = styled.div`
     background: ${({ theme }) => theme.colors.surfaceBackground};
     border-radius: 0.8rem;
     box-shadow: 0 0.1rem 0.2rem ${({ theme }) => theme.colors.contentShadow};
@@ -23,21 +23,18 @@ const Header = styled(HeaderBase)`
 
 const Content = styled(ContentBase)``;
 
-export interface BoardItemProps extends ClassName {
-    board: Board;
+export interface PostProps extends ClassName {
+    post: Post;
 }
 
-const BoardItem: FC<BoardItemProps> = ({
-    board,
-    className
-}: BoardItemProps) => (
-    <BoardItemStyle className={className}>
+const Post: FC<PostProps> = ({ post, className }: PostProps) => (
+    <PostStyle className={className}>
         {/* 게시글 헤더 영역 */}
-        <Header board={board} />
+        <Header post={post} data-testid="post-header" />
 
         {/* 게시글 내용 영역 */}
-        <Content board={board} />
-    </BoardItemStyle>
+        <Content post={post} data-testid="post-content" />
+    </PostStyle>
 );
 
-export default BoardItem;
+export default Post;

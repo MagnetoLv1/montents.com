@@ -1,10 +1,9 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, HTMLAttributes, useMemo } from 'react';
 import moment from 'moment';
 
 import RightArrowSvg from 'assets/images/right_filled_arrow.svg';
 
-import Board from 'types/api/response/Board';
-import ClassName from 'types/ClassName';
+import Post from 'types/api/response/Post';
 
 import styled from 'libs/styled';
 
@@ -66,12 +65,12 @@ const DateAnchor = styled(Anchor)`
     color: ${({ theme }) => theme.colors.secondaryText};
 `;
 
-interface HeaderProps extends ClassName {
-    board: Board;
+interface HeaderProps extends HTMLAttributes<HTMLDivElement> {
+    post: Post;
 }
 
-const Header: FC<HeaderProps> = ({ board, className }: HeaderProps) => {
-    const { group, created_at: createAt } = board;
+const Header: FC<HeaderProps> = ({ post, ...props }: HeaderProps) => {
+    const { group, created_at: createAt } = post;
 
     const { pastTimeText, dateText } = useMemo(() => {
         const date = moment(createAt);
@@ -82,7 +81,7 @@ const Header: FC<HeaderProps> = ({ board, className }: HeaderProps) => {
     }, [createAt]);
 
     return (
-        <HeaderStyle className={className} data-testid={'board-header'}>
+        <HeaderStyle {...props}>
             {/* 커뮤니티 그룹 아이콘역 영역 */}
             <GroupIconContainer>
                 <Anchor href={group.url}>
@@ -100,8 +99,8 @@ const Header: FC<HeaderProps> = ({ board, className }: HeaderProps) => {
                     <RightArrow src={RightArrowSvg} alt="arrow" />
 
                     {/* 제목 영역 */}
-                    <TitleAnchor href={board.url} target="_blank">
-                        {board.title}
+                    <TitleAnchor href={post.url} target="_blank">
+                        {post.title}
                     </TitleAnchor>
                 </TitleContainer>
 

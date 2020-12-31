@@ -1,21 +1,19 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 
-import Board from 'types/api/response/Board';
+import Post from 'types/api/response/Post';
 
-import boardResponse from 'data/boards/get_1.json';
+import postsResponse from 'data/posts/get_1.json';
 
 import styled from 'libs/styled';
 
-import BoardItemBase, {
-    BoardItemProps
-} from 'components/molecules/board/BoardItem';
+import PostBase, { PostProps } from 'components/molecules/post/Post';
 
-const boardData = boardResponse.data[0];
+const postData = postsResponse.data[0];
 
 export default {
-    title: 'Components/Molecules/BoardItem',
-    component: BoardItemBase,
+    title: 'Components/Molecules/Post',
+    component: PostBase,
     parameters: {
         docs: {
             description: {
@@ -24,13 +22,13 @@ export default {
         }
     },
     argTypes: {
-        board: {
+        post: {
             control: 'object',
             description: '게시글 json data'
         }
     },
     args: {
-        board: boardData
+        post: postData
     }
 };
 
@@ -41,25 +39,23 @@ const BodyWrap = styled.div`
     align-items: center;
 `;
 
-const BoardItem = styled(BoardItemBase)`
+const Post = styled(PostBase)`
     width: 68rem;
     margin: 0.8rem 0;
 `;
 
 /**
  * 기본 게시글 story
- * @param board
+ * @param post
  * @constructor
  */
-export const DefaultBoardItem: Story<BoardItemProps> = ({
-    board
-}: BoardItemProps) => (
+export const DefaultPostStory: Story<PostProps> = ({ post }: PostProps) => (
     <BodyWrap>
-        <BoardItem board={board} />
+        <Post post={post} />
     </BodyWrap>
 );
 
-DefaultBoardItem.storyName = 'Default';
+DefaultPostStory.storyName = 'Default';
 
 /**
  * 게시글 예시 story
@@ -72,9 +68,9 @@ DefaultBoardItem.storyName = 'Default';
  * @param url
  * @constructor
  */
-interface ExampleBoardItemProps extends Board {}
+interface ExamplePostProps extends Post {}
 
-export const ExampleBoardItem: Story<ExampleBoardItemProps> = ({
+export const ExamplePostStory: Story<ExamplePostProps> = ({
     title,
     content,
     created_at,
@@ -82,9 +78,9 @@ export const ExampleBoardItem: Story<ExampleBoardItemProps> = ({
     idx,
     images,
     url
-}: ExampleBoardItemProps) => (
-    <BoardItem
-        board={{
+}: ExamplePostProps) => (
+    <Post
+        post={{
             idx,
             title,
             content,
@@ -96,12 +92,12 @@ export const ExampleBoardItem: Story<ExampleBoardItemProps> = ({
     />
 );
 
-ExampleBoardItem.args = {
-    ...boardData
+ExamplePostStory.args = {
+    ...postData
 };
 
-ExampleBoardItem.argTypes = {
-    board: {
+ExamplePostStory.argTypes = {
+    post: {
         table: {
             disable: true
         }
