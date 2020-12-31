@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, HTMLAttributes, useEffect, useState } from 'react';
 import { filter } from 'underscore';
 
 import ClassName from 'types/ClassName';
@@ -10,9 +10,11 @@ import ApiStatus from 'constants/ApiStatus';
 
 import useImagesInfo from 'hooks/useImagesInfo';
 
-import DualImage from 'components/molecules/images/DualImage';
+import DualImages from 'components/molecules/images/DualImages';
+import MultipleImages from 'components/molecules/images/MultipleImages';
+import QuadImages from 'components/molecules/images/QuadImages';
 import SingleImage from 'components/molecules/images/SingleImage';
-import TripleImage from 'components/molecules/images/TripleImage';
+import TripleImages from 'components/molecules/images/TripleImages';
 
 const ImagesStyle = styled.div`
     position: relative;
@@ -25,14 +27,15 @@ const Loading = styled.div`
     opacity: ${({ theme }) => theme.effect.contentLoadingOpacity};
 `;
 
-export interface ImagesProps extends ClassName {
+export interface ImagesProps extends HTMLAttributes<HTMLDivElement> {
     images: string[];
 }
 
-const Images: FC<ImagesProps> = ({ images, className }: ImagesProps) => {
+const Images: FC<ImagesProps> = ({ images, ...props }: ImagesProps) => {
     const [loading, setLoading] = useState(true);
 
     const imagesInfo = useImagesInfo(images);
+    console.log(imagesInfo);
 
     // 이미지 전체 로딩 완료 여부
     useEffect(() => {
@@ -49,20 +52,42 @@ const Images: FC<ImagesProps> = ({ images, className }: ImagesProps) => {
     }
 
     return (
-        <ImagesStyle className={className}>
+        <ImagesStyle {...props}>
             {/* 이미지 중 로딩중인 이미지가 존재 시 로딩 화면 노출 */}
             {loading && <Loading data-testid="loading" />}
 
+            {/* 이미지 로딩 완료 후 이미지 갯수에 맞는 ui 노출 */}
             {!loading && (
                 <>
                     {imagesInfo.length === 1 && (
-                        <SingleImage imagesInfo={imagesInfo} />
+                        <SingleImage
+                            imagesInfo={imagesInfo}
+                            data-testid="single-image"
+                        />
                     )}
                     {imagesInfo.length === 2 && (
-                        <DualImage imagesInfo={imagesInfo} />
+                        <DualImages
+                            imagesInfo={imagesInfo}
+                            data-testid="dual-images"
+                        />
                     )}
-                    {imagesInfo.length >= 3 && (
-                        <TripleImage imagesInfo={imagesInfo} />
+                    {imagesInfo.length === 3 && (
+                        <TripleImages
+                            imagesInfo={imagesInfo}
+                            data-testid="triple-images"
+                        />
+                    )}
+                    {imagesInfo.length === 4 && (
+                        <QuadImages
+                            imagesInfo={imagesInfo}
+                            data-testid="quad-images"
+                        />
+                    )}
+                    {imagesInfo.length >= 5 && (
+                        <MultipleImages
+                            imagesInfo={imagesInfo}
+                            data-testid="multiple-images"
+                        />
                     )}
                 </>
             )}

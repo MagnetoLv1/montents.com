@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, HTMLAttributes, useMemo } from 'react';
 import { css } from '@emotion/core';
 import { reduce } from 'underscore';
 
@@ -15,11 +15,11 @@ enum RatioType {
     HORIZONTAL
 }
 
-interface DualImageStyleProps {
+interface DualImagesStyleProps {
     ratioType: RatioType;
 }
 
-const DualImageStyle = styled.div<DualImageStyleProps>`
+const DualImagesStyle = styled.div<DualImagesStyleProps>`
     position: relative;
     padding-top: ${({ ratioType }) =>
         ratioType === RatioType.SQUARE ? 50 : 100}%;
@@ -77,14 +77,14 @@ const ConditionalImage = styled(ConditionImageBase)`
     height: 100%;
 `;
 
-interface DualImageProps extends ClassName {
+interface DualImagesProps extends HTMLAttributes<HTMLDivElement> {
     imagesInfo: ImageInfo[];
 }
 
-const DualImage: FC<DualImageProps> = ({
+const DualImages: FC<DualImagesProps> = ({
     imagesInfo,
-    className
-}: DualImageProps) => {
+    ...props
+}: DualImagesProps) => {
     const ratioType = useMemo<RatioType>(() => {
         // 각 이미지의 비율 종류 (세로, 정사각형, 가로)
         const imagesRatioType = imagesInfo.map<RatioType>((imageInfo) => {
@@ -117,7 +117,7 @@ const DualImage: FC<DualImageProps> = ({
     }
 
     return (
-        <DualImageStyle ratioType={ratioType} className={className}>
+        <DualImagesStyle ratioType={ratioType} {...props}>
             <ImagesContainer ratioType={ratioType}>
                 {/* 이미지 렌더링 */}
                 {imagesInfo.map((imageInfo, index) => (
@@ -128,8 +128,8 @@ const DualImage: FC<DualImageProps> = ({
                     </ImageWrap>
                 ))}
             </ImagesContainer>
-        </DualImageStyle>
+        </DualImagesStyle>
     );
 };
 
-export default DualImage;
+export default DualImages;

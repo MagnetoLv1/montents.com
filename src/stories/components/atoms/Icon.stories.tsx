@@ -7,7 +7,7 @@ export default {
     title: 'Components/Atoms/Icon',
     component: Icon,
     args: {
-        src: '/images/logo.png',
+        src: '/assets/images/logo.png',
         alt: 'description'
     },
     argTypes: {

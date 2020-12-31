@@ -153,7 +153,7 @@
             "content": "이것은 테스트 텍스트입니다.\nhtml태그가 없는 내용입니다.\n\n제대로 나와야됩니다.",
             "url": "https://post.naver.com/viewer/postView.nhn?volumeNo=28880949&memberNo=44655917",
             "created_at": "2020-07-23 00:57:30",
-            "images": ["http://www.montents.com/images/temp/board_image_2.jpg"],
+            "images": ["http://www.montents.com/assets/images/temp/board_image_2.jpg"],
             "group": {
                 "idx": 6,
                 "name": "Naver",

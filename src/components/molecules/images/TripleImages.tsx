@@ -64,7 +64,7 @@ const shapeSizes: ShapeSize[] = [
     }
 ];
 
-const TripleImageStyle = styled.div`
+const TripleImagesStyle = styled.div`
     position: relative;
     padding-top: 100%;
 `;
@@ -131,10 +131,6 @@ const SmallImageContainer = styled.div<ContainerTypeProps>`
                 return css`
                     flex-direction: row;
                     height: 50%;
-
-                    & > ${ConditionalImage} {
-                        width: 50%;
-                    }
                 `;
             case ContainerType.ROW_BIG:
                 return css`
@@ -182,14 +178,14 @@ const SmallConditionalImage = styled(ConditionalImageBase)<ContainerTypeProps>`
     }};
 `;
 
-interface TripleImageProps extends ClassName {
+interface TripleImagesProps extends ClassName {
     imagesInfo: ImageInfo[];
 }
 
-const TripleImage: FC<TripleImageProps> = ({
+const TripleImages: FC<TripleImagesProps> = ({
     imagesInfo,
-    className
-}: TripleImageProps) => {
+    ...props
+}: TripleImagesProps) => {
     // 각 이미지의 비율에 따른 배치 형태
     const containerType = useMemo(() => {
         let containerType: ContainerType = ContainerType.ROW,
@@ -224,7 +220,7 @@ const TripleImage: FC<TripleImageProps> = ({
     }
 
     return (
-        <TripleImageStyle className={className}>
+        <TripleImagesStyle {...props}>
             <ImageContainer type={containerType}>
                 <LargeImageContainer type={containerType}>
                     <ConditionalImage info={imagesInfo[0]} />
@@ -241,8 +237,8 @@ const TripleImage: FC<TripleImageProps> = ({
                     />
                 </SmallImageContainer>
             </ImageContainer>
-        </TripleImageStyle>
+        </TripleImagesStyle>
     );
 };
 
-export default TripleImage;
+export default TripleImages;

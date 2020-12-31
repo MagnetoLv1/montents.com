@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, HTMLAttributes } from 'react';
 
 import ClassName from 'types/ClassName';
 import ImageInfo from 'types/ImageInfo';
@@ -30,13 +30,13 @@ const ConditionalImage = styled(ConditionalImageBase)`
     height: 100%;
 `;
 
-interface SingleImageProps extends ClassName {
+interface SingleImageProps extends HTMLAttributes<HTMLDivElement> {
     imagesInfo: ImageInfo[];
 }
 
 const SingleImage: FC<SingleImageProps> = ({
     imagesInfo,
-    className
+    ...props
 }: SingleImageProps) => {
     const imageInfo = imagesInfo[0];
     const { height, width } = imageInfo;
@@ -46,7 +46,7 @@ const SingleImage: FC<SingleImageProps> = ({
     isNaN(ratio) && (ratio = 1);
 
     return (
-        <SingleImageStyle ratio={ratio * 100} className={className}>
+        <SingleImageStyle ratio={ratio * 100} {...props}>
             <FulledImageWrap>
                 {/* 이미지 렌더링 */}
                 <ConditionalImage info={imageInfo} />

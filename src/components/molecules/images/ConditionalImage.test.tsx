@@ -9,7 +9,7 @@ import ConditionalImage from 'components/molecules/images/ConditionalImage';
 
 describe('Components | Molecules | Image | <ConditionalImage />', () => {
     const imageInfo = {
-        src: 'http://www.montents.com/images/temp/board_image_10.jpg',
+        src: 'http://www.montents.com/assets/images/temp/board_image_10.jpg',
         width: 767,
         height: 1265,
         status: ApiStatus.SUCCESS

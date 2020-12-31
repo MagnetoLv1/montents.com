@@ -114,7 +114,7 @@ export const IconButton: Story<IconButtonProps> = ({
             onMouseUp={action('onMouseUp')}
             color={color}>
             <Icon>
-                <Image src="/images/logo.svg" alt="logo" />
+                <Image src="/assets/images/logo.svg" alt="logo" />
             </Icon>
             <Text>{text}</Text>
         </StoryButton>

@@ -6,7 +6,7 @@ import render from 'libs/testUtils';
 import Image from 'components/atoms/Image';
 
 describe('Components | Atoms | <Image />', () => {
-    const src = '/images/temp/board_image_1.jpg',
+    const src = '/assets/images/temp/board_image_1.jpg',
         alt = 'board_image_1';
 
     it('image 태그 노출 확인', () => {

@@ -22,7 +22,11 @@ describe('Components | Atoms | <Button />', () => {
     it('아이콘 children 노출 확인', () => {
         const testIconAlt = 'logo';
         const testIcon = (
-            <img className="icon" src="/images/logo.png" alt={testIconAlt} />
+            <img
+                className="icon"
+                src="/assets/images/logo.png"
+                alt={testIconAlt}
+            />
         );
 
         const { getByAltText } = render(
@@ -39,7 +43,11 @@ describe('Components | Atoms | <Button />', () => {
         const testText = 'logo button';
         const testIconAlt = 'logo';
         const testIcon = (
-            <img className="icon" src="/images/logo.png" alt={testIconAlt} />
+            <img
+                className="icon"
+                src="/assets/images/logo.png"
+                alt={testIconAlt}
+            />
         );
 
         const { getByAltText, getByText } = render(

@@ -10,7 +10,7 @@ import SingleImage from 'components/molecules/images/SingleImage';
 describe('Components | Molecules | Image | <SingleImage />', () => {
     const imagesInfo = [
         {
-            src: '/images/temp/board_image_10.jpg',
+            src: '/assets/images/temp/board_image_10.jpg',
             width: 767,
             height: 1265,
             status: ApiStatus.SUCCESS

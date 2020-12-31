@@ -6,7 +6,7 @@ import Icon from 'components/atoms/Icon';
 
 describe('Components | Atoms | <Icon />', () => {
     const alt = 'logo',
-        src = '/images/logo.png';
+        src = '/assets/images/logo.png';
 
     it('children content 노출 확인', () => {
         const { getByAltText } = render(
