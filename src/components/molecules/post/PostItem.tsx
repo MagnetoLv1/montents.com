@@ -4,6 +4,7 @@ import Post from 'types/api/response/Post';
 import ClassName from 'types/ClassName';
 
 import styled from 'libs/styled';
+import withLoading, { LoadableComponentProps } from 'libs/hoc/withLoading';
 
 import ContentBase from 'components/molecules/post/Content';
 import HeaderBase from 'components/molecules/post/Header';
@@ -23,11 +24,11 @@ const Header = styled(HeaderBase)`
 
 const Content = styled(ContentBase)``;
 
-export interface PostProps extends ClassName {
+interface PostItemProps extends ClassName {
     post: Post;
 }
 
-const Post: FC<PostProps> = ({ post, className }: PostProps) => (
+const PostItem: FC<PostItemProps> = ({ post, className }: PostItemProps) => (
     <PostStyle className={className}>
         {/* 게시글 헤더 영역 */}
         <Header post={post} data-testid="post-header" />
@@ -37,4 +38,12 @@ const Post: FC<PostProps> = ({ post, className }: PostProps) => (
     </PostStyle>
 );
 
-export default Post;
+// 게시글 로딩 컴포넌트
+const LoadingPostItem: FC<ClassName> = ({ className }: ClassName) => (
+    <PostStyle className={className} data-testid="post-loading">
+        loading
+    </PostStyle>
+);
+
+export type LoadablePostItemProps = LoadableComponentProps<PostItemProps>;
+export default withLoading(PostItem, LoadingPostItem);

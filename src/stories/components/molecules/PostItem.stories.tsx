@@ -7,13 +7,15 @@ import postsResponse from 'data/posts/get_1.json';
 
 import styled from 'libs/styled';
 
-import PostBase, { PostProps } from 'components/molecules/post/Post';
+import PostItemBase, {
+    LoadablePostItemProps
+} from 'components/molecules/post/PostItem';
 
 const postData = postsResponse.data[0];
 
 export default {
     title: 'Components/Molecules/Post',
-    component: PostBase,
+    component: PostItemBase,
     parameters: {
         docs: {
             description: {
@@ -25,10 +27,15 @@ export default {
         post: {
             control: 'object',
             description: '게시글 json data'
+        },
+        loading: {
+            control: 'boolean',
+            description: '게시글 로딩 여부'
         }
     },
     args: {
-        post: postData
+        post: postData,
+        loading: false
     }
 };
 
@@ -39,7 +46,7 @@ const BodyWrap = styled.div`
     align-items: center;
 `;
 
-const Post = styled(PostBase)`
+const PostItem = styled(PostItemBase)`
     width: 68rem;
     margin: 0.8rem 0;
 `;
@@ -47,11 +54,15 @@ const Post = styled(PostBase)`
 /**
  * 기본 게시글 story
  * @param post
+ * @param loading
  * @constructor
  */
-export const DefaultPostStory: Story<PostProps> = ({ post }: PostProps) => (
+export const DefaultPostStory: Story<LoadablePostItemProps> = ({
+    post,
+    loading
+}: LoadablePostItemProps) => (
     <BodyWrap>
-        <Post post={post} />
+        <PostItem post={post} loading={loading} />
     </BodyWrap>
 );
 
@@ -79,7 +90,7 @@ export const ExamplePostStory: Story<ExamplePostProps> = ({
     images,
     url
 }: ExamplePostProps) => (
-    <Post
+    <PostItem
         post={{
             idx,
             title,
