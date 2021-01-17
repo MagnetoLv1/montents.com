@@ -6,10 +6,12 @@ import RightArrowSvg from 'assets/images/right_filled_arrow.svg';
 import Post from 'types/api/response/Post';
 
 import styled from 'libs/styled';
+import withLoading, { LoadableComponentProps } from 'libs/hoc/withLoading';
 
 import Anchor from 'components/atoms/Anchor';
 import Icon from 'components/atoms/Icon';
 import Image from 'components/atoms/Image';
+import Text from 'components/atoms/Text';
 
 const HeaderStyle = styled.div`
     display: flex;
@@ -65,6 +67,11 @@ const DateAnchor = styled(Anchor)`
     color: ${({ theme }) => theme.colors.secondaryText};
 `;
 
+const DateText = styled(Text)`
+    margin-top: 0.3rem;
+    width: 20rem;
+`;
+
 interface HeaderProps extends HTMLAttributes<HTMLDivElement> {
     post: Post;
 }
@@ -113,4 +120,30 @@ const Header: FC<HeaderProps> = ({ post, ...props }: HeaderProps) => {
     );
 };
 
-export default Header;
+// 헤더 로딩 컴포넌트
+const LoadingHeader: FC<HTMLAttributes<HTMLDivElement>> = (
+    props: HTMLAttributes<HTMLDivElement>
+) => (
+    <HeaderStyle {...props}>
+        {/* 커뮤니티 그룹 아이콘역 영역 */}
+        <GroupIconContainer>
+            <GroupIcon loading data-testid="header-icon-loading" />
+        </GroupIconContainer>
+
+        {/* 제목 및 날짜 등 정보 노출 영역 */}
+        <TitleDateContainer>
+            {/* 제목 노출 영역 */}
+            <TitleContainer>
+                <Text loading data-testid="header-title-loading" />
+            </TitleContainer>
+
+            {/* 날짜 노출 영역 */}
+            <DateContainer>
+                <DateText loading data-testid="header-date-loading" />
+            </DateContainer>
+        </TitleDateContainer>
+    </HeaderStyle>
+);
+
+export type LoadableHeaderProps = LoadableComponentProps<HeaderProps>;
+export default withLoading(Header, LoadingHeader);

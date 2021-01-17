@@ -41,7 +41,8 @@ const PostItem: FC<PostItemProps> = ({ post, className }: PostItemProps) => (
 // 게시글 로딩 컴포넌트
 const LoadingPostItem: FC<ClassName> = ({ className }: ClassName) => (
     <PostStyle className={className} data-testid="post-loading">
-        loading
+        {/* 게시글 헤더 영역 */}
+        <Header loading />
     </PostStyle>
 );
 
