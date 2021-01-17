@@ -6,7 +6,7 @@ import ClassName from 'types/ClassName';
 import styled from 'libs/styled';
 import withLoading, { LoadableComponentProps } from 'libs/hoc/withLoading';
 
-import ContentBase from 'components/molecules/post/Content';
+import Content from 'components/molecules/post/Content';
 import HeaderBase from 'components/molecules/post/Header';
 
 const PostStyle = styled.div`
@@ -21,8 +21,6 @@ const PostStyle = styled.div`
 const Header = styled(HeaderBase)`
     margin-bottom: 0.8rem;
 `;
-
-const Content = styled(ContentBase)``;
 
 interface PostItemProps extends ClassName {
     post: Post;
@@ -43,6 +41,9 @@ const LoadingPostItem: FC<ClassName> = ({ className }: ClassName) => (
     <PostStyle className={className} data-testid="post-loading">
         {/* 게시글 헤더 영역 */}
         <Header loading />
+
+        {/* 게시글 내용 영역 */}
+        <Content loading />
     </PostStyle>
 );
 
