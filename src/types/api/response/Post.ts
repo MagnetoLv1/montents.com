@@ -25,4 +25,13 @@ export const isPost = (item: unknown): item is Post => {
     );
 };
 
+/**
+ * 게시글 리스트 검증
+ * @param item
+ */
+export const isPostList = (item: unknown): item is Post[] => {
+    const postList = item as Post[];
+    return postList.every(isPost);
+};
+
 export default Post;
