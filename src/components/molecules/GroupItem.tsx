@@ -11,10 +11,8 @@ import { RootReducerState } from 'modules';
 import { groupsAction } from 'modules/GroupsModule';
 
 import Button, {
-    Icon as IconBase,
-    LoadingIcon as LoadingIconBase,
-    LoadingText,
-    Text
+    ButtonIcon as ButtonIconBase,
+    ButtonText
 } from 'components/atoms/Button';
 import Image from 'components/atoms/Image';
 
@@ -26,17 +24,12 @@ const GroupItemStyle = styled.li`
     box-sizing: border-box;
 `;
 
-const Icon = styled(IconBase)`
+const ButtonIcon = styled(ButtonIconBase)`
     width: 3.6rem;
     height: 3.6rem;
 `;
 
-const LoadingIcon = styled(LoadingIconBase)`
-    width: 3.6rem;
-    height: 3.6rem;
-`;
-
-const MoreIcon = styled(Icon)`
+const MoreIcon = styled(ButtonIcon)`
     width: 3.6rem;
     height: 3.6rem;
     background: ${({ theme }) => theme.colors.loadingBackground};
@@ -86,23 +79,23 @@ const GroupItem: FC<GroupItemProps> = ({
                     <MoreIcon>
                         <Image src={DownArrowSvg} alt={'down arrow'} />
                     </MoreIcon>
-                    <Text>더 보기</Text>
+                    <ButtonText>더 보기</ButtonText>
                 </Button>
             )}
 
             {/* 로딩 버튼 */}
             {mode === Mode.LOADING && (
                 <Button data-testid="loading-button">
-                    <LoadingIcon />
-                    <LoadingText />
+                    <ButtonIcon loading />
+                    <ButtonText loading />
                 </Button>
             )}
 
             {/* 그룹 데이터 버튼 */}
             {mode === Mode.DATA && group && (
                 <Button>
-                    <Icon src={group.icon} alt={group.name} />
-                    <Text>{group.name}</Text>
+                    <ButtonIcon src={group.icon} alt={group.name} />
+                    <ButtonText>{group.name}</ButtonText>
                 </Button>
             )}
         </GroupItemStyle>

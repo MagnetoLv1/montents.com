@@ -3,7 +3,7 @@ import { fireEvent } from '@testing-library/dom';
 
 import render from 'libs/testUtils';
 
-import Button, { Icon, Text } from 'components/atoms/Button';
+import Button, { ButtonIcon, ButtonText } from 'components/atoms/Button';
 
 describe('Components | Atoms | <Button />', () => {
     it('텍스트 children 노출 확인', () => {
@@ -11,7 +11,7 @@ describe('Components | Atoms | <Button />', () => {
 
         const { getByText } = render(
             <Button>
-                <Text>{testText}</Text>
+                <ButtonText>{testText}</ButtonText>
             </Button>
         );
 
@@ -31,7 +31,7 @@ describe('Components | Atoms | <Button />', () => {
 
         const { getByAltText } = render(
             <Button>
-                <Icon>{testIcon}</Icon>
+                <ButtonIcon>{testIcon}</ButtonIcon>
             </Button>
         );
 
@@ -52,8 +52,8 @@ describe('Components | Atoms | <Button />', () => {
 
         const { getByAltText, getByText } = render(
             <Button>
-                <Icon>{testIcon}</Icon>
-                <Text>{testText}</Text>
+                <ButtonIcon>{testIcon}</ButtonIcon>
+                <ButtonText>{testText}</ButtonText>
             </Button>
         );
 
@@ -70,7 +70,7 @@ describe('Components | Atoms | <Button />', () => {
 
         const { getByText } = render(
             <Button onClick={onClick}>
-                <Text>{testText}</Text>
+                <ButtonText>{testText}</ButtonText>
             </Button>
         );
 

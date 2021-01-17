@@ -2,7 +2,8 @@ import React, { FC, HTMLAttributes, PropsWithChildren } from 'react';
 
 import styled from 'libs/styled';
 
-import IconBase from 'components/atoms/Icon';
+import Icon from 'components/atoms/Icon';
+import Text from 'components/atoms/Text';
 
 const ButtonStyle = styled.div`
     position: relative;
@@ -31,27 +32,19 @@ const ButtonStyle = styled.div`
     }
 `;
 
-export const Icon = styled(IconBase)`
+export const ButtonIcon = styled(Icon)`
     width: 3rem;
     height: 3rem;
-    margin: 0.8rem 1.2rem 0.8rem 0;
+    margin: 0.8rem 0 0.8rem 0;
+
+    & + * {
+        margin-left: 0.8rem;
+    }
 `;
 
-export const Text = styled.p``;
-
-export const LoadingIcon = styled(Icon)`
-    flex-shrink: 0;
-    border-radius: 50%;
-    background: ${({ theme }) => theme.colors.loadingBackground};
-`;
-
-export const LoadingText = styled(Text)`
-    display: inline-block;
+export const ButtonText = styled(Text)`
     flex-shrink: 1;
     width: 100%;
-    min-height: 1.4rem;
-    border-radius: 0.7rem;
-    background: ${({ theme }) => theme.colors.loadingBackground};
 `;
 
 export interface ButtonProps extends HTMLAttributes<HTMLDivElement> {}

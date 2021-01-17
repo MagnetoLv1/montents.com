@@ -4,7 +4,11 @@ import { Story } from '@storybook/react';
 
 import styled from 'libs/styled';
 
-import Button, { ButtonProps, Icon, Text } from 'components/atoms/Button';
+import Button, {
+    ButtonIcon,
+    ButtonProps,
+    ButtonText
+} from 'components/atoms/Button';
 import ImageBase from 'components/atoms/Image';
 
 export default {
@@ -69,7 +73,7 @@ export const TextButton: Story<TextButtonProps> = ({
         onMouseDown={action('onMouseDown')}
         onMouseUp={action('onMouseUp')}
         color={color}>
-        <Text>{text}</Text>
+        <ButtonText>{text}</ButtonText>
     </StoryButton>
 );
 
@@ -113,10 +117,10 @@ export const IconButton: Story<IconButtonProps> = ({
             onMouseDown={action('onMouseDown')}
             onMouseUp={action('onMouseUp')}
             color={color}>
-            <Icon>
+            <ButtonIcon>
                 <Image src="/assets/images/logo.svg" alt="logo" />
-            </Icon>
-            <Text>{text}</Text>
+            </ButtonIcon>
+            <ButtonText>{text}</ButtonText>
         </StoryButton>
     );
 };
@@ -134,3 +138,14 @@ IconButton.args = {
     text: '버튼 텍스트',
     color: '#fff'
 };
+
+const LoadingStoryButton = styled(StoryButton)`
+    width: 15rem;
+`;
+
+export const LoadingButton: Story = () => (
+    <LoadingStoryButton>
+        <ButtonIcon loading />
+        <ButtonText loading />
+    </LoadingStoryButton>
+);
