@@ -22,7 +22,7 @@ const config: Config.InitialOptions = {
     collectCoverage: false,
     coverageReporters: ['json', 'html'],
     collectCoverageFrom: [
-        '<rootDir>/src/components/**/*.{ts,tsx,js,jsx}',
+        '<rootDir>/src/**/*.{ts,tsx,js,jsx}',
         '!<rootDir>/src/**/*.stories.{ts,tsx,js,jsx}'
     ],
     testMatch: ['**/(*.)+(test).[jt]s?(x)'],

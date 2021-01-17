@@ -1,4 +1,3 @@
-const path = require('path');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
@@ -7,23 +6,21 @@ module.exports = {
         '../src/**/*.stories.@(js|jsx|ts|tsx)'
     ],
     addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+    typescript: {
+        check: true,
+        checkOptions: {
+            tsconfig: "./tsconfig.json",
+            eslint: true,
+        },
+        reactDocgen: "react-docgen-typescript",
+        reactDocgenTypescriptOptions: {
+            tsconfigPath: "./tsconfig.json",
+            shouldExtractLiteralValuesFromEnum: true,
+            propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+        },
+    },
     webpackFinal: async (config) => {
-        config.module.rules.push({
-            test: /\.tsx?$/,
-            include: path.resolve(__dirname, '../src'),
-            use: [
-                {
-                    loader: require.resolve('react-docgen-typescript-loader'),
-                    options: {
-                        tsconfigPath: path.resolve(__dirname, './tsconfig.json')
-                    }
-                }
-            ]
-        });
-
         config.resolve.plugins.push(new TsconfigPathsPlugin());
-        config.resolve.extensions.push('.ts', 'tsx');
-
         return config;
     }
 };
