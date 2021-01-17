@@ -15,11 +15,12 @@
         "strictNullChecks": true,
         "jsx": "react",
         "baseUrl": ".",
+        "downlevelIteration": true,
         "paths": {
             "assets/*": ["assets/*"],
             "*": ["src/*"]
         }
     },
     "exclude": ["node_modules"],
-    "include": ["**/*.ts", "**/*.tsx", "src", "custom.d.ts"]
+    "include": ["**/*.ts", "**/*.tsx", "src/*", "custom.d.ts"]
 }

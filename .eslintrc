@@ -59,11 +59,10 @@
                     ["^errors"],
                     ["^types"],
                     ["^data"],
-                    ["^libs"],
+                    ["^libs", "^libs/hooks", "^libs/hoc"],
                     ["^constants"],
                     ["^modules"],
                     ["^sagas"],
-                    ["^hooks"],
                     ["^styles"],
                     ["^pages"],
                     [
