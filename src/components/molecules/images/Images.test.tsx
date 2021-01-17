@@ -3,14 +3,13 @@ import { waitFor } from '@testing-library/dom';
 import { mocked } from 'ts-jest';
 
 import render from 'libs/testUtils';
+import useImagesInfo from 'libs/hooks/useImagesInfo';
 
 import ApiStatus from 'constants/ApiStatus';
 
-import useImagesInfo from 'hooks/useImagesInfo';
-
 import Images from 'components/molecules/images/Images';
 
-jest.mock('hooks/useImagesInfo');
+jest.mock('libs/hooks/useImagesInfo');
 
 const mockUseImagesInfo = mocked(useImagesInfo, true);
 beforeEach(() => {

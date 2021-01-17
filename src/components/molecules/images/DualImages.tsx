@@ -2,7 +2,6 @@ import React, { FC, HTMLAttributes, useMemo } from 'react';
 import { css } from '@emotion/core';
 import { reduce } from 'underscore';
 
-import ClassName from 'types/ClassName';
 import ImageInfo from 'types/ImageInfo';
 
 import styled from 'libs/styled';

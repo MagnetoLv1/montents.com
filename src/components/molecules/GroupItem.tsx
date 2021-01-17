@@ -68,8 +68,8 @@ const GroupItem: FC<GroupItemProps> = ({
     // 그룹 리스트 마지막 idx 조회
     const last = useSelector<
         RootReducerState,
-        RootReducerState['GroupsReducer']['meta']['last']
-    >(({ GroupsReducer }) => GroupsReducer.meta.last);
+        RootReducerState['groupsReducer']['meta']['last']
+    >(({ groupsReducer }) => groupsReducer.meta.last);
 
     // more 버튼 클릭 시 그룹 리스트 더보기
     const handleFetchMoreGroups = useCallback(() => {

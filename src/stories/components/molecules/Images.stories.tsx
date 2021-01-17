@@ -2,8 +2,7 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 import styled from 'libs/styled';
-
-import useImagesInfo from 'hooks/useImagesInfo';
+import useImagesInfo from 'libs/hooks/useImagesInfo';
 
 import DualImages from 'components/molecules/images/DualImages';
 import ImagesBase, { ImagesProps } from 'components/molecules/images/Images';

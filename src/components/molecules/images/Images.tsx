@@ -1,14 +1,12 @@
 import React, { FC, HTMLAttributes, useEffect, useState } from 'react';
 import { filter } from 'underscore';
 
-import ClassName from 'types/ClassName';
 import ImageInfo from 'types/ImageInfo';
 
 import styled from 'libs/styled';
+import useImagesInfo from 'libs/hooks/useImagesInfo';
 
 import ApiStatus from 'constants/ApiStatus';
-
-import useImagesInfo from 'hooks/useImagesInfo';
 
 import DualImages from 'components/molecules/images/DualImages';
 import MultipleImages from 'components/molecules/images/MultipleImages';
@@ -35,7 +33,6 @@ const Images: FC<ImagesProps> = ({ images, ...props }: ImagesProps) => {
     const [loading, setLoading] = useState(true);
 
     const imagesInfo = useImagesInfo(images);
-    console.log(imagesInfo);
 
     // 이미지 전체 로딩 완료 여부
     useEffect(() => {
