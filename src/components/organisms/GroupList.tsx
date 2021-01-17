@@ -24,13 +24,13 @@ const GroupList: FC<GroupListProps> = ({ ...props }) => {
 
     const { status, data, more } = useSelector<
         RootReducerState,
-        Pick<RootReducerState['GroupsReducer'], 'data' | 'status'> &
-            Pick<RootReducerState['GroupsReducer']['meta'], 'more'>
+        Pick<RootReducerState['groupsReducer'], 'data' | 'status'> &
+            Pick<RootReducerState['groupsReducer']['meta'], 'more'>
     >(
-        ({ GroupsReducer }) => ({
-            status: GroupsReducer.status,
-            data: GroupsReducer.data,
-            more: GroupsReducer.meta.more
+        ({ groupsReducer }) => ({
+            status: groupsReducer.status,
+            data: groupsReducer.data,
+            more: groupsReducer.meta.more
         }),
         shallowEqual
     );
