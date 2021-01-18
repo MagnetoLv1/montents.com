@@ -36,6 +36,7 @@ export const ButtonIcon = styled(Icon)`
     width: 3rem;
     height: 3rem;
     margin: 0.8rem 0 0.8rem 0;
+    flex-shrink: 0;
 
     & + * {
         margin-left: 0.8rem;

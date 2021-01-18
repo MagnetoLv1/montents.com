@@ -2,7 +2,7 @@ import React from 'react';
 
 import render from 'libs/testUtils';
 
-import GroupItem, { Mode } from 'components/molecules/GroupItem';
+import GroupItem from 'components/molecules/GroupItem';
 
 describe('Components | Molecules | <GroupItem />', () => {
     const group = {
@@ -24,17 +24,9 @@ describe('Components | Molecules | <GroupItem />', () => {
     });
 
     it('로딩 아이콘 노출', () => {
-        const { getByTestId } = render(<GroupItem mode={Mode.LOADING} />);
+        const { getByTestId } = render(<GroupItem loading />);
 
         const button = getByTestId('loading-button');
-
-        expect(button).toBeInTheDocument();
-    });
-
-    it('그룹 더보기 버튼 노출', () => {
-        const { getByTestId } = render(<GroupItem mode={Mode.MORE} />);
-
-        const button = getByTestId('more-button');
 
         expect(button).toBeInTheDocument();
     });

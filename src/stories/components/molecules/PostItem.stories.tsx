@@ -14,7 +14,7 @@ import PostItemBase, {
 const postData = postsResponse.data[0];
 
 export default {
-    title: 'Components/Molecules/Post',
+    title: 'Components/Molecules/PostItem',
     component: PostItemBase,
     parameters: {
         docs: {
@@ -57,7 +57,7 @@ const PostItem = styled(PostItemBase)`
  * @param loading
  * @constructor
  */
-export const DefaultPostStory: Story<LoadablePostItemProps> = ({
+export const DefaultPostItem: Story<LoadablePostItemProps> = ({
     post,
     loading
 }: LoadablePostItemProps) => (
@@ -66,7 +66,7 @@ export const DefaultPostStory: Story<LoadablePostItemProps> = ({
     </BodyWrap>
 );
 
-DefaultPostStory.storyName = 'Default';
+DefaultPostItem.storyName = 'Default';
 
 /**
  * 게시글 예시 story
@@ -81,7 +81,7 @@ DefaultPostStory.storyName = 'Default';
  */
 interface ExamplePostProps extends Post {}
 
-export const ExamplePostStory: Story<ExamplePostProps> = ({
+export const ExamplePostItem: Story<ExamplePostProps> = ({
     title,
     content,
     created_at,
@@ -103,12 +103,19 @@ export const ExamplePostStory: Story<ExamplePostProps> = ({
     />
 );
 
-ExamplePostStory.args = {
+ExamplePostItem.storyName = 'Example Post';
+
+ExamplePostItem.args = {
     ...postData
 };
 
-ExamplePostStory.argTypes = {
+ExamplePostItem.argTypes = {
     post: {
+        table: {
+            disable: true
+        }
+    },
+    loading: {
         table: {
             disable: true
         }
@@ -140,5 +147,22 @@ ExamplePostStory.argTypes = {
     group: {
         control: 'object',
         description: '게시글 작성된 그룹'
+    }
+};
+
+export const LoadingPostItem: Story = () => <PostItem loading />;
+
+LoadingPostItem.storyName = 'Loading Post';
+
+LoadingPostItem.argTypes = {
+    post: {
+        table: {
+            disable: true
+        }
+    },
+    loading: {
+        table: {
+            disable: true
+        }
     }
 };

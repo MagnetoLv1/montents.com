@@ -1,4 +1,10 @@
-import React, { FC, Fragment, HTMLAttributes, useEffect } from 'react';
+import React, {
+    FC,
+    Fragment,
+    HTMLAttributes,
+    useCallback,
+    useEffect
+} from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
 import styled from 'libs/styled';
@@ -8,7 +14,8 @@ import ApiStatus from 'constants/ApiStatus';
 import { RootReducerState } from 'modules';
 import { groupsAction } from 'modules/GroupsModule';
 
-import GroupItem, { Mode } from 'components/molecules/GroupItem';
+import GroupItem from 'components/molecules/GroupItem';
+import MoreButton from 'components/molecules/MoreButton';
 
 const GroupListStyle = styled.ul`
     display: flex;
@@ -22,18 +29,24 @@ interface GroupListProps extends HTMLAttributes<HTMLUListElement> {}
 const GroupList: FC<GroupListProps> = ({ ...props }) => {
     const dispatch = useDispatch();
 
-    const { status, data, more } = useSelector<
+    const { status, data, more, last } = useSelector<
         RootReducerState,
         Pick<RootReducerState['groupsReducer'], 'data' | 'status'> &
-            Pick<RootReducerState['groupsReducer']['meta'], 'more'>
+            Pick<RootReducerState['groupsReducer']['meta'], 'more' | 'last'>
     >(
         ({ groupsReducer }) => ({
             status: groupsReducer.status,
             data: groupsReducer.data,
-            more: groupsReducer.meta.more
+            more: groupsReducer.meta.more,
+            last: groupsReducer.meta.last
         }),
         shallowEqual
     );
+
+    // more 버튼 클릭 시 그룹 리스트 더보기
+    const handleFetchMoreGroups = useCallback(() => {
+        dispatch(groupsAction.fetchGroups(last));
+    }, [last, dispatch]);
 
     // 첫 그룹 데이터 조회
     useEffect(() => {
@@ -52,7 +65,7 @@ const GroupList: FC<GroupListProps> = ({ ...props }) => {
             ) &&
                 [...Array(3)].map((value, idx) => (
                     <GroupItem
-                        mode={Mode.LOADING}
+                        loading
                         key={`loading_${idx}`}
                         data-testid={
                             status === ApiStatus.ERROR
@@ -73,16 +86,16 @@ const GroupList: FC<GroupListProps> = ({ ...props }) => {
 
                     {/* 더보기 버튼 노출 */}
                     {status === ApiStatus.SUCCESS && more && (
-                        <GroupItem
-                            mode={Mode.MORE}
+                        <MoreButton
                             data-testid="more-group-item"
+                            onClick={handleFetchMoreGroups}
                         />
                     )}
 
                     {/* 더보기 로딩 중 아이콘 노출 */}
                     {status === ApiStatus.MORE_LOADING && (
                         <GroupItem
-                            mode={Mode.LOADING}
+                            loading
                             data-testid="more-loading-group-item"
                         />
                     )}
