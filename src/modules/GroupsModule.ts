@@ -3,6 +3,7 @@ import {
     createReducerFunction,
     ImmerReducer
 } from 'immer-reducer';
+import { cloneDeep } from 'lodash';
 
 import PaginationModule from 'types/api/PaginationModule';
 import Group from 'types/api/response/Group';
@@ -24,13 +25,17 @@ const initialState: GroupsModuleState = {
 class GroupsModule extends ImmerReducer<GroupsModuleState> {
     /**
      * 그릅 리스트 조회
-     * @param last
      */
-    public fetchGroups(last: number | null): void {
-        this.draftState.status =
-            last === null || last <= 0
-                ? ApiStatus.LOADING
-                : ApiStatus.MORE_LOADING;
+    public fetchGroups(): void {
+        this.clearGroups();
+        this.draftState.status = ApiStatus.LOADING;
+    }
+
+    /**
+     * 다음 그룹 리스트 조회
+     */
+    public fetchMoreGroups(): void {
+        this.draftState.status = ApiStatus.MORE_LOADING;
     }
 
     /**
@@ -62,7 +67,7 @@ class GroupsModule extends ImmerReducer<GroupsModuleState> {
      * 그룹 리스트 초기화
      */
     public clearGroups(): void {
-        this.draftState = initialState;
+        this.draftState = cloneDeep(initialState);
     }
 }
 

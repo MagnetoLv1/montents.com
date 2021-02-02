@@ -3,6 +3,7 @@ import {
     createReducerFunction,
     ImmerReducer
 } from 'immer-reducer';
+import { cloneDeep } from 'lodash';
 
 import PaginationModule from 'types/api/PaginationModule';
 import Post from 'types/api/response/Post';
@@ -72,7 +73,7 @@ class PostListModule extends ImmerReducer<PostListModuleState> {
      * 게시글 리스트 초기화
      */
     public clearPostList(): void {
-        this.draftState = initialState;
+        this.draftState = cloneDeep(initialState);
     }
 }
 
