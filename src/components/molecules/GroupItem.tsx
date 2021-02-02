@@ -1,4 +1,4 @@
-import React, { FC, LiHTMLAttributes } from 'react';
+import React, { FC, HTMLAttributes, LiHTMLAttributes } from 'react';
 
 import Group from 'types/api/response/Group';
 
@@ -37,9 +37,13 @@ const GroupItem: FC<GroupItemProps> = ({ group, ...props }: GroupItemProps) => (
     </GroupItemStyle>
 );
 
+interface LoadingGroupItem extends HTMLAttributes<HTMLDivElement> {}
+
 // 그룹 버튼 로딩 UI
-const LoadingGroupItem = () => (
-    <Button data-testid="loading-button">
+const LoadingGroupItem: FC<LoadingGroupItem> = ({
+    ...props
+}: LoadingGroupItem) => (
+    <Button {...props}>
         <ButtonIcon loading />
         <ButtonText loading />
     </Button>

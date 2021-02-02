@@ -24,7 +24,9 @@ describe('Components | Molecules | <GroupItem />', () => {
     });
 
     it('로딩 아이콘 노출', () => {
-        const { getByTestId } = render(<GroupItem loading />);
+        const { getByTestId } = render(
+            <GroupItem data-testid="loading-button" loading />
+        );
 
         const button = getByTestId('loading-button');
 
