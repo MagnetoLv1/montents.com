@@ -1,4 +1,12 @@
-import { call, put, select, takeLatest } from '@redux-saga/core/effects';
+import {
+    call,
+    cancel,
+    fork,
+    put,
+    select,
+    take
+} from '@redux-saga/core/effects';
+import { Task } from 'redux-saga';
 
 import { isPaginationResponse } from 'types/api/response/Pagination';
 import Post, { isPostList } from 'types/api/response/Post';
@@ -8,6 +16,7 @@ import axios from 'libs/axios';
 import Exceptions from 'constants/Exceptions';
 
 import { RootReducerState } from 'modules';
+import { groupsAction } from 'modules/GroupsModule';
 import { postListAction } from 'modules/PostListModule';
 
 /**
@@ -73,15 +82,39 @@ function* callFetchPostListApi(last, group): Generator {
 }
 
 export function* PostListSaga(): Generator {
-    // 게시글 리스트 조회
-    yield takeLatest<ReturnType<typeof postListAction.fetchPostList>>(
-        postListAction.fetchPostList.type,
-        (payload) => fetchPostListSaga(payload)
-    );
+    while (true) {
+        const { type, payload } = (yield take([
+            postListAction.fetchPostList.type,
+            postListAction.fetchMorePostList.type
+        ])) as ReturnType<
+            | typeof postListAction.fetchPostList
+            | typeof postListAction.fetchMorePostList
+        >;
 
-    // 게시글 리스트 더 보기
-    yield takeLatest<ReturnType<typeof postListAction.fetchMorePostList>>(
-        postListAction.fetchMorePostList.type,
-        () => fetchMorePostListSaga()
-    );
+        let fetchGroupTask: null | Task = null;
+        switch (type) {
+            // 게시글 리스트 조회
+            case postListAction.fetchPostList.type:
+                fetchGroupTask = (yield fork(
+                    fetchPostListSaga,
+                    payload
+                )) as Task;
+                break;
+            // 게시글 리스트 더보기
+            case postListAction.fetchMorePostList.type:
+                fetchGroupTask = (yield fork(fetchMorePostListSaga)) as Task;
+                break;
+        }
+
+        yield take([
+            groupsAction.fetchGroupsSuccess.type,
+            groupsAction.fetchGroupsError.type,
+            groupsAction.clearGroups.type
+        ]);
+
+        // 기존 task 종료
+        if (fetchGroupTask !== null) {
+            yield cancel(fetchGroupTask);
+        }
+    }
 }

@@ -1,4 +1,11 @@
-import { call, cancel, fork, put, take } from '@redux-saga/core/effects';
+import {
+    call,
+    cancel,
+    fork,
+    put,
+    select,
+    take
+} from '@redux-saga/core/effects';
 import { Task } from 'redux-saga';
 
 import Group, { isGroupList } from 'types/api/response/Group';
@@ -8,6 +15,7 @@ import axios from 'libs/axios';
 
 import Exceptions from 'constants/Exceptions';
 
+import { RootReducerState } from 'modules';
 import { groupsAction } from 'modules/GroupsModule';
 
 // 그룹 리스트 api 호출
@@ -19,8 +27,26 @@ export const fetchGroupsApi = (last: null | number): Promise<unknown> => {
     return axios.get(`/groups`, { params });
 };
 
+/**
+ * 그룹 리스트 조회 saga
+ */
+function* fetchGroupsSaga() {
+    yield* callFetchGroupsApi(null);
+}
+
+/**
+ * 그룹 리스트 더보기 saga
+ */
+function* fetchMoreGroupsSaga() {
+    const { last } = yield select(({ groupsReducer }: RootReducerState) => ({
+        last: groupsReducer.meta.last
+    }));
+
+    yield* callFetchGroupsApi(last);
+}
+
 // 그룹 리스트 saga
-function* fetchGroupsSaga(last: null | number) {
+function* callFetchGroupsApi(last: number | null) {
     try {
         const response = yield call(fetchGroupsApi, last);
 
@@ -40,16 +66,35 @@ function* fetchGroupsSaga(last: null | number) {
 
 export function* GroupsSaga(): Generator {
     while (true) {
-        const { payload } = (yield take(
-            groupsAction.fetchGroups.type
-        )) as ReturnType<typeof groupsAction.fetchGroups>;
-        const fetchGroupTask = (yield fork(fetchGroupsSaga, payload)) as Task;
+        const { type } = (yield take([
+            groupsAction.fetchGroups.type,
+            groupsAction.fetchMoreGroups.type
+        ])) as ReturnType<
+            | typeof groupsAction.fetchGroups
+            | typeof groupsAction.fetchMoreGroups
+        >;
+
+        let fetchGroupTask: null | Task = null;
+        switch (type) {
+            // 그룹 리스트 조회
+            case groupsAction.fetchGroups.type:
+                fetchGroupTask = (yield fork(fetchGroupsSaga)) as Task;
+                break;
+            // 그룹 리스트 더보기
+            case groupsAction.fetchMoreGroups.type:
+                fetchGroupTask = (yield fork(fetchMoreGroupsSaga)) as Task;
+                break;
+        }
 
         yield take([
             groupsAction.fetchGroupsSuccess.type,
             groupsAction.fetchGroupsError.type,
             groupsAction.clearGroups.type
         ]);
-        yield cancel(fetchGroupTask);
+
+        // 기존 task 종료
+        if (fetchGroupTask !== null) {
+            yield cancel(fetchGroupTask);
+        }
     }
 }
