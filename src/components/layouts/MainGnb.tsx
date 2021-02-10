@@ -19,7 +19,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    top: ${({ theme }) => theme.size.headerHeight};
+    padding-top: ${({ theme }) => theme.size.headerHeight};
     min-height: calc(100vh - ${({ theme }) => theme.size.headerHeight});
 `;
 

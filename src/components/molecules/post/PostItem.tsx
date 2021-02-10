@@ -10,12 +10,15 @@ import Content from 'components/molecules/post/Content';
 import HeaderBase from 'components/molecules/post/Header';
 
 const PostStyle = styled.div`
-    background: ${({ theme }) => theme.colors.surfaceBackground};
-    border-radius: 0.8rem;
-    box-shadow: 0 0.1rem 0.2rem ${({ theme }) => theme.colors.contentShadow};
     display: flex;
     flex-direction: column;
     align-items: stretch;
+
+    overflow: hidden;
+
+    background: ${({ theme }) => theme.colors.surfaceBackground};
+    box-shadow: 0 0.1rem 0.2rem ${({ theme }) => theme.colors.contentShadow};
+    border-radius: 0.8rem;
 `;
 
 const Header = styled(HeaderBase)`

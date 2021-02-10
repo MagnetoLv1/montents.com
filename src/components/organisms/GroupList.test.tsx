@@ -10,7 +10,7 @@ import GroupList from 'components/organisms/GroupList';
 
 describe('Components | Organisms | <GroupList />', () => {
     it('그룹 리스트 조회 (더보기 존재)', async () => {
-        const mock = axiosMock({ delayResponse: 2000 });
+        const mock = axiosMock({ delayResponse: 100 });
         mock.onGet('/groups').reply(200, groupsResponse);
 
         const {
@@ -25,13 +25,13 @@ describe('Components | Organisms | <GroupList />', () => {
         // 로딩 중 버튼 노출 확인
         await waitFor(
             () => expect(getAllByTestId('loading-group-item').length).toBe(3),
-            { timeout: 5000 }
+            { timeout: 300 }
         );
 
         // 그룹 리스트 로딩 후 리스트 노출 확인
         for (const group of groups) {
             const groupItems = await findAllByText(group.name, undefined, {
-                timeout: 5000
+                timeout: 300
             });
 
             expect(groupItems.length).toBeGreaterThanOrEqual(1);
@@ -41,18 +41,18 @@ describe('Components | Organisms | <GroupList />', () => {
         // 더보기 버튼 확인
         await waitFor(
             () => expect(getByTestId('more-group-item')).toBeInTheDocument(),
-            { timeout: 5000 }
+            { timeout: 300 }
         );
 
         // 더보기 버튼 클릭
-        const moreButton = await findByTestId('more-button');
+        const moreButton = await findByTestId('more-group-item');
         fireEvent.click(moreButton);
 
         // 더보기 로딩 확인
         const moreLoadingGroupItem = await findByTestId(
             'more-loading-group-item',
             undefined,
-            { timeout: 5000 }
+            { timeout: 300 }
         );
 
         expect(moreLoadingGroupItem).toBeInTheDocument();
@@ -64,7 +64,7 @@ describe('Components | Organisms | <GroupList />', () => {
             more: false
         };
 
-        const mock = axiosMock({ delayResponse: 2000 });
+        const mock = axiosMock({ delayResponse: 100 });
         mock.onGet('/groups').reply(200, lastGroupResponse);
 
         const { findAllByText, findAllByTestId, queryAllByTestId } = render(
@@ -80,7 +80,7 @@ describe('Components | Organisms | <GroupList />', () => {
         // 그룹 리스트 로딩 후 리스트 노출 확인
         for (const group of groups) {
             const groupItems = await findAllByText(group.name, undefined, {
-                timeout: 5000
+                timeout: 300
             });
 
             expect(groupItems.length).toBeGreaterThanOrEqual(1);
@@ -95,7 +95,7 @@ describe('Components | Organisms | <GroupList />', () => {
 
     // 그룹 리스트 가져오는 중 에러 발생 테스트
     it('Loading and error', async () => {
-        const mock = axiosMock({ delayResponse: 2000 });
+        const mock = axiosMock({ delayResponse: 100 });
         mock.onGet('/groups').reply(515, { message: '테스트 오류 발생' });
 
         const { findAllByTestId } = render(<GroupList />);
@@ -108,7 +108,7 @@ describe('Components | Organisms | <GroupList />', () => {
         const errorGroupsItems = await findAllByTestId(
             'error-group-item',
             undefined,
-            { timeout: 5000 }
+            { timeout: 300 }
         );
 
         expect(errorGroupsItems.length).toBe(3);

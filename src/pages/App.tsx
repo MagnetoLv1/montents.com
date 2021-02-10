@@ -13,12 +13,12 @@ const App: FC = () => (
         <MainGnb>
             <Switch>
                 {/* 메인 */}
-                <Route path="/" exact>
+                <Route path="/:group*">
                     <Index />
                 </Route>
 
                 {/* 존재하지 않는 페이지 접근 시 메인으로 이동 */}
-                <Redirect to={'/'} />
+                <Redirect from="*" to={'/'} />
             </Switch>
         </MainGnb>
     </AppProvider>

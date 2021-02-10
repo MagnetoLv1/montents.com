@@ -29,28 +29,27 @@ interface GroupListProps extends HTMLAttributes<HTMLUListElement> {}
 const GroupList: FC<GroupListProps> = ({ ...props }) => {
     const dispatch = useDispatch();
 
-    const { status, data, more, last } = useSelector<
+    const { status, data, more } = useSelector<
         RootReducerState,
         Pick<RootReducerState['groupsReducer'], 'data' | 'status'> &
-            Pick<RootReducerState['groupsReducer']['meta'], 'more' | 'last'>
+            Pick<RootReducerState['groupsReducer']['meta'], 'more'>
     >(
         ({ groupsReducer }) => ({
             status: groupsReducer.status,
             data: groupsReducer.data,
-            more: groupsReducer.meta.more,
-            last: groupsReducer.meta.last
+            more: groupsReducer.meta.more
         }),
         shallowEqual
     );
 
     // more 버튼 클릭 시 그룹 리스트 더보기
     const handleFetchMoreGroups = useCallback(() => {
-        dispatch(groupsAction.fetchGroups(last));
-    }, [last, dispatch]);
+        dispatch(groupsAction.fetchMoreGroups());
+    }, [dispatch]);
 
     // 첫 그룹 데이터 조회
     useEffect(() => {
-        dispatch(groupsAction.fetchGroups(null));
+        dispatch(groupsAction.fetchGroups());
 
         return () => {
             dispatch(groupsAction.clearGroups());

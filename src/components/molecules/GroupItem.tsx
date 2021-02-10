@@ -1,4 +1,5 @@
 import React, { FC, HTMLAttributes, LiHTMLAttributes } from 'react';
+import { useHistory } from 'react-router';
 
 import Group from 'types/api/response/Group';
 
@@ -27,15 +28,24 @@ export interface GroupItemProps extends LiHTMLAttributes<HTMLLIElement> {
     group: Group;
 }
 
-const GroupItem: FC<GroupItemProps> = ({ group, ...props }: GroupItemProps) => (
-    <GroupItemStyle {...props}>
-        {/* 그룹 데이터 버튼 */}
-        <Button>
-            <ButtonIcon src={group.icon} alt={group.name} />
-            <ButtonText>{group.name}</ButtonText>
-        </Button>
-    </GroupItemStyle>
-);
+const GroupItem: FC<GroupItemProps> = ({ group, ...props }: GroupItemProps) => {
+    const history = useHistory();
+
+    // 그룹 클릭 시 페이지 이동
+    const handleClick = () => {
+        history.push(`/${group.idx}`);
+    };
+
+    return (
+        <GroupItemStyle onClick={handleClick} {...props}>
+            {/* 그룹 데이터 버튼 */}
+            <Button>
+                <ButtonIcon src={group.icon} alt={group.name} />
+                <ButtonText>{group.name}</ButtonText>
+            </Button>
+        </GroupItemStyle>
+    );
+};
 
 interface LoadingGroupItem extends HTMLAttributes<HTMLDivElement> {}
 

@@ -1,4 +1,5 @@
 import React, { FC, HTMLAttributes } from 'react';
+import { Link } from '@reach/router';
 
 import LogoSvg from 'assets/images/logo.svg';
 
@@ -29,7 +30,9 @@ const Header: FC<HTMLAttributes<HTMLDivElement>> = ({
     className
 }: HTMLAttributes<HTMLDivElement>) => (
     <HeaderStyle data-testid="header" className={className}>
-        <Logo src={LogoSvg} alt="montents" title="logo" />
+        <Link to="/">
+            <Logo src={LogoSvg} alt="montents" title="logo" />
+        </Link>
     </HeaderStyle>
 );
 

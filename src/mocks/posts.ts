@@ -14,12 +14,16 @@ const posts: ApiMock = (mock) => {
         if (group !== null) return [200, postsResponseGroup1];
 
         let result = postsResponse1;
-        if (last < postsResponse1.data[postsResponse1.data.length - 1].idx)
-            result = postsResponse2;
-        if (last < postsResponse2.data[postsResponse2.data.length - 1].idx)
-            result = postsResponse3;
-        if (last < postsResponse3.data[postsResponse3.data.length - 1].idx)
-            result = postsResponse4;
+        if (last !== null) {
+            if (last <= postsResponse1.data[postsResponse1.data.length - 1].idx)
+                result = postsResponse2;
+            if (last <= postsResponse2.data[postsResponse2.data.length - 1].idx)
+                result = postsResponse3;
+            if (last <= postsResponse3.data[postsResponse3.data.length - 1].idx)
+                result = postsResponse4;
+            if (last <= postsResponse4.data[postsResponse4.data.length - 1].idx)
+                return [515, { message: '리스트가 없습니다.' }];
+        }
 
         return [200, result];
     });
