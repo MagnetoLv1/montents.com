@@ -12,7 +12,6 @@
         "@types/underscore": "^1.10.24",
         "axios": "^0.21.0",
         "emotion-theming": "^10",
-        "history": "^5.0.0",
         "immer-reducer": "^0.7.10",
         "lodash": "^4.17.20",
         "moment": "^2.29.1",

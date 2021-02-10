@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { Redirect } from '@reach/router';
 
 import AppProvider from 'libs/AppProvider';
+import RestoreScroll from 'libs/RestoreScroll';
 
 import Index from 'pages/index';
 
@@ -10,6 +11,7 @@ import MainGnb from 'components/layouts/MainGnb';
 
 const App: FC = () => (
     <AppProvider>
+        <RestoreScroll />
         <MainGnb>
             <Switch>
                 {/* 메인 */}
