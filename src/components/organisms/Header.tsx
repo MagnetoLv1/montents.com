@@ -1,5 +1,5 @@
 import React, { FC, HTMLAttributes } from 'react';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 
 import LogoSvg from 'assets/images/logo.svg';
 
