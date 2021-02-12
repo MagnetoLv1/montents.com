@@ -7,6 +7,8 @@ interface Post {
     url: string;
     created_at: string;
     images: string[];
+    like_cnt: number;
+    comment_cnt: number;
     group: Group;
 }
 
@@ -19,6 +21,8 @@ export const isPost = (item: unknown): item is Post => {
         typeof post.content === 'string' &&
         typeof post.url === 'string' &&
         typeof post.created_at === 'string' &&
+        typeof post.like_cnt === 'number' &&
+        typeof post.comment_cnt === 'number' &&
         Array.isArray(post.images) &&
         post.images.every((image: unknown) => typeof image === 'string') &&
         isGroup(post.group)
