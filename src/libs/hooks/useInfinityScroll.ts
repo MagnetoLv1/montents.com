@@ -45,7 +45,7 @@ const useInfinityScroll = (
 
         if (element === null || scrollHandler === null) return;
 
-        scrollHandler = throttle(scrollHandler, 2000);
+        scrollHandler = throttle(scrollHandler, 100);
         element.addEventListener('scroll', scrollHandler);
 
         return () => {
