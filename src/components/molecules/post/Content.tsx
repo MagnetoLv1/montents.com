@@ -1,11 +1,14 @@
-import React, { FC, HTMLAttributes } from 'react';
+import React, { FC, HTMLAttributes, useContext } from 'react';
 
-import Post from 'types/api/response/Post';
+import TypeError from 'errors/TypeError';
+
+import { isPost } from 'types/api/response/Post';
 
 import styled from 'libs/styled';
 import withLoading from 'libs/hoc/withLoading';
 
 import Images from 'components/molecules/images/Images';
+import PostItemContext from 'components/molecules/post/PostItem.context';
 import TextContentBase from 'components/atoms/TextContent';
 
 const ContentStyle = styled.div`
@@ -17,19 +20,22 @@ const TextContent = styled(TextContentBase)`
     padding: 0.4rem 1.6rem 1.6rem 1.6rem;
 `;
 
-interface ContentProps extends HTMLAttributes<HTMLDivElement> {
-    post: Post;
-}
+interface ContentProps extends HTMLAttributes<HTMLDivElement> {}
 
-const Content: FC<ContentProps> = ({ post, ...props }: ContentProps) => (
-    <ContentStyle {...props}>
-        {/* 문자 내용 영역 */}
-        <TextContent content={post.content} />
+const Content: FC<ContentProps> = ({ ...props }: ContentProps) => {
+    const post = useContext(PostItemContext);
+    if (!isPost(post)) throw new TypeError('post', 'Post');
 
-        {/* 이미지 영역 */}
-        <Images images={post.images} />
-    </ContentStyle>
-);
+    return (
+        <ContentStyle {...props}>
+            {/* 문자 내용 영역 */}
+            <TextContent content={post.content} />
+
+            {/* 이미지 영역 */}
+            <Images images={post.images} />
+        </ContentStyle>
+    );
+};
 
 // 게시글 내용 로딩 컴포넌트
 const LoadingContent = styled.div`

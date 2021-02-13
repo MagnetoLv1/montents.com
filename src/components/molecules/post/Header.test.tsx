@@ -6,19 +6,27 @@ import posts from 'data/posts/get_1.json';
 import render from 'libs/testUtils';
 
 import Header from 'components/molecules/post/Header';
+import PostItemContext from 'components/molecules/post/PostItem.context';
 
 describe('Components | Molecules | post | <Header />', () => {
-    describe('기본 상태 테스트', () => {
-        const post = posts.data[0],
-            group = post.group;
+    const post = posts.data[0],
+        group = post.group;
 
+    const renderHeader = () =>
+        render(
+            <PostItemContext.Provider value={post}>
+                <Header />
+            </PostItemContext.Provider>
+        );
+
+    describe('기본 상태 테스트', () => {
         it('그룹 아이콘 노출', () => {
-            const { getByAltText } = render(<Header post={post} />);
+            const { getByAltText } = renderHeader();
             expect(getByAltText(group.name)).toHaveAttribute('src', group.icon);
         });
 
         it('게시글 제목 및 그룹 명 노출', () => {
-            const { getByText } = render(<Header post={post} />);
+            const { getByText } = renderHeader();
 
             expect(getByText(post.title.trim())).toHaveAttribute(
                 'href',
@@ -28,7 +36,7 @@ describe('Components | Molecules | post | <Header />', () => {
         });
 
         it('업로드 날짜 노출', () => {
-            const { getByText } = render(<Header post={post} />);
+            const { getByText } = renderHeader();
 
             const date = moment(post.created_at),
                 pastTimeText = date.fromNow(),

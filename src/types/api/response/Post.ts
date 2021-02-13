@@ -16,6 +16,8 @@ export const isPost = (item: unknown): item is Post => {
     const post = item as Post;
 
     return (
+        post &&
+        typeof post === 'object' &&
         typeof post.idx === 'number' &&
         typeof post.title === 'string' &&
         typeof post.content === 'string' &&

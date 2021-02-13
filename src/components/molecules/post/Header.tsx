@@ -1,13 +1,16 @@
-import React, { FC, HTMLAttributes, useMemo } from 'react';
+import React, { FC, HTMLAttributes, useContext, useMemo } from 'react';
 import moment from 'moment';
 
 import RightArrowSvg from 'assets/images/right_filled_arrow.svg';
 
-import Post from 'types/api/response/Post';
+import TypeError from 'errors/TypeError';
+
+import { isPost } from 'types/api/response/Post';
 
 import styled from 'libs/styled';
 import withLoading, { LoadableComponentProps } from 'libs/hoc/withLoading';
 
+import PostItemContext from 'components/molecules/post/PostItem.context';
 import Anchor from 'components/atoms/Anchor';
 import Icon from 'components/atoms/Icon';
 import Image from 'components/atoms/Image';
@@ -72,11 +75,12 @@ const DateText = styled(Text)`
     width: 20rem;
 `;
 
-interface HeaderProps extends HTMLAttributes<HTMLDivElement> {
-    post: Post;
-}
+interface HeaderProps extends HTMLAttributes<HTMLDivElement> {}
 
-const Header: FC<HeaderProps> = ({ post, ...props }: HeaderProps) => {
+const Header: FC<HeaderProps> = ({ ...props }: HeaderProps) => {
+    const post = useContext(PostItemContext);
+    if (!isPost(post)) throw new TypeError('post', 'Post');
+
     const { group, created_at: createAt } = post;
 
     const { pastTimeText, dateText } = useMemo(() => {

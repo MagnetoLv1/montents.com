@@ -8,6 +8,7 @@ import withLoading, { LoadableComponentProps } from 'libs/hoc/withLoading';
 
 import Content from 'components/molecules/post/Content';
 import HeaderBase from 'components/molecules/post/Header';
+import PostItemContext from 'components/molecules/post/PostItem.context';
 
 const PostStyle = styled.div`
     display: flex;
@@ -30,13 +31,15 @@ interface PostItemProps extends ClassName {
 }
 
 const PostItem: FC<PostItemProps> = ({ post, className }: PostItemProps) => (
-    <PostStyle className={className}>
-        {/* 게시글 헤더 영역 */}
-        <Header post={post} data-testid="post-header" />
+    <PostItemContext.Provider value={post}>
+        <PostStyle className={className}>
+            {/* 게시글 헤더 영역 */}
+            <Header data-testid="post-header" />
 
-        {/* 게시글 내용 영역 */}
-        <Content post={post} data-testid="post-content" />
-    </PostStyle>
+            {/* 게시글 내용 영역 */}
+            <Content data-testid="post-content" />
+        </PostStyle>
+    </PostItemContext.Provider>
 );
 
 // 게시글 로딩 컴포넌트
