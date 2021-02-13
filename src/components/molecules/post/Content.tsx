@@ -7,7 +7,7 @@ import { isPost } from 'types/api/response/Post';
 import styled from 'libs/styled';
 import withLoading from 'libs/hoc/withLoading';
 
-import Images from 'components/molecules/images/Images';
+import ImagesBase from 'components/molecules/images/Images';
 import PostItemContext from 'components/molecules/post/PostItem.context';
 import TextContentBase from 'components/atoms/TextContent';
 
@@ -17,7 +17,11 @@ const ContentStyle = styled.div`
 `;
 
 const TextContent = styled(TextContentBase)`
-    padding: 0.4rem 1.6rem 1.6rem 1.6rem;
+    padding: 0.4rem 1.6rem;
+`;
+
+const Images = styled(ImagesBase)`
+    margin-top: 1.2rem;
 `;
 
 interface ContentProps extends HTMLAttributes<HTMLDivElement> {}

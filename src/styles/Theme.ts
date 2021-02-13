@@ -12,7 +12,9 @@ export const theme = {
 
         contentShadow: 'rgba(0, 0, 0, 0.2)',
 
-        primaryText: '#050505'
+        primaryText: '#050505',
+
+        divider: '#ccc'
     },
     size: {
         headerHeight: '6rem'

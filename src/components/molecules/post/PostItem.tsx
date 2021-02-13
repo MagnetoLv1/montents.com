@@ -7,6 +7,7 @@ import styled from 'libs/styled';
 import withLoading, { LoadableComponentProps } from 'libs/hoc/withLoading';
 
 import Content from 'components/molecules/post/Content';
+import Footer from 'components/molecules/post/Footer';
 import HeaderBase from 'components/molecules/post/Header';
 import PostItemContext from 'components/molecules/post/PostItem.context';
 
@@ -38,6 +39,9 @@ const PostItem: FC<PostItemProps> = ({ post, className }: PostItemProps) => (
 
             {/* 게시글 내용 영역 */}
             <Content data-testid="post-content" />
+
+            {/* 게시글 하단 영역 */}
+            <Footer data-testid="post-footer" />
         </PostStyle>
     </PostItemContext.Provider>
 );
