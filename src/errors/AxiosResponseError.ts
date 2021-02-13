@@ -1,10 +1,10 @@
 // custom axios error
-class AxiosResponseError extends Error {
+import CommonError from 'errors/CommonError';
+
+class AxiosResponseError extends CommonError {
     constructor(message?: unknown) {
-        message =
-            typeof message === 'string' ? message : '오류가 발생하였습니다.';
-        super(message as string);
-        this.name = 'AxiosError';
+        super(typeof message === 'string' ? message : null);
+        this.name = 'AxiosResponseError';
     }
 }
 
