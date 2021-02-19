@@ -19,6 +19,11 @@ describe('Components | Molecules | post | <Post />', () => {
         expect(getByTestId('post-content')).toBeInTheDocument();
     });
 
+    it('푸터 노출 확인', () => {
+        const { getByTestId } = render(<PostItem post={post} />);
+        expect(getByTestId('post-footer')).toBeInTheDocument();
+    });
+
     it('로딩 상태 시 로딩 UI 노출 확인', () => {
         const { getByTestId } = render(<PostItem loading />);
         expect(getByTestId('post-loading')).toBeInTheDocument();

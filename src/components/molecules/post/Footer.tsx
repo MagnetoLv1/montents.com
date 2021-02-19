@@ -67,7 +67,7 @@ const Footer: FC<FooterProps> = (props: FooterProps) => {
                 {/* 댓글 갯수 */}
                 <InfoItem>
                     <CountText>
-                        댓글 {post.comment_cnt.convertKorean()}개
+                        댓글 <span>{post.comment_cnt.convertKorean()}</span>개
                     </CountText>
                 </InfoItem>
             </InfoContainer>
