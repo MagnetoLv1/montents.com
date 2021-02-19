@@ -7,6 +7,7 @@ import TypeError from 'errors/TypeError';
 
 import { isPost } from 'types/api/response/Post';
 
+import { useRebuild } from 'libs/react-tooltip';
 import styled from 'libs/styled';
 import withLoading, { LoadableComponentProps } from 'libs/hoc/withLoading';
 
@@ -90,6 +91,9 @@ const Header: FC<HeaderProps> = ({ ...props }: HeaderProps) => {
             dateText: date.format('YYYY년 M월 D일 dddd a h:m')
         };
     }, [createAt]);
+
+    // tooltip rebuild
+    useRebuild();
 
     return (
         <HeaderStyle {...props}>

@@ -101,4 +101,14 @@ export const GlobalStyle = (theme: Theme): ReturnType<typeof css> => css`
             text-decoration: underline;
         }
     }
+
+    #root {
+        position: relative;
+        z-index: 1;
+    }
+
+    #modal {
+        position: relative;
+        z-index: 2;
+    }
 `;

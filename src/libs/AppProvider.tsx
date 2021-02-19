@@ -9,6 +9,9 @@ import 'libs/prototypes';
 
 import { initApiMock } from 'mocks';
 
+import Modal from 'libs/Modal';
+import ReactTooltip from 'libs/react-tooltip';
+
 import { USE_API_MOCK } from 'constants/env';
 
 import { store } from 'modules';
@@ -32,6 +35,9 @@ const AppProvider: FC = ({ children }) => (
             <Global styles={GlobalStyle} />
             <Router>{children}</Router>
         </ThemeProvider>
+        <Modal>
+            <ReactTooltip />
+        </Modal>
     </Provider>
 );
 

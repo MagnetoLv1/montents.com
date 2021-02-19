@@ -1,6 +1,5 @@
 import React, { FC, HTMLAttributes } from 'react';
 
-import ClassName from 'types/ClassName';
 import ImageInfo from 'types/ImageInfo';
 
 import styled from 'libs/styled';
