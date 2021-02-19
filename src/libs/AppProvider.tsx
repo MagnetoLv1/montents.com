@@ -5,6 +5,7 @@ import { Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 
 import 'config/moment/locale';
+import 'libs/prototypes';
 
 import { initApiMock } from 'mocks';
 
