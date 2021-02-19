@@ -88,19 +88,25 @@ export const ExamplePostItem: Story<ExamplePostProps> = ({
     group,
     idx,
     images,
-    url
+    url,
+    like_cnt = 0,
+    comment_cnt = 0
 }: ExamplePostProps) => (
-    <PostItem
-        post={{
-            idx,
-            title,
-            content,
-            created_at,
-            group,
-            images,
-            url
-        }}
-    />
+    <BodyWrap>
+        <PostItem
+            post={{
+                idx,
+                title,
+                content,
+                created_at,
+                group,
+                images,
+                url,
+                like_cnt,
+                comment_cnt
+            }}
+        />
+    </BodyWrap>
 );
 
 ExamplePostItem.storyName = 'Example Post';
@@ -136,6 +142,14 @@ ExamplePostItem.argTypes = {
         control: 'text',
         description: '게시글 원문 url'
     },
+    like_cnt: {
+        control: 'number',
+        description: '좋아요 갯수'
+    },
+    comment_cnt: {
+        control: 'number',
+        description: '좋아요 갯수'
+    },
     created_at: {
         control: 'date',
         description: '작성 날짜'
@@ -150,7 +164,11 @@ ExamplePostItem.argTypes = {
     }
 };
 
-export const LoadingPostItem: Story = () => <PostItem loading />;
+export const LoadingPostItem: Story = () => (
+    <BodyWrap>
+        <PostItem loading />
+    </BodyWrap>
+);
 
 LoadingPostItem.storyName = 'Loading Post';
 

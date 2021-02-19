@@ -99,7 +99,7 @@ const Header: FC<HeaderProps> = ({ ...props }: HeaderProps) => {
         <HeaderStyle {...props}>
             {/* 커뮤니티 그룹 아이콘역 영역 */}
             <GroupIconContainer>
-                <Anchor href={group.url}>
+                <Anchor href={group.url} target="_blank">
                     <GroupIcon src={group.icon} alt={group.name} />
                 </Anchor>
             </GroupIconContainer>
@@ -109,7 +109,9 @@ const Header: FC<HeaderProps> = ({ ...props }: HeaderProps) => {
                 {/* 제목 노출 영역 */}
                 <TitleContainer>
                     {/* 커뮤니티 그룹 이름 */}
-                    <GroupAnchor href={group.url}>{group.name}</GroupAnchor>
+                    <GroupAnchor href={group.url} target="_blank">
+                        {group.name}
+                    </GroupAnchor>
 
                     <RightArrow src={RightArrowSvg} alt="arrow" />
 
