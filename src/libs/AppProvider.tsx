@@ -17,7 +17,7 @@ import { USE_API_MOCK } from 'constants/env';
 import { store } from 'modules';
 
 import { GlobalStyle } from 'styles/GlobalStyle';
-import { theme } from 'styles/Theme';
+import { theme } from 'styles/theme';
 
 // api 모킹 추가 (USE_API_MOCK 에 따라 on/off)
 if (USE_API_MOCK) {

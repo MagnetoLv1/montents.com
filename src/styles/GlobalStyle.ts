@@ -16,7 +16,7 @@ import NanumGothicTtf from 'assets/fonts/Nanum-Gothic.ttf';
 import NanumGothicWoff from 'assets/fonts/Nanum-Gothic.woff';
 import NanumGothicWoff2 from 'assets/fonts/Nanum-Gothic.woff2';
 
-import { Theme } from 'styles/Theme';
+import { Theme } from 'styles/theme';
 
 export const GlobalStyle = (theme: Theme): ReturnType<typeof css> => css`
     @font-face {
