@@ -16,21 +16,14 @@ describe('templates | <MainGnb/>', () => {
 
     it('헤더 노출', () => {
         const { getByTestId } = initTest();
-        const header = getByTestId('header');
-
-        expect(header).toBeInTheDocument();
+        expect(getByTestId('main-gnb-header')).toBeInTheDocument();
     });
 
     it('좌측 메뉴 영역 노출', () => {
         const { getByTestId } = initTest();
 
-        // 좌측 영역 존재 확인
-        const leftArea = getByTestId('left-area');
-        expect(leftArea).toBeInTheDocument();
-
-        // left panel 존재 확인
-        const leftPanel = getByTestId('left-panel');
-        expect(leftPanel).toBeInTheDocument();
+        expect(getByTestId('left-area')).toBeInTheDocument(); // 좌측 영역 존재 확인
+        expect(getByTestId('left-panel')).toBeInTheDocument(); // left panel 존재 확인
     });
 
     it('children 노출', () => {

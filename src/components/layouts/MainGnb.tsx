@@ -2,8 +2,10 @@ import React, { FC, PropsWithChildren } from 'react';
 
 import styled from 'libs/styled';
 
-import HeaderBase from 'components/organisms/Header';
-import LeftPanelBase from 'components/organisms/LeftPanel';
+import HeaderBase from 'components/organisms/gnb/main/Header';
+import LeftPanelBase from 'components/organisms/gnb/main/LeftPanel';
+
+const headerHeight = '6rem';
 
 const Header = styled(HeaderBase)`
     position: fixed;
@@ -12,9 +14,12 @@ const Header = styled(HeaderBase)`
     top: 0;
     left: 0;
 
-    height: ${({ theme }) => theme.size.headerHeight};
+    height: ${headerHeight};
     box-sizing: border-box;
     padding: 0 1.5rem;
+
+    background: ${({ theme }) => theme.colors.surfaceBackground};
+    box-shadow: ${({ theme }) => theme.effect.shadow};
 `;
 
 const Container = styled.div`
@@ -23,8 +28,8 @@ const Container = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: ${({ theme }) => theme.size.headerHeight};
-    min-height: calc(100vh - ${({ theme }) => theme.size.headerHeight});
+    padding-top: ${headerHeight};
+    min-height: calc(100vh - 6rem);
 `;
 
 const SideContainer = styled.div`
@@ -75,7 +80,7 @@ const Contents = styled.div`
 
 const MainGnb: FC = ({ children }: PropsWithChildren<null>) => (
     <div>
-        <Header />
+        <Header data-testid="main-gnb-header" />
         <Container>
             {/* 좌측 네비게이션 */}
             <SideContainer data-testid="left-area">
