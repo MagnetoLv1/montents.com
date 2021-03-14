@@ -25,11 +25,12 @@ const Icon: FC<IconProps> = ({
     children,
     src,
     alt,
+    title,
     ...divProps
 }: IconProps) => (
     <IconStyle {...divProps}>
         {children && children}
-        {!children && src && <Image src={src} alt={alt} />}
+        {!children && src && <Image src={src} alt={alt} title={title} />}
     </IconStyle>
 );
 
