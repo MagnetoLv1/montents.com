@@ -23,9 +23,6 @@ export const theme = {
         // divider color
         divider: '#ccc'
     },
-    size: {
-        headerHeight: '6rem'
-    },
     effect: {
         contentLoadingOpacity: 0.25,
 
