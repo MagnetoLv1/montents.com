@@ -11,6 +11,10 @@ const Header = styled(HeaderBase)`
     right: 0;
     top: 0;
     left: 0;
+
+    height: ${({ theme }) => theme.size.headerHeight};
+    box-sizing: border-box;
+    padding: 0 1.5rem;
 `;
 
 const Container = styled.div`

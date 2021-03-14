@@ -13,10 +13,6 @@ const HeaderStyle = styled('header')`
     justify-content: space-between;
     align-items: center;
 
-    height: ${({ theme }) => theme.size.headerHeight};
-    box-sizing: border-box;
-    padding: 0 1.5rem;
-
     background: ${({ theme }) => theme.colors.surfaceBackground};
     box-shadow: ${({ theme }) => theme.effect.shadow};
 `;
