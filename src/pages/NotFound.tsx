@@ -4,6 +4,7 @@ import NotFoundSvg from 'assets/images/not_found.svg';
 
 import styled from 'libs/styled';
 
+import MainGnb from 'components/layouts/MainGnb';
 import { ButtonText } from 'components/atoms/Button';
 import IconBase from 'components/atoms/Icon';
 import LinkButtonBase from 'components/atoms/LinkButton';
@@ -45,8 +46,8 @@ const LinkButton = styled(LinkButtonBase)`
     color: ${({ theme }) => theme.colors.whiteText};
 `;
 
-const NotFound: FC = () => {
-    return (
+const NotFound: FC = () => (
+    <MainGnb>
         <NotFoundStyle>
             <Icon src={NotFoundSvg} />
             <MessageContainer>
@@ -58,7 +59,7 @@ const NotFound: FC = () => {
                 <ButtonText>메인으로 이동하기</ButtonText>
             </LinkButton>
         </NotFoundStyle>
-    );
-};
+    </MainGnb>
+);
 
 export default NotFound;

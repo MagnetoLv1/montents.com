@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { useParams } from 'react-router';
 
+import MainGnb from 'components/layouts/MainGnb';
 import PostList from 'components/organisms/PostList';
 
 const Index: FC = () => {
@@ -10,7 +11,11 @@ const Index: FC = () => {
             ? null
             : parseInt(groupParam);
 
-    return <PostList group={group} />;
+    return (
+        <MainGnb>
+            <PostList group={group} />
+        </MainGnb>
+    );
 };
 
 export default Index;
