@@ -7,7 +7,7 @@ import styled from 'libs/styled';
 
 import GroupItem, {
     LoadableGroupItemProps
-} from 'components/molecules/GroupItem';
+} from 'components/molecules/group/GroupItem';
 
 const groupData = groupResponse.data[0];
 

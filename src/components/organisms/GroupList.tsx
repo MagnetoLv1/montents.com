@@ -14,7 +14,7 @@ import ApiStatus from 'constants/ApiStatus';
 import { RootReducerState } from 'modules';
 import { groupsAction } from 'modules/GroupsModule';
 
-import GroupItem from 'components/molecules/GroupItem';
+import GroupItem from 'components/molecules/group/GroupItem';
 import MoreButton from 'components/molecules/MoreButton';
 
 const GroupListStyle = styled.ul`

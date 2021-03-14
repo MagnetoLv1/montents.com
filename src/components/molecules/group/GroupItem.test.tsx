@@ -2,9 +2,9 @@ import React from 'react';
 
 import render from 'libs/testUtils';
 
-import GroupItem from 'components/molecules/GroupItem';
+import GroupItem from 'components/molecules/group/GroupItem';
 
-describe('Components | Molecules | <GroupItem />', () => {
+describe('Components | Molecules | Group | <GroupItem />', () => {
     const group = {
         idx: 5,
         name: 'Inven',
