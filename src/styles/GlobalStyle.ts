@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 import NanumGothicBoldEot from 'assets/fonts/Nanum-Gothic-Bold.eot';
 import NanumGothicBoldSvg from 'assets/fonts/Nanum-Gothic-Bold.svg';

@@ -1,8 +1,7 @@
 import React, { FC, HTMLAttributes } from 'react';
+import styled from '@emotion/styled';
 
 import DownArrowSvg from 'assets/images/down_arrow.svg';
-
-import styled from 'libs/styled';
 
 import Button, { ButtonIcon, ButtonText } from 'components/atoms/Button';
 import Image from 'components/atoms/Image';

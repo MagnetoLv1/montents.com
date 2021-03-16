@@ -1,6 +1,5 @@
 import React, { FC, PropsWithChildren } from 'react';
-
-import styled from 'libs/styled';
+import styled from '@emotion/styled';
 
 import HeaderBase from 'components/organisms/gnb/main/Header';
 import LeftPanelBase from 'components/organisms/gnb/main/LeftPanel';

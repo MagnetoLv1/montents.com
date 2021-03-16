@@ -1,9 +1,8 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import { Story } from '@storybook/react';
 
 import groupResponse from 'data/groups/get_1.json';
-
-import styled from 'libs/styled';
 
 import GroupItem, {
     LoadableGroupItemProps

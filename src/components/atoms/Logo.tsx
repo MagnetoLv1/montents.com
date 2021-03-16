@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
+import styled from '@emotion/styled';
 
 import LogoSvg from 'assets/images/logo.svg';
-
-import styled from 'libs/styled';
 
 import IconBase from 'components/atoms/Icon';
 

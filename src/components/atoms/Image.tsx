@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-
-import styled from 'libs/styled';
+import styled from '@emotion/styled';
 
 const Img = styled.img`
     position: relative;

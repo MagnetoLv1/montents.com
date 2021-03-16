@@ -1,10 +1,10 @@
 import React, { FC, HTMLAttributes, useContext } from 'react';
+import styled from '@emotion/styled';
 
 import TypeError from 'errors/TypeError';
 
 import { isPost } from 'types/api/response/Post';
 
-import styled from 'libs/styled';
 import withLoading from 'libs/hoc/withLoading';
 
 import ImagesBase from 'components/molecules/images/Images';

@@ -1,9 +1,9 @@
 import React, { FC, HTMLAttributes, LiHTMLAttributes } from 'react';
 import { useHistory } from 'react-router';
+import styled from '@emotion/styled';
 
 import Group from 'types/api/response/Group';
 
-import styled from 'libs/styled';
 import withLoading, { LoadableComponentProps } from 'libs/hoc/withLoading';
 
 import Button, {

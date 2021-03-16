@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
+import styled from '@emotion/styled';
 
 import NotFoundSvg from 'assets/images/not_found.svg';
-
-import styled from 'libs/styled';
 
 import MainGnb from 'components/layouts/MainGnb';
 import { ButtonText } from 'components/atoms/Button';

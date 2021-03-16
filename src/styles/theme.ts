@@ -1,6 +1,31 @@
 import deepmerge from 'deepmerge';
 
-export const theme = {
+export interface Theme {
+    colors: {
+        bodyBackground: string;
+        surfaceBackground: string;
+        loadingBackground: string;
+        hoverBackground: string;
+        primaryButtonBackground: string;
+
+        grayIcon: string;
+
+        contentShadow: string;
+
+        primaryText: string;
+        secondaryText: string;
+        whiteText: string;
+
+        divider: string;
+    };
+
+    effect: {
+        contentLoadingOpacity: number;
+        shadow: string;
+    };
+}
+
+export const theme: Theme = {
     colors: {
         // 각종 background color
         bodyBackground: '#f0f2f5',
@@ -30,10 +55,8 @@ export const theme = {
     }
 };
 
-export const darkTheme = deepmerge(theme, {
+export const darkTheme: Theme = deepmerge(theme, {
     colors: {
         bodyBackground: 'black'
     }
 });
-
-export type Theme = typeof theme | typeof darkTheme;

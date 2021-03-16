@@ -1,7 +1,6 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import { Story } from '@storybook/react';
-
-import styled from 'libs/styled';
 
 import IconBase, { LoadableIconProps } from 'components/atoms/Icon';
 

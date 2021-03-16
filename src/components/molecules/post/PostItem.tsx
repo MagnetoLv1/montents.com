@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
+import styled from '@emotion/styled';
 
 import Post from 'types/api/response/Post';
 import ClassName from 'types/ClassName';
 
-import styled from 'libs/styled';
 import withLoading, { LoadableComponentProps } from 'libs/hoc/withLoading';
 
 import Content from 'components/molecules/post/Content';
