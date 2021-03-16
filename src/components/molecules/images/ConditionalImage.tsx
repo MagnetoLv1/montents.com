@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
+import styled from '@emotion/styled';
 
 import ClassName from 'types/ClassName';
 import ImageInfo from 'types/ImageInfo';
-
-import styled from 'libs/styled';
 
 import ApiStatus from 'constants/ApiStatus';
 

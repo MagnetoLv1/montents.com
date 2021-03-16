@@ -1,11 +1,10 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import { Story } from '@storybook/react';
 
 import Post from 'types/api/response/Post';
 
 import postsResponse from 'data/posts/get_1.json';
-
-import styled from 'libs/styled';
 
 import PostItemBase, {
     LoadablePostItemProps

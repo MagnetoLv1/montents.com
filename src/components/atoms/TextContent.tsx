@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
+import styled from '@emotion/styled';
 
 import ClassName from 'types/ClassName';
-
-import styled from 'libs/styled';
 
 const newLineRegExp = /(\r\n|\r|\n)/g;
 

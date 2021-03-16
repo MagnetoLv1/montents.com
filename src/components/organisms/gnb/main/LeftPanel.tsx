@@ -1,6 +1,5 @@
 import React, { FC, HTMLAttributes } from 'react';
-
-import styled from 'libs/styled';
+import styled from '@emotion/styled';
 
 import GroupList from 'components/organisms/GroupList';
 

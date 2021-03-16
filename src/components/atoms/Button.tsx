@@ -1,6 +1,5 @@
 import React, { FC, HTMLAttributes, PropsWithChildren } from 'react';
-
-import styled from 'libs/styled';
+import styled from '@emotion/styled';
 
 import Icon from 'components/atoms/Icon';
 import Text from 'components/atoms/Text';

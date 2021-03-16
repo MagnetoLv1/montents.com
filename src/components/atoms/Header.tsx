@@ -1,4 +1,4 @@
-import styled from 'libs/styled';
+import styled from '@emotion/styled';
 
 const Header = styled('header')`
     display: flex;

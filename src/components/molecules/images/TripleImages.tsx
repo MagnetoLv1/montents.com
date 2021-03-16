@@ -1,10 +1,9 @@
 import React, { FC, useMemo } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 import ClassName from 'types/ClassName';
 import ImageInfo from 'types/ImageInfo';
-
-import styled from 'libs/styled';
 
 import ConditionalImageBase from 'components/molecules/images/ConditionalImage';
 

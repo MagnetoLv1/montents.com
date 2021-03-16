@@ -1,12 +1,11 @@
 import React, { FC, HTMLAttributes, useContext } from 'react';
+import styled from '@emotion/styled';
 
 import LikeSvg from 'assets/images/like.svg';
 
 import TypeError from 'errors/TypeError';
 
 import { isPost } from 'types/api/response/Post';
-
-import styled from 'libs/styled';
 
 import PostItemContext from 'components/molecules/post/PostItem.context';
 import Icon from 'components/atoms/Icon';

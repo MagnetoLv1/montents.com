@@ -1,8 +1,7 @@
 import React, { FC, HTMLAttributes } from 'react';
+import styled from '@emotion/styled';
 
 import ImageInfo from 'types/ImageInfo';
-
-import styled from 'libs/styled';
 
 import ConditionalImageBase from 'components/molecules/images/ConditionalImage';
 

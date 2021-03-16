@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Global } from '@emotion/core';
-import { ThemeProvider } from 'emotion-theming';
+import { Global, ThemeProvider } from '@emotion/react';
 
 import 'config/moment/locale';
 import 'libs/prototypes';

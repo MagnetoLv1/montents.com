@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 import { FC, ImgHTMLAttributes } from 'react';
+import styled from '@emotion/styled';
 
-import styled from 'libs/styled';
 import withLoading, { LoadableComponentProps } from 'libs/hoc/withLoading';
 
 import Image from 'components/atoms/Image';

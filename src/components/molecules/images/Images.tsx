@@ -1,9 +1,9 @@
 import React, { FC, HTMLAttributes, useEffect, useState } from 'react';
+import styled from '@emotion/styled';
 import { filter } from 'underscore';
 
 import ImageInfo from 'types/ImageInfo';
 
-import styled from 'libs/styled';
 import useImagesInfo from 'libs/hooks/useImagesInfo';
 
 import ApiStatus from 'constants/ApiStatus';

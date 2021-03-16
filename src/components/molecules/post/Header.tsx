@@ -1,4 +1,5 @@
 import React, { FC, HTMLAttributes, useContext, useMemo } from 'react';
+import styled from '@emotion/styled';
 import moment from 'moment';
 
 import RightArrowSvg from 'assets/images/right_filled_arrow.svg';
@@ -8,7 +9,6 @@ import TypeError from 'errors/TypeError';
 import { isPost } from 'types/api/response/Post';
 
 import { useRebuild } from 'libs/react-tooltip';
-import styled from 'libs/styled';
 import withLoading, { LoadableComponentProps } from 'libs/hoc/withLoading';
 
 import PostItemContext from 'components/molecules/post/PostItem.context';

@@ -6,8 +6,7 @@ import React, {
     useEffect
 } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-
-import styled from 'libs/styled';
+import styled from '@emotion/styled';
 
 import ApiStatus from 'constants/ApiStatus';
 
