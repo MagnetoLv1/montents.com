@@ -18,7 +18,8 @@ const Header = styled(HeaderBase)`
     padding: 0 1.5rem;
 
     background: ${({ theme }) => theme.colors.surfaceBackground};
-    box-shadow: ${({ theme }) => theme.effect.shadow};
+    box-shadow: ${({ theme }) =>
+        `0 0 1rem -0.3rem ${theme.colors.contentShadow}`};
 `;
 
 const Container = styled.div`

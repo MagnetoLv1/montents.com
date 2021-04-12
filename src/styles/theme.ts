@@ -7,6 +7,7 @@ export interface Theme {
         loadingBackground: string;
         hoverBackground: string;
         primaryButtonBackground: string;
+        secondaryButtonBackground: string;
 
         grayIcon: string;
 
@@ -32,7 +33,10 @@ export const theme: Theme = {
         surfaceBackground: 'white',
         loadingBackground: '#e4e6eb',
         hoverBackground: 'rgba(0, 0, 0, 0.05)',
+
+        // button color
         primaryButtonBackground: '#1877f2',
+        secondaryButtonBackground: '#e3e3e3',
 
         // icon color
         grayIcon: '#5e6871',
