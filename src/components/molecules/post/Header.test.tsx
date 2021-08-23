@@ -1,4 +1,3 @@
-import React from 'react';
 import moment from 'moment';
 
 import posts from 'data/posts/get_1.json';

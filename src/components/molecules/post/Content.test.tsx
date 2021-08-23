@@ -1,5 +1,3 @@
-import React from 'react';
-
 import posts from 'data/posts/get_1.json';
 
 import render from 'libs/testUtils';

@@ -1,4 +1,4 @@
-import React, { FC, MouseEventHandler } from 'react';
+import { FC, MouseEventHandler } from 'react';
 import { useHistory } from 'react-router';
 import { History, Path } from 'history';
 

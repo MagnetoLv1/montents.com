@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, PropsWithChildren } from 'react';
+import { FC, HTMLAttributes, PropsWithChildren } from 'react';
 import styled from '@emotion/styled';
 
 import Icon from 'components/atoms/Icon';

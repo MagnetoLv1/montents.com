@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, useEffect, useState } from 'react';
+import { FC, HTMLAttributes, useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { filter } from 'underscore';
 

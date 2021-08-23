@@ -1,5 +1,3 @@
-import React from 'react';
-
 import render from 'libs/testUtils';
 
 import Header from 'components/organisms/gnb/main/Header';

@@ -1,4 +1,4 @@
-import React, { AnchorHTMLAttributes, FC, MouseEvent, useMemo } from 'react';
+import { AnchorHTMLAttributes, FC, MouseEvent, useMemo } from 'react';
 import styled from '@emotion/styled';
 
 export interface AnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {}

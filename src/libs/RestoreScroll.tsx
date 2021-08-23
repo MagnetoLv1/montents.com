@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo } from 'react';
+import { FC, useEffect, useMemo } from 'react';
 import { useHistory } from 'react-router';
 import { debounce, throttle } from 'underscore';
 

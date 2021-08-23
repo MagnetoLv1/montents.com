@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import ReactTooltipBase, { TooltipProps } from 'react-tooltip';
 
 import JSON from 'types/JSON';

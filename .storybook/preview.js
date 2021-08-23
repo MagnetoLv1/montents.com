@@ -1,5 +1,3 @@
-import React from "react";
-
 import AppProvider from "libs/AppProvider";
 
 export const parameters = {

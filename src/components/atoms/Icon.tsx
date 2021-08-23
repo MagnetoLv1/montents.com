@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
 import { FC, ImgHTMLAttributes } from 'react';
 import styled from '@emotion/styled';
 

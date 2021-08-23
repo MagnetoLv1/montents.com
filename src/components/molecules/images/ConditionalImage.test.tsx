@@ -1,4 +1,3 @@
-import React from 'react';
 import { clone } from 'underscore';
 
 import render from 'libs/testUtils';

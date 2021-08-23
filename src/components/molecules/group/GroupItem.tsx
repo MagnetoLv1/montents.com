@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, LiHTMLAttributes } from 'react';
+import { FC, HTMLAttributes, LiHTMLAttributes } from 'react';
 import { useHistory } from 'react-router';
 import styled from '@emotion/styled';
 

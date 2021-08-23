@@ -1,10 +1,4 @@
-import React, {
-    FC,
-    Fragment,
-    HTMLAttributes,
-    useCallback,
-    useEffect
-} from 'react';
+import { FC, Fragment, HTMLAttributes, useCallback, useEffect } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import styled from '@emotion/styled';
 

@@ -1,4 +1,11 @@
-import React, { FC, isValidElement, PropsWithChildren, ReactNode } from 'react';
+import {
+    cloneElement,
+    createElement,
+    FC,
+    isValidElement,
+    PropsWithChildren,
+    ReactNode
+} from 'react';
 
 type WrapperFunction = (children: ReactNode) => ReactNode;
 
@@ -18,9 +25,9 @@ const ConditionWrapper: FC<ConditionWrapperProps> = ({
 
     let wrappedChildren;
     if (typeof wrap === 'string') {
-        wrappedChildren = React.createElement(wrap, {}, children);
+        wrappedChildren = createElement(wrap, {}, children);
     } else if (isValidElement(wrap)) {
-        wrappedChildren = React.cloneElement(wrap, {}, children);
+        wrappedChildren = cloneElement(wrap, {}, children);
     } else if (typeof wrap === 'function') {
         wrappedChildren = wrap(children);
     } else {

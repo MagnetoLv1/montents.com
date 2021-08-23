@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, MouseEventHandler } from 'react';
+import { FC, HTMLAttributes, MouseEventHandler } from 'react';
 import styled from '@emotion/styled';
 
 import CloseSvg from 'assets/images/close.svg';

@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect } from 'react';
+import { FC, useCallback, useEffect } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import styled from '@emotion/styled';
 

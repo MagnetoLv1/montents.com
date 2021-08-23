@@ -1,4 +1,3 @@
-import React from 'react';
 import { fireEvent, waitFor } from '@testing-library/dom';
 
 import groupsResponse from 'data/groups/get_1.json';

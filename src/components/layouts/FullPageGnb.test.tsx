@@ -1,5 +1,3 @@
-import React from 'react';
-
 import render from 'libs/testUtils';
 
 import FullPageGnb from 'components/layouts/FullPageGnb';

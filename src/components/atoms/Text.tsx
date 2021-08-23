@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import styled from '@emotion/styled';
 
 import withLoading, { LoadableComponentProps } from 'libs/hoc/withLoading';

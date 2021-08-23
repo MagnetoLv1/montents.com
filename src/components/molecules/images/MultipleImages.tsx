@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, useMemo } from 'react';
+import { FC, HTMLAttributes, useMemo } from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 

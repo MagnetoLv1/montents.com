@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, useContext } from 'react';
+import { FC, HTMLAttributes, useContext } from 'react';
 import styled from '@emotion/styled';
 
 import LikeSvg from 'assets/images/like.svg';

@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes } from 'react';
 
 import HeaderStyle from 'components/atoms/Header';
 import Logo from 'components/atoms/Logo';

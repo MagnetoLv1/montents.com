@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import styled from '@emotion/styled';
 
 import DownArrowSvg from 'assets/images/down_arrow.svg';

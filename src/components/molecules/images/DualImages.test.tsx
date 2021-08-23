@@ -1,5 +1,3 @@
-import React from 'react';
-
 import ImageInfo from 'types/ImageInfo';
 
 import render from 'libs/testUtils';
