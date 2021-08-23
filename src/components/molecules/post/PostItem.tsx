@@ -1,3 +1,4 @@
+import { LoadableComponentProps, withLoading } from '@choseohwan/react-utils';
 import styled from '@emotion/styled';
 import { FC } from 'react';
 
@@ -5,7 +6,6 @@ import Content from '~/components/molecules/post/Content';
 import Footer from '~/components/molecules/post/Footer';
 import HeaderBase from '~/components/molecules/post/Header';
 import PostItemContext from '~/components/molecules/post/PostItem.context';
-import withLoading, { LoadableComponentProps } from '~/libs/hoc/withLoading';
 import Post from '~/types/api/response/Post';
 import ClassName from '~/types/ClassName';
 

@@ -1,3 +1,4 @@
+import { LoadableComponentProps, withLoading } from '@choseohwan/react-utils';
 import styled from '@emotion/styled';
 import RightArrowSvg from 'assets/images/right_filled_arrow.svg';
 import moment from 'moment';
@@ -9,7 +10,6 @@ import Image from '~/components/atoms/Image';
 import Text from '~/components/atoms/Text';
 import PostItemContext from '~/components/molecules/post/PostItem.context';
 import TypeError from '~/errors/TypeError';
-import withLoading, { LoadableComponentProps } from '~/libs/hoc/withLoading';
 import { useRebuild } from '~/libs/react-tooltip';
 import { isPost } from '~/types/api/response/Post';
 

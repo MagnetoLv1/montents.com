@@ -1853,6 +1853,16 @@
   resolved "https://registry.yarnpkg.com/@choseohwan/prettier-config-base/-/prettier-config-base-1.0.7.tgz#a36b2d55dc515dce33753cf291b074ad5cf9cd33"
   integrity sha512-d/H27XuxCfBst0MO/fBbMrcZv5QAhLIWnmSvcYGE4dKXrtn0PlMlUb6QvpzZ8AuvtqMW/b2r/yRHsjJC04XJDg==
 
+"@choseohwan/react-utils@^1.0.2-alpha-30.700eec7255df39475330654eac18ce0a736fa229.0":
+  version "1.0.2-alpha-30.700eec7255df39475330654eac18ce0a736fa229.0"
+  resolved "https://registry.yarnpkg.com/@choseohwan/react-utils/-/react-utils-1.0.2-alpha-30.700eec7255df39475330654eac18ce0a736fa229.0.tgz#c4205afa2ef353f05bc2f95235536e29adb811b6"
+  integrity sha512-1BAcmoIzfDxCQe/C8MKw/KuPnLB6L++YNhSZgGe4EDlY11TKpKogkVTxz/jyibXqjJCDGZHoZWs68roVdSb1tw==
+  dependencies:
+    "@types/react" "^17.0.19"
+    "@types/throttle-debounce" "^2.1.0"
+    react "^17.0.2"
+    throttle-debounce "^3.0.1"
+
 "@choseohwan/tsconfig-base@^1.0.12-alpha-30.30c14ad87bfa9629ebe76ca829ff35014ecf9632.0":
   version "1.0.12-alpha-30.30c14ad87bfa9629ebe76ca829ff35014ecf9632.0"
   resolved "https://registry.yarnpkg.com/@choseohwan/tsconfig-base/-/tsconfig-base-1.0.12-alpha-30.30c14ad87bfa9629ebe76ca829ff35014ecf9632.0.tgz#1336053481255ae84ebb8a71fc6abb43dc054670"
@@ -3444,6 +3454,15 @@
     "@types/prop-types" "*"
     csstype "^3.0.2"
 
+"@types/react@^17.0.19":
+  version "17.0.19"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.19.tgz#8f2a85e8180a43b57966b237d26a29481dacc991"
+  integrity sha512-sX1HisdB1/ZESixMTGnMxH9TDe8Sk709734fEQZzCV/4lSu9kJCPbo2PbTRoZM+53Pp0P10hYVyReUueGwUi4A==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
 "@types/reactcss@*":
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@types/reactcss/-/reactcss-1.2.3.tgz#af28ae11bbb277978b99d04d1eedfd068ca71834"
@@ -3457,6 +3476,11 @@
   integrity sha512-6LBtAQBN34i7SI5X+Qs4zpTEZO1tTDZ6sZ9fzFjYwTl3nLQXaBtwYdoV44CzNnyKu438xJ1lSIYyw0YMvunESw==
   dependencies:
     redux "^4.0.5"
+
+"@types/scheduler@*":
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
+  integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
 "@types/source-list-map@*":
   version "0.1.2"
@@ -3479,6 +3503,11 @@
   integrity sha512-ggn3ws+yRbOHog9GxnXiEZ/35Mow6YtPZpd7Z5mKDeZS/o7zx3yAle0ov/wjhVB5QT4N2Dt+GNoGCdqkBGCajQ==
   dependencies:
     "@types/jest" "*"
+
+"@types/throttle-debounce@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@types/throttle-debounce/-/throttle-debounce-2.1.0.tgz#1c3df624bfc4b62f992d3012b84c56d41eab3776"
+  integrity sha512-5eQEtSCoESnh2FsiLTxE121IiE60hnMqcb435fShf4bpLRjEu1Eoekht23y6zXS9Ts3l+Szu3TARnTsA0GkOkQ==
 
 "@types/uglify-js@*":
   version "3.11.1"
@@ -11820,6 +11849,14 @@ react@^17.0.1:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
 
+react@^17.0.2:
+  version "17.0.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
+  integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
 reactcss@^1.2.0:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/reactcss/-/reactcss-1.2.3.tgz#c00013875e557b1cf0dfd9a368a1c3dab3b548dd"
@@ -13302,6 +13339,11 @@ throttle-debounce@^2.1.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/throttle-debounce/-/throttle-debounce-2.3.0.tgz#fd31865e66502071e411817e241465b3e9c372e2"
   integrity sha512-H7oLPV0P7+jgvrk+6mwwwBDmxTaxnu9HMXmloNLXwnNO0ZxZ31Orah2n8lU1eMPvsaowP2CX+USCgyovXfdOFQ==
+
+throttle-debounce@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/throttle-debounce/-/throttle-debounce-3.0.1.tgz#32f94d84dfa894f786c9a1f290e7a645b6a19abb"
+  integrity sha512-dTEWWNu6JmeVXY0ZYoPuH5cRIwc0MeGbJwah9KUNYSJwommQpCzTySTpEe8Gs1J23aeWEuAobe4Ag7EHVt/LOg==
 
 through2@^2.0.0:
   version "2.0.5"

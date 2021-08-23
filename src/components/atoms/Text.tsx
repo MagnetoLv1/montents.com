@@ -1,7 +1,6 @@
+import { LoadableComponentProps, withLoading } from '@choseohwan/react-utils';
 import styled from '@emotion/styled';
 import { FC, HTMLAttributes } from 'react';
-
-import withLoading, { LoadableComponentProps } from '~/libs/hoc/withLoading';
 
 interface TextProps extends HTMLAttributes<HTMLParagraphElement> {}
 

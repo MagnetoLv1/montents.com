@@ -1,10 +1,10 @@
+import { useInfinityScroll } from '@choseohwan/react-utils/hooks';
 import styled from '@emotion/styled';
 import { FC, useCallback, useEffect } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
 import PostItemBase from '~/components/molecules/post/PostItem';
 import ApiStatus from '~/constants/ApiStatus';
-import useInfinityScroll from '~/libs/hooks/useInfinityScroll';
 import { RootReducerState } from '~/modules';
 import { postListAction } from '~/modules/PostListModule';
 
