@@ -1,4 +1,5 @@
 import { call, put, select, takeLatest } from '@redux-saga/core/effects';
+import { AxiosResponse } from 'axios';
 
 import Exceptions from '~/constants/Exceptions';
 import axios from '~/libs/axios';
@@ -21,7 +22,7 @@ type fetchPostListActionType = ReturnType<
 export const fetchPostListApi = (
     last: number | null,
     group: number | null
-): Promise<unknown> => {
+): ReturnType<typeof axios.get> => {
     const params = {
         last,
         group
@@ -62,7 +63,11 @@ function* fetchPostListSaga({ type, payload }: fetchPostListActionType) {
     }
 
     try {
-        const response = yield call(fetchPostListApi, last, group);
+        const response: AxiosResponse<unknown>['data'] = yield call(
+            fetchPostListApi,
+            last,
+            group
+        );
 
         // post list 데이터 검증
         if (!isPaginationResponse<Post[]>(response, isPostList)) {

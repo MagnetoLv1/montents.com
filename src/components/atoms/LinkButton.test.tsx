@@ -1,4 +1,5 @@
 import { fireEvent } from '@testing-library/dom';
+import { Location } from 'history';
 import { Route } from 'react-router';
 
 import { ButtonText } from '~/components/atoms/Button';
@@ -9,7 +10,7 @@ describe('Components | Atoms | <LinkButton />', () => {
     const text = 'link button',
         path = '/name';
 
-    let location;
+    let location: Location;
 
     const renderLinkButton = () => {
         const handleClick = jest.fn();

@@ -6,7 +6,7 @@ import ConditionWrapper, {
 } from '~/components/atoms/ConditionWrapper';
 
 export default {
-    title: '~/Components/Atoms/ConditionWrapper',
+    title: 'Components/Atoms/ConditionWrapper',
     component: ConditionWrapper,
     parameters: {
         docs: {

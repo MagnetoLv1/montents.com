@@ -5,7 +5,7 @@ import { Story } from '@storybook/react';
 import FullPageGnb from '~/components/layouts/FullPageGnb';
 
 export default {
-    title: '~/Components/Layouts/FullPageGnb',
+    title: 'Components/Layouts/FullPageGnb',
     component: FullPageGnb,
     parameters: {
         layout: 'fullscreen',

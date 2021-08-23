@@ -10,7 +10,7 @@ import TripleImages from '~/components/molecules/images/TripleImages';
 import useImagesInfo from '~/libs/hooks/useImagesInfo';
 
 export default {
-    title: '~/Components/Molecules/Images',
+    title: 'Components/Molecules/Images',
     component: ImagesBase,
     parameter: {
         docs: {

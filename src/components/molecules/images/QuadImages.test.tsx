@@ -40,7 +40,7 @@ describe('Components | Molecules | Image | <QuadImages />', () => {
 
         expect(images.length).toBe(4);
 
-        images.forEach((image, index) => {
+        images.forEach((image: HTMLElement, index: number) => {
             expect(image).toHaveAttribute('src', imagesInfo[index].src);
         });
     });

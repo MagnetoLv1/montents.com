@@ -10,7 +10,7 @@ const IconLink = styled(Link)`
     height: 4rem;
 `;
 
-interface LogoProps extends Omit<LinkProps, 'to'> {}
+export interface LogoProps extends Omit<LinkProps, 'to'> {}
 
 const Logo: FC<LogoProps> = (props: LogoProps) => (
     <IconLink to="/" {...props}>

@@ -26,7 +26,7 @@ const Content = styled.div`
     height: 100%;
 `;
 
-interface FullPageGnbProps {
+export interface FullPageGnbProps {
     onClose?: HeaderProps['onClose'];
 }
 

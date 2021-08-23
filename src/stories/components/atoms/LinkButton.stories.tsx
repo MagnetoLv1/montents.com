@@ -1,10 +1,11 @@
 import { action } from '@storybook/addon-actions';
 import { Story } from '@storybook/react';
+import { DOMAttributes } from 'react';
 
 import LinkButton, { LinkButtonProps } from '~/components/atoms/LinkButton';
 
 export default {
-    title: '~/Components/Atoms/LinkButton',
+    title: 'Components/Atoms/LinkButton',
     component: LinkButton,
     argTypes: {
         path: {
@@ -30,7 +31,7 @@ export const DefaultLinkButton: Story<LinkButtonProps> = ({
     onClick,
     ...props
 }: LinkButtonProps) => {
-    const handleClick = (event) => {
+    const handleClick: DOMAttributes<HTMLDivElement>['onClick'] = (event) => {
         event.preventDefault();
 
         action(`path`)(path, JSON.stringify(state));

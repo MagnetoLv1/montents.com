@@ -9,7 +9,7 @@ import groupResponse from '~/data/groups/get_1.json';
 const groupData = groupResponse.data[0];
 
 export default {
-    title: '~/Components/Molecules/GroupItem',
+    title: 'Components/Molecules/GroupItem',
     component: GroupItem,
     parameters: {
         docs: {

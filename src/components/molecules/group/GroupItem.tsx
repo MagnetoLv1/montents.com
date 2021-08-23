@@ -45,7 +45,7 @@ const GroupItem: FC<GroupItemProps> = ({ group, ...props }: GroupItemProps) => {
     );
 };
 
-interface LoadingGroupItem extends HTMLAttributes<HTMLDivElement> {}
+export interface LoadingGroupItem extends HTMLAttributes<HTMLDivElement> {}
 
 // 그룹 버튼 로딩 UI
 const LoadingGroupItem: FC<LoadingGroupItem> = ({

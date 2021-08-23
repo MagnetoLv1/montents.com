@@ -2,7 +2,7 @@ import { LoadableComponentProps, withLoading } from '@choseohwan/react-utils';
 import styled from '@emotion/styled';
 import { FC, HTMLAttributes } from 'react';
 
-interface TextProps extends HTMLAttributes<HTMLParagraphElement> {}
+export interface TextProps extends HTMLAttributes<HTMLParagraphElement> {}
 
 const Text: FC<TextProps> = ({ children, ...props }: TextProps) => (
     <p {...props}>{children}</p>

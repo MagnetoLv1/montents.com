@@ -23,7 +23,7 @@ describe('Components | Molecules | Image | <SingleImage />', () => {
 
         expect(images.length).toBe(1);
 
-        images.forEach((image, index) => {
+        images.forEach((image: HTMLElement, index: number) => {
             expect(image).toHaveAttribute('src', imagesInfo[index].src);
         });
     });

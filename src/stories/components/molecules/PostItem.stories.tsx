@@ -10,7 +10,7 @@ import Post from '~/types/api/response/Post';
 const postData = postsResponse.data[0];
 
 export default {
-    title: '~/Components/Molecules/PostItem',
+    title: 'Components/Molecules/PostItem',
     component: PostItemBase,
     parameters: {
         docs: {

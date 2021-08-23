@@ -40,10 +40,10 @@
         "@choseohwan/tsconfig-base": "^1.0.12",
         "@emotion/babel-plugin": "^11.2.0",
         "@emotion/eslint-plugin": "^11.2.0",
-        "@storybook/addon-actions": "^6.1.21",
-        "@storybook/addon-essentials": "^6.1.21",
-        "@storybook/addon-links": "^6.1.21",
-        "@storybook/react": "^6.1.21",
+        "@storybook/addon-actions": "^6.3.7",
+        "@storybook/addon-essentials": "^6.3.7",
+        "@storybook/addon-links": "^6.3.7",
+        "@storybook/react": "^6.3.7",
         "@testing-library/jest-dom": "^5.11.6",
         "@testing-library/react": "^11.2.0",
         "@types/jest": "^27.0.1",
@@ -98,8 +98,7 @@
     },
     "lint-staged": {
         "*.(js|jsx|ts|tsx)": [
-            "yarn lint:fix",
-            "git add"
+            "yarn lint:fix"
         ]
     }
 }

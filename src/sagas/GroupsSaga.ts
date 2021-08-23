@@ -6,6 +6,7 @@ import {
     select,
     take
 } from '@redux-saga/core/effects';
+import { AxiosResponse } from 'axios';
 import { Task } from 'redux-saga';
 
 import Exceptions from '~/constants/Exceptions';
@@ -16,7 +17,9 @@ import Group, { isGroupList } from '~/types/api/response/Group';
 import { isPaginationResponse } from '~/types/api/response/Pagination';
 
 // 그룹 리스트 api 호출
-export const fetchGroupsApi = (last: null | number): Promise<unknown> => {
+export const fetchGroupsApi = (
+    last: null | number
+): ReturnType<typeof axios.get> => {
     const params = {
         last
     };
@@ -53,7 +56,10 @@ function* fetchMoreGroupsSaga() {
  */
 function* callFetchGroupsApi(last: number | null) {
     try {
-        const response = yield call(fetchGroupsApi, last);
+        const response: AxiosResponse<unknown>['data'] = yield call(
+            fetchGroupsApi,
+            last
+        );
 
         // 그룹리스트 데이터가 아닌 경우 에러 발생
         if (!isPaginationResponse<Group[]>(response, isGroupList)) {

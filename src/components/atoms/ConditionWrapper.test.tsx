@@ -1,9 +1,15 @@
-import ConditionWrapper from '~/components/atoms/ConditionWrapper';
+import ConditionWrapper, {
+    ConditionWrapperProps
+} from '~/components/atoms/ConditionWrapper';
 import render from '~/libs/testUtils';
 
 describe('Components | Atoms | <ConditionWrapper />', () => {
     const childrenText = 'childrenText';
-    const renderComponent = (condition, wrapper, denyWrapper) =>
+    const renderComponent = (
+        condition: ConditionWrapperProps['condition'],
+        wrapper: ConditionWrapperProps['wrapper'],
+        denyWrapper: ConditionWrapperProps['denyWrapper']
+    ) =>
         render(
             <ConditionWrapper
                 condition={condition}

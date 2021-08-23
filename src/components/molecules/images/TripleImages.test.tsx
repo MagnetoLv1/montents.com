@@ -34,7 +34,7 @@ describe('Components | Molecules | Image | <TripleImages />', () => {
 
         expect(images.length).toBe(3);
 
-        images.forEach((image, index) => {
+        images.forEach((image: HTMLElement, index: number) => {
             expect(image).toHaveAttribute('src', imagesInfo[index].src);
         });
     });

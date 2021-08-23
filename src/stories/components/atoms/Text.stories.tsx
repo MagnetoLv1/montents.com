@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 import Text, { LoadableTextProps } from '~/components/atoms/Text';
 
 export default {
-    title: '~/Components/Atoms/Text',
+    title: 'Components/Atoms/Text',
     component: Text,
     description: '기본 텍스트 컴포넌트',
     args: {

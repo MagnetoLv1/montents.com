@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { FC, PropsWithChildren } from 'react';
+import { FC } from 'react';
 
 import HeaderBase from '~/components/organisms/gnb/main/Header';
 import LeftPanelBase from '~/components/organisms/gnb/main/LeftPanel';
@@ -78,7 +78,7 @@ const Contents = styled.div`
     align-items: center;
 `;
 
-const MainGnb: FC = ({ children }: PropsWithChildren<null>) => (
+const MainGnb: FC = ({ children }) => (
     <div>
         <Header data-testid="main-gnb-header" />
         <Container>

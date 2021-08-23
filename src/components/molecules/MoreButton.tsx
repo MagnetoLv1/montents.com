@@ -17,7 +17,7 @@ const MoreIcon = styled(ButtonIcon)`
     align-content: center;
 `;
 
-interface MoreButtonProps extends HTMLAttributes<HTMLDivElement> {}
+export interface MoreButtonProps extends HTMLAttributes<HTMLDivElement> {}
 
 const MoreButton: FC<MoreButtonProps> = (props: MoreButtonProps) => (
     <Button {...props}>

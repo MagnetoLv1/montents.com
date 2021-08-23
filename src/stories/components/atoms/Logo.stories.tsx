@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 import LogoBase from '~/components/atoms/Logo';
 
 export default {
-    title: '~/Components/Atoms/Logo',
+    title: 'Components/Atoms/Logo',
     component: LogoBase,
     parameters: {
         docs: {

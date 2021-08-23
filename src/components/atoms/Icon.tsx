@@ -16,7 +16,7 @@ const IconStyle = styled.div`
     }
 `;
 
-interface IconProps
+export interface IconProps
     extends Pick<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'alt'>,
         HTMLAttributes<HTMLDivElement> {}
 

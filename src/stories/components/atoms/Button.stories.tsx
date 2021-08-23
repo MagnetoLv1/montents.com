@@ -10,7 +10,7 @@ import Button, {
 import ImageBase from '~/components/atoms/Image';
 
 export default {
-    title: '~/Components/Atoms/Button',
+    title: 'Components/Atoms/Button',
     component: Button,
     parameters: {
         docs: {

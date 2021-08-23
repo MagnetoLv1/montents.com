@@ -1,10 +1,11 @@
 import { action } from '@storybook/addon-actions';
 import { Story } from '@storybook/react';
+import { DOMAttributes } from 'react';
 
 import Anchor, { AnchorProps } from '~/components/atoms/Anchor';
 
 export default {
-    title: '~/Components/Atoms/Anchor',
+    title: 'Components/Atoms/Anchor',
     component: Anchor,
     argTypes: {
         href: {
@@ -28,10 +29,14 @@ export const DefaultAnchor: Story<AnchorProps> = ({
     onClick,
     ...props
 }: AnchorProps) => {
-    const handleClick = (event) => {
+    const handleClick: DOMAttributes<HTMLAnchorElement>['onClick'] = (
+        event
+    ) => {
         event.preventDefault();
 
-        action(`href`)(event.target.href);
+        const target = event.target as HTMLAnchorElement;
+
+        action(`href`)(target.href);
 
         if (onClick) onClick(event);
     };

@@ -28,7 +28,7 @@ describe('Components | Molecules | Image | <DualImages />', () => {
 
         expect(images.length).toBe(2);
 
-        images.forEach((image, index) => {
+        images.forEach((image: HTMLElement, index: number) => {
             expect(image).toHaveAttribute('src', imagesInfo[index].src);
         });
     });

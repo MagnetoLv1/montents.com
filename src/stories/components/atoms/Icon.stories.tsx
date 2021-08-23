@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 import IconBase, { LoadableIconProps } from '~/components/atoms/Icon';
 
 export default {
-    title: '~/Components/Atoms/Icon',
+    title: 'Components/Atoms/Icon',
     component: IconBase,
     args: {
         src: '/assets/images/logo.png',

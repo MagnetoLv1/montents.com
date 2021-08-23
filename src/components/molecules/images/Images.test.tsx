@@ -14,7 +14,7 @@ beforeEach(() => {
 });
 
 describe('Components | Molecules | Images | <Images />', () => {
-    const makeMockValue = (status) => (images) => {
+    const makeMockValue = (status: ApiStatus) => (images: string[]) => {
         return images.map((image) => ({
             src: image,
             width: 500,

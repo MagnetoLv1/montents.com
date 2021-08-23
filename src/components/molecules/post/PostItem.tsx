@@ -25,7 +25,7 @@ const Header = styled(HeaderBase)`
     margin-bottom: 0.8rem;
 `;
 
-interface PostItemProps extends ClassName {
+export interface PostItemProps extends ClassName {
     post: Post;
 }
 
