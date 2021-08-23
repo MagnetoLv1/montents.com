@@ -23,12 +23,12 @@ jobs:
       - name: Install Dependencies    # 의존 파일 설치
         run: yarn install
 
-      - name: Build                   # React Build
-        run: yarn build
-
       - name: make env file
         run: |
-          echo 'USE_API_MOCK=true' > dist/.env
+          echo 'USE_API_MOCK=true' > .env
+
+      - name: Build                   # React Build
+        run: yarn build
 
       #PutObject, PutObjectAcl 권한필요
       - name: Deploy                  # S3에 배포하기2
