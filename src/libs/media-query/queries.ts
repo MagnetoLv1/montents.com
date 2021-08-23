@@ -1,6 +1,6 @@
 import { mapObject } from 'underscore';
 
-import { Device, devicesInfo } from 'libs/media-query';
+import { Device, devicesInfo } from '~/libs/media-query';
 
 type Queries = {
     [key in Device]?: string[];

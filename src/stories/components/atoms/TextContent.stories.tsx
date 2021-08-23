@@ -1,9 +1,9 @@
 import { Story } from '@storybook/react';
 
-import TextContent, { TextContentProps } from 'components/atoms/TextContent';
+import TextContent, { TextContentProps } from '~/components/atoms/TextContent';
 
 export default {
-    title: 'Components/Atoms/TextContent',
+    title: '~/Components/Atoms/TextContent',
     component: TextContent,
     parameters: {
         docs: {

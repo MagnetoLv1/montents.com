@@ -1,9 +1,9 @@
 import { Story } from '@storybook/react';
 
-import MoreButton from 'components/molecules/MoreButton';
+import MoreButton from '~/components/molecules/MoreButton';
 
 export default {
-    title: 'Components/Molecules/MoreButton',
+    title: '~/Components/Molecules/MoreButton',
     component: MoreButton,
     parameter: {
         docs: {

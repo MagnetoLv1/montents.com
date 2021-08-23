@@ -1,4 +1,4 @@
-import Group, { isGroup } from 'types/api/response/Group';
+import Group, { isGroup } from '~/types/api/response/Group';
 
 interface Post {
     idx: number;
@@ -33,6 +33,7 @@ export const isPost = (item: unknown): item is Post => {
 
 /**
  * 게시글 리스트 검증
+ *
  * @param item
  */
 export const isPostList = (item: unknown): item is Post[] => {

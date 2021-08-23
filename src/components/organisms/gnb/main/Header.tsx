@@ -1,7 +1,7 @@
 import { FC, HTMLAttributes } from 'react';
 
-import HeaderStyle from 'components/atoms/Header';
-import Logo from 'components/atoms/Logo';
+import HeaderStyle from '~/components/atoms/Header';
+import Logo from '~/components/atoms/Logo';
 
 interface HeaderProps extends HTMLAttributes<HTMLDivElement> {}
 

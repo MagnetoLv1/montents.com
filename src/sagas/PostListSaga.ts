@@ -1,14 +1,11 @@
 import { call, put, select, takeLatest } from '@redux-saga/core/effects';
 
-import { isPaginationResponse } from 'types/api/response/Pagination';
-import Post, { isPostList } from 'types/api/response/Post';
-
-import axios from 'libs/axios';
-
-import Exceptions from 'constants/Exceptions';
-
-import { RootReducerState } from 'modules';
-import { postListAction } from 'modules/PostListModule';
+import Exceptions from '~/constants/Exceptions';
+import axios from '~/libs/axios';
+import { RootReducerState } from '~/modules';
+import { postListAction } from '~/modules/PostListModule';
+import { isPaginationResponse } from '~/types/api/response/Pagination';
+import Post, { isPostList } from '~/types/api/response/Post';
 
 type fetchPostListActionType = ReturnType<
     | typeof postListAction.fetchPostList
@@ -17,6 +14,7 @@ type fetchPostListActionType = ReturnType<
 
 /**
  * 게시글 리스트 api 호출
+ *
  * @param last
  * @param group
  */
@@ -34,8 +32,11 @@ export const fetchPostListApi = (
 
 /**
  * 게시글 조회 saga
- * @param type
- * @param payload
+ *
+ * @param params
+ * @param params.type
+ * @param params.payload
+ * @yields
  */
 function* fetchPostListSaga({ type, payload }: fetchPostListActionType) {
     let last: number | null = null,

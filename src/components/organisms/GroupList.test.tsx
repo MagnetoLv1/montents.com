@@ -1,11 +1,9 @@
 import { fireEvent, waitFor } from '@testing-library/dom';
 
-import groupsResponse from 'data/groups/get_1.json';
-
-import { axiosMock } from 'libs/axios';
-import render from 'libs/testUtils';
-
-import GroupList from 'components/organisms/GroupList';
+import GroupList from '~/components/organisms/GroupList';
+import groupsResponse from '~/data/groups/get_1.json';
+import { axiosMock } from '~/libs/axios';
+import render from '~/libs/testUtils';
 
 describe('Components | Organisms | <GroupList />', () => {
     it('그룹 리스트 조회 (더보기 존재)', async () => {

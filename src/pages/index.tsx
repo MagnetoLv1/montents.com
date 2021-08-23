@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { useParams } from 'react-router';
 
-import MainGnb from 'components/layouts/MainGnb';
-import PostList from 'components/organisms/PostList';
+import MainGnb from '~/components/layouts/MainGnb';
+import PostList from '~/components/organisms/PostList';
 
 const Index: FC = () => {
     const { group: groupParam = null } = useParams<{ group?: string }>();

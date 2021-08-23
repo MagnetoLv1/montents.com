@@ -1,16 +1,15 @@
-import { Route } from 'react-router';
 import { fireEvent } from '@testing-library/dom';
+import { Route } from 'react-router';
 
-import render from 'libs/testUtils';
-
-import { ButtonText } from 'components/atoms/Button';
-import LinkButton from 'components/atoms/LinkButton';
+import { ButtonText } from '~/components/atoms/Button';
+import LinkButton from '~/components/atoms/LinkButton';
+import render from '~/libs/testUtils';
 
 describe('Components | Atoms | <LinkButton />', () => {
     const text = 'link button',
         path = '/name';
 
-    let history, location;
+    let location;
 
     const renderLinkButton = () => {
         const handleClick = jest.fn();
@@ -22,12 +21,8 @@ describe('Components | Atoms | <LinkButton />', () => {
                 </LinkButton>
                 <Route
                     path="*"
-                    render={({
-                        history: currentHistory,
-                        location: currentLocation
-                    }) => {
+                    render={({ location: currentLocation }) => {
                         location = currentLocation;
-                        history = currentHistory;
                         return null;
                     }}
                 />

@@ -3,10 +3,10 @@ import { Story } from '@storybook/react';
 
 import ConditionWrapper, {
     ConditionWrapperProps
-} from 'components/atoms/ConditionWrapper';
+} from '~/components/atoms/ConditionWrapper';
 
 export default {
-    title: 'Components/Atoms/ConditionWrapper',
+    title: '~/Components/Atoms/ConditionWrapper',
     component: ConditionWrapper,
     parameters: {
         docs: {
@@ -33,8 +33,10 @@ export default {
 
 /**
  * 기본 ConditionWrapper story
- * @param condition
- * @constructor
+ *
+ * @param props
+ * @param props.condition
+ * @class
  */
 export const DefaultConditionWrapper: Story<ConditionWrapperProps> = ({
     condition
@@ -66,11 +68,12 @@ const Wrapper = styled.div<WrapperProps>`
 
 /**
  * ConditionWrapper 컴포넌트 예시 story
+ *
  * @param children
  * @param condition
  * @param wrapperColor
  * @param denyWrapperColor
- * @constructor
+ * @class
  */
 interface ExampleConditionWrapper {
     children: string;

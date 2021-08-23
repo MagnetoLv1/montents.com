@@ -1,9 +1,7 @@
-import posts from 'data/posts/get_1.json';
-
-import render from 'libs/testUtils';
-
-import Content from 'components/molecules/post/Content';
-import PostItemContext from 'components/molecules/post/PostItem.context';
+import Content from '~/components/molecules/post/Content';
+import PostItemContext from '~/components/molecules/post/PostItem.context';
+import posts from '~/data/posts/get_1.json';
+import render from '~/libs/testUtils';
 
 const post = posts.data[0];
 

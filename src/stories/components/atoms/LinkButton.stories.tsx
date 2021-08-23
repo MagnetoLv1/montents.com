@@ -1,10 +1,10 @@
 import { action } from '@storybook/addon-actions';
 import { Story } from '@storybook/react';
 
-import LinkButton, { LinkButtonProps } from 'components/atoms/LinkButton';
+import LinkButton, { LinkButtonProps } from '~/components/atoms/LinkButton';
 
 export default {
-    title: 'Components/Atoms/LinkButton',
+    title: '~/Components/Atoms/LinkButton',
     component: LinkButton,
     argTypes: {
         path: {

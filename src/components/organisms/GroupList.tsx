@@ -1,14 +1,12 @@
+import styled from '@emotion/styled';
 import { FC, Fragment, HTMLAttributes, useCallback, useEffect } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import styled from '@emotion/styled';
 
-import ApiStatus from 'constants/ApiStatus';
-
-import { RootReducerState } from 'modules';
-import { groupsAction } from 'modules/GroupsModule';
-
-import GroupItem from 'components/molecules/group/GroupItem';
-import MoreButton from 'components/molecules/MoreButton';
+import GroupItem from '~/components/molecules/group/GroupItem';
+import MoreButton from '~/components/molecules/MoreButton';
+import ApiStatus from '~/constants/ApiStatus';
+import { RootReducerState } from '~/modules';
+import { groupsAction } from '~/modules/GroupsModule';
 
 const GroupListStyle = styled.ul`
     display: flex;
@@ -24,7 +22,7 @@ const GroupList: FC<GroupListProps> = ({ ...props }) => {
 
     const { status, data, more } = useSelector<
         RootReducerState,
-        Pick<RootReducerState['groupsReducer'], 'data' | 'status'> &
+        Pick<RootReducerState['groupsReducer'], '~/data' | 'status'> &
             Pick<RootReducerState['groupsReducer']['meta'], 'more'>
     >(
         ({ groupsReducer }) => ({

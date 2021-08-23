@@ -1,10 +1,9 @@
-import { FC, HTMLAttributes, useMemo } from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { FC, HTMLAttributes, useMemo } from 'react';
 
-import ImageInfo from 'types/ImageInfo';
-
-import ConditionalImageBase from 'components/molecules/images/ConditionalImage';
+import ConditionalImageBase from '~/components/molecules/images/ConditionalImage';
+import ImageInfo from '~/types/ImageInfo';
 
 enum ContainerType {
     ROW,

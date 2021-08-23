@@ -5,10 +5,9 @@ import {
 } from 'immer-reducer';
 import { cloneDeep } from 'lodash';
 
-import PaginationModule from 'types/api/PaginationModule';
-import Group from 'types/api/response/Group';
-
-import ApiStatus from 'constants/ApiStatus';
+import ApiStatus from '~/constants/ApiStatus';
+import PaginationModule from '~/types/api/PaginationModule';
+import Group from '~/types/api/response/Group';
 
 interface GroupsModuleState extends PaginationModule<Group[]> {}
 
@@ -40,6 +39,7 @@ class GroupsModule extends ImmerReducer<GroupsModuleState> {
 
     /**
      * 그룹 리스트 조회 성공
+     *
      * @param data
      * @param more
      */
@@ -55,6 +55,7 @@ class GroupsModule extends ImmerReducer<GroupsModuleState> {
 
     /**
      * 그룹 리스트 조회 실패
+     *
      * @param error
      */
     public fetchGroupsError(error: string): void {

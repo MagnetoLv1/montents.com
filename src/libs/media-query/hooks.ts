@@ -1,6 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 
-import { Device, queries } from 'libs/media-query';
+import { Device, queries } from '~/libs/media-query';
 
 export const useBrowserSize = (): boolean =>
     useMediaQuery({

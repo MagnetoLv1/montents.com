@@ -1,8 +1,7 @@
 import { fireEvent } from '@testing-library/dom';
 
-import render from 'libs/testUtils';
-
-import Image from 'components/atoms/Image';
+import Image from '~/components/atoms/Image';
+import render from '~/libs/testUtils';
 
 describe('Components | Atoms | <Image />', () => {
     const src = '/assets/images/temp/board_image_1.jpg',

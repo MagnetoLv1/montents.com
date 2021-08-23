@@ -1,10 +1,7 @@
-import ImageInfo from 'types/ImageInfo';
-
-import render from 'libs/testUtils';
-
-import ApiStatus from 'constants/ApiStatus';
-
-import TripleImages from 'components/molecules/images/TripleImages';
+import TripleImages from '~/components/molecules/images/TripleImages';
+import ApiStatus from '~/constants/ApiStatus';
+import render from '~/libs/testUtils';
+import ImageInfo from '~/types/ImageInfo';
 
 describe('Components | Molecules | Image | <TripleImages />', () => {
     it('주입한 이미지 리스트 노출', () => {

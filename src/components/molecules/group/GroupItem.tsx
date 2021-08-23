@@ -1,15 +1,13 @@
+import styled from '@emotion/styled';
 import { FC, HTMLAttributes, LiHTMLAttributes } from 'react';
 import { useHistory } from 'react-router';
-import styled from '@emotion/styled';
-
-import Group from 'types/api/response/Group';
-
-import withLoading, { LoadableComponentProps } from 'libs/hoc/withLoading';
 
 import Button, {
     ButtonIcon as ButtonIconBase,
     ButtonText
-} from 'components/atoms/Button';
+} from '~/components/atoms/Button';
+import withLoading, { LoadableComponentProps } from '~/libs/hoc/withLoading';
+import Group from '~/types/api/response/Group';
 
 const GroupItemStyle = styled.li`
     display: flex;

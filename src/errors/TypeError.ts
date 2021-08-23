@@ -1,4 +1,4 @@
-import CommonError from 'errors/CommonError';
+import CommonError from '~/errors/CommonError';
 
 class TypeError extends CommonError {
     constructor(name: string, type: string) {

@@ -1,8 +1,8 @@
-import { FC, HTMLAttributes, PropsWithChildren } from 'react';
 import styled from '@emotion/styled';
+import { FC, HTMLAttributes, PropsWithChildren } from 'react';
 
-import Icon from 'components/atoms/Icon';
-import Text from 'components/atoms/Text';
+import Icon from '~/components/atoms/Icon';
+import Text from '~/components/atoms/Text';
 
 const ButtonStyle = styled.div`
     position: relative;

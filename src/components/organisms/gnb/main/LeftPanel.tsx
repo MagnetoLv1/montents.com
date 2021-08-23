@@ -1,7 +1,7 @@
-import { FC, HTMLAttributes } from 'react';
 import styled from '@emotion/styled';
+import { FC, HTMLAttributes } from 'react';
 
-import GroupList from 'components/organisms/GroupList';
+import GroupList from '~/components/organisms/GroupList';
 
 const LeftPanelStyle = styled.nav`
     padding-top: 1.6rem;

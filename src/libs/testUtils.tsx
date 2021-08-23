@@ -1,10 +1,11 @@
-import * as React from 'react';
 import { render as reactRender } from '@testing-library/react';
+import * as React from 'react';
 
-import AppProvider from 'libs/AppProvider';
+import AppProvider from '~/libs/AppProvider';
 
 /**
  * 각종 provider 적용
+ *
  * @param ui
  * @param options
  */

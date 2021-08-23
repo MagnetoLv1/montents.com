@@ -1,8 +1,8 @@
-import { FC, PropsWithChildren } from 'react';
 import styled from '@emotion/styled';
+import { FC, PropsWithChildren } from 'react';
 
-import HeaderBase from 'components/organisms/gnb/main/Header';
-import LeftPanelBase from 'components/organisms/gnb/main/LeftPanel';
+import HeaderBase from '~/components/organisms/gnb/main/Header';
+import LeftPanelBase from '~/components/organisms/gnb/main/LeftPanel';
 
 const headerHeight = '6rem';
 

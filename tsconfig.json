@@ -17,7 +17,7 @@
         "downlevelIteration": true,
         "paths": {
             "assets/*": ["assets/*"],
-            "*": ["src/*"]
+            "~/*": ["src/*"]
         }
     },
     "exclude": ["node_modules"],

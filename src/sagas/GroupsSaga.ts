@@ -8,15 +8,12 @@ import {
 } from '@redux-saga/core/effects';
 import { Task } from 'redux-saga';
 
-import Group, { isGroupList } from 'types/api/response/Group';
-import { isPaginationResponse } from 'types/api/response/Pagination';
-
-import axios from 'libs/axios';
-
-import Exceptions from 'constants/Exceptions';
-
-import { RootReducerState } from 'modules';
-import { groupsAction } from 'modules/GroupsModule';
+import Exceptions from '~/constants/Exceptions';
+import axios from '~/libs/axios';
+import { RootReducerState } from '~/modules';
+import { groupsAction } from '~/modules/GroupsModule';
+import Group, { isGroupList } from '~/types/api/response/Group';
+import { isPaginationResponse } from '~/types/api/response/Pagination';
 
 // 그룹 리스트 api 호출
 export const fetchGroupsApi = (last: null | number): Promise<unknown> => {
@@ -29,6 +26,8 @@ export const fetchGroupsApi = (last: null | number): Promise<unknown> => {
 
 /**
  * 그룹 리스트 조회 saga
+ *
+ * @yields
  */
 function* fetchGroupsSaga() {
     yield* callFetchGroupsApi(null);
@@ -36,6 +35,8 @@ function* fetchGroupsSaga() {
 
 /**
  * 그룹 리스트 더보기 saga
+ *
+ * @yields
  */
 function* fetchMoreGroupsSaga() {
     const { last } = yield select(({ groupsReducer }: RootReducerState) => ({
@@ -46,6 +47,10 @@ function* fetchMoreGroupsSaga() {
 }
 
 // 그룹 리스트 saga
+/**
+ * @param last
+ * @yields
+ */
 function* callFetchGroupsApi(last: number | null) {
     try {
         const response = yield call(fetchGroupsApi, last);

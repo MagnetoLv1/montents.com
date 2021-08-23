@@ -1,15 +1,12 @@
-import { FC, HTMLAttributes, useContext } from 'react';
 import styled from '@emotion/styled';
+import { FC, HTMLAttributes, useContext } from 'react';
 
-import TypeError from 'errors/TypeError';
-
-import { isPost } from 'types/api/response/Post';
-
-import withLoading from 'libs/hoc/withLoading';
-
-import ImagesBase from 'components/molecules/images/Images';
-import PostItemContext from 'components/molecules/post/PostItem.context';
-import TextContentBase from 'components/atoms/TextContent';
+import TextContentBase from '~/components/atoms/TextContent';
+import ImagesBase from '~/components/molecules/images/Images';
+import PostItemContext from '~/components/molecules/post/PostItem.context';
+import TypeError from '~/errors/TypeError';
+import withLoading from '~/libs/hoc/withLoading';
+import { isPost } from '~/types/api/response/Post';
 
 const ContentStyle = styled.div`
     display: flex;

@@ -1,10 +1,9 @@
-import { FC, HTMLAttributes } from 'react';
 import styled from '@emotion/styled';
-
 import DownArrowSvg from 'assets/images/down_arrow.svg';
+import { FC, HTMLAttributes } from 'react';
 
-import Button, { ButtonIcon, ButtonText } from 'components/atoms/Button';
-import Image from 'components/atoms/Image';
+import Button, { ButtonIcon, ButtonText } from '~/components/atoms/Button';
+import Image from '~/components/atoms/Image';
 
 const MoreIcon = styled(ButtonIcon)`
     width: 3.6rem;

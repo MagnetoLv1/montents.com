@@ -1,18 +1,15 @@
-import { FC, HTMLAttributes, useEffect, useState } from 'react';
 import styled from '@emotion/styled';
+import { FC, HTMLAttributes, useEffect, useState } from 'react';
 import { filter } from 'underscore';
 
-import ImageInfo from 'types/ImageInfo';
-
-import useImagesInfo from 'libs/hooks/useImagesInfo';
-
-import ApiStatus from 'constants/ApiStatus';
-
-import DualImages from 'components/molecules/images/DualImages';
-import MultipleImages from 'components/molecules/images/MultipleImages';
-import QuadImages from 'components/molecules/images/QuadImages';
-import SingleImage from 'components/molecules/images/SingleImage';
-import TripleImages from 'components/molecules/images/TripleImages';
+import DualImages from '~/components/molecules/images/DualImages';
+import MultipleImages from '~/components/molecules/images/MultipleImages';
+import QuadImages from '~/components/molecules/images/QuadImages';
+import SingleImage from '~/components/molecules/images/SingleImage';
+import TripleImages from '~/components/molecules/images/TripleImages';
+import ApiStatus from '~/constants/ApiStatus';
+import useImagesInfo from '~/libs/hooks/useImagesInfo';
+import ImageInfo from '~/types/ImageInfo';
 
 const ImagesStyle = styled.div`
     position: relative;

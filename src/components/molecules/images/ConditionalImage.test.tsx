@@ -1,10 +1,8 @@
 import { clone } from 'underscore';
 
-import render from 'libs/testUtils';
-
-import ApiStatus from 'constants/ApiStatus';
-
-import ConditionalImage from 'components/molecules/images/ConditionalImage';
+import ConditionalImage from '~/components/molecules/images/ConditionalImage';
+import ApiStatus from '~/constants/ApiStatus';
+import render from '~/libs/testUtils';
 
 describe('Components | Molecules | Image | <ConditionalImage />', () => {
     const imageInfo = {

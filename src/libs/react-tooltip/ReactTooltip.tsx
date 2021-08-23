@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import ReactTooltipBase, { TooltipProps } from 'react-tooltip';
 
-import JSON from 'types/JSON';
+import JSON from '~/types/JSON';
 
 interface ReactTooltipProps extends TooltipProps {}
 

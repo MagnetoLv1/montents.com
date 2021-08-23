@@ -5,10 +5,9 @@ import {
 } from 'immer-reducer';
 import { cloneDeep } from 'lodash';
 
-import PaginationModule from 'types/api/PaginationModule';
-import Post from 'types/api/response/Post';
-
-import ApiStatus from 'constants/ApiStatus';
+import ApiStatus from '~/constants/ApiStatus';
+import PaginationModule from '~/types/api/PaginationModule';
+import Post from '~/types/api/response/Post';
 
 interface PostListModuleState extends PaginationModule<Post[]> {
     group: number | null;
@@ -28,6 +27,7 @@ const initialState: PostListModuleState = {
 class PostListModule extends ImmerReducer<PostListModuleState> {
     /**
      * 게시글 리스트 조회
+     *
      * @param group
      */
     public fetchPostList(group: number | null) {
@@ -46,6 +46,7 @@ class PostListModule extends ImmerReducer<PostListModuleState> {
 
     /**
      * 게시글 리스트 조회 성공
+     *
      * @param data
      * @param more
      */
@@ -61,6 +62,7 @@ class PostListModule extends ImmerReducer<PostListModuleState> {
 
     /**
      * 게시글 리스트 조회 실패
+     *
      * @param error
      */
     public fetchPostListError(error: string): void {

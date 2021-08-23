@@ -1,11 +1,10 @@
-import { FC, HTMLAttributes, useMemo } from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { FC, HTMLAttributes, useMemo } from 'react';
 import { reduce } from 'underscore';
 
-import ImageInfo from 'types/ImageInfo';
-
-import ConditionImageBase from 'components/molecules/images/ConditionalImage';
+import ConditionImageBase from '~/components/molecules/images/ConditionalImage';
+import ImageInfo from '~/types/ImageInfo';
 
 enum RatioType {
     VERTICAL,

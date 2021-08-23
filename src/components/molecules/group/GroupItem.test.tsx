@@ -1,6 +1,5 @@
-import render from 'libs/testUtils';
-
-import GroupItem from 'components/molecules/group/GroupItem';
+import GroupItem from '~/components/molecules/group/GroupItem';
+import render from '~/libs/testUtils';
 
 describe('Components | Molecules | Group | <GroupItem />', () => {
     const group = {

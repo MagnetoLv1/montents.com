@@ -1,17 +1,16 @@
 import styled from '@emotion/styled';
 import { Story } from '@storybook/react';
 
-import useImagesInfo from 'libs/hooks/useImagesInfo';
-
-import DualImages from 'components/molecules/images/DualImages';
-import ImagesBase, { ImagesProps } from 'components/molecules/images/Images';
-import MultipleImages from 'components/molecules/images/MultipleImages';
-import QuadImages from 'components/molecules/images/QuadImages';
-import SingleImage from 'components/molecules/images/SingleImage';
-import TripleImages from 'components/molecules/images/TripleImages';
+import DualImages from '~/components/molecules/images/DualImages';
+import ImagesBase, { ImagesProps } from '~/components/molecules/images/Images';
+import MultipleImages from '~/components/molecules/images/MultipleImages';
+import QuadImages from '~/components/molecules/images/QuadImages';
+import SingleImage from '~/components/molecules/images/SingleImage';
+import TripleImages from '~/components/molecules/images/TripleImages';
+import useImagesInfo from '~/libs/hooks/useImagesInfo';
 
 export default {
-    title: 'Components/Molecules/Images',
+    title: '~/Components/Molecules/Images',
     component: ImagesBase,
     parameter: {
         docs: {
@@ -41,8 +40,10 @@ const Images = styled(ImagesBase)`
 
 /**
  * image 리스트 story
- * @param images
- * @constructor
+ *
+ * @param props
+ * @param props.images
+ * @class
  */
 export const DefaultImages: Story<ImagesProps> = ({ images }: ImagesProps) => (
     <Images images={images} />
@@ -56,8 +57,10 @@ const ImageWrap = styled.div`
 
 /**
  * 이미지가 한개 있을 떄 image story
- * @param images
- * @constructor
+ *
+ * @param props
+ * @param props.images
+ * @class
  */
 export const SingleImageStory: Story<ImagesProps> = ({
     images
@@ -79,8 +82,10 @@ SingleImageStory.args = {
 
 /**
  * 이미지가 두개 있을 떄 image story
- * @param images
- * @constructor
+ *
+ * @param props
+ * @param props.images
+ * @class
  */
 export const DualImageStory: Story<ImagesProps> = ({ images }: ImagesProps) => {
     const imagesInfo = useImagesInfo(images);
@@ -103,8 +108,10 @@ DualImageStory.args = {
 
 /**
  * 이미지가 세개 있을 떄 image story
- * @param images
- * @constructor
+ *
+ * @param props
+ * @param props.images
+ * @class
  */
 export const TripleImageStory: Story<ImagesProps> = ({
     images
@@ -130,8 +137,10 @@ TripleImageStory.args = {
 
 /**
  * 이미지가 네개 있을 떄 image story
- * @param images
- * @constructor
+ *
+ * @param props
+ * @param props.images
+ * @class
  */
 export const QuadImageStory: Story<ImagesProps> = ({ images }: ImagesProps) => {
     const imagesInfo = useImagesInfo(images);
@@ -156,8 +165,10 @@ QuadImageStory.args = {
 
 /**
  * 이미지가 다섯개 이상 있을 떄 image story
- * @param images
- * @constructor
+ *
+ * @param props
+ * @param props.images
+ * @class
  */
 export const MultipleImagesStory: Story<ImagesProps> = ({
     images

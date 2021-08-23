@@ -1,11 +1,10 @@
-import { FC, useMemo } from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { FC, useMemo } from 'react';
 
-import ClassName from 'types/ClassName';
-import ImageInfo from 'types/ImageInfo';
-
-import ConditionalImageBase from 'components/molecules/images/ConditionalImage';
+import ConditionalImageBase from '~/components/molecules/images/ConditionalImage';
+import ClassName from '~/types/ClassName';
+import ImageInfo from '~/types/ImageInfo';
 
 // 컨테이너 배치 종류 (가로 배치. 큰 가로형 배치, 세로 배치, 큰 세로형 배치)
 enum ContainerType {

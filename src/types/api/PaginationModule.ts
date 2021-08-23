@@ -1,4 +1,4 @@
-import ApiModule from 'types/api/ApiModule';
+import ApiModule from '~/types/api/ApiModule';
 
 interface Meta {
     more: boolean;

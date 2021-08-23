@@ -1,6 +1,5 @@
-import render from 'libs/testUtils';
-
-import Header from 'components/atoms/Header';
+import Header from '~/components/atoms/Header';
+import render from '~/libs/testUtils';
 
 describe('Components | Atoms | <Header/>', () => {
     const content = 'content text';

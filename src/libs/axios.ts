@@ -1,11 +1,9 @@
 import originalAxios, { AxiosError, AxiosResponse } from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
 
-import AxiosResponseError from 'errors/AxiosResponseError';
-
-import { isErrorResponse } from 'types/api/response/Error';
-
-import Domain from 'constants/Domain';
+import Domain from '~/constants/Domain';
+import AxiosResponseError from '~/errors/AxiosResponseError';
+import { isErrorResponse } from '~/types/api/response/Error';
 
 // check axios response type
 const isAxiosResponse = (item: unknown): item is AxiosResponse => {

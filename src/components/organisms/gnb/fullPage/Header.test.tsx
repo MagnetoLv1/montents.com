@@ -1,8 +1,7 @@
 import { fireEvent } from '@testing-library/dom';
 
-import render from 'libs/testUtils';
-
-import Header from 'components/organisms/gnb/fullPage/Header';
+import Header from '~/components/organisms/gnb/fullPage/Header';
+import render from '~/libs/testUtils';
 
 describe('Components | Organisms | Gnb | FullPage | <Header />', () => {
     describe('공통 사항', () => {

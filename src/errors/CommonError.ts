@@ -1,5 +1,5 @@
-import { isProd } from 'constants/env';
-import Exceptions from 'constants/Exceptions';
+import { isProd } from '~/constants/env';
+import Exceptions from '~/constants/Exceptions';
 
 class CommonError extends Error {
     constructor(message?: string | null) {

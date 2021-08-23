@@ -1,11 +1,10 @@
 import { FC } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import AppProvider from 'libs/AppProvider';
-import RestoreScroll from 'libs/RestoreScroll';
-
-import Index from 'pages/index';
-import NotFound from 'pages/NotFound';
+import AppProvider from '~/libs/AppProvider';
+import RestoreScroll from '~/libs/RestoreScroll';
+import Index from '~/pages/index';
+import NotFound from '~/pages/NotFound';
 
 const App: FC = () => (
     <AppProvider>

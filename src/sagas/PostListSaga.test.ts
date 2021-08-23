@@ -2,16 +2,12 @@ import { expectSaga } from 'redux-saga-test-plan';
 import { call } from 'redux-saga-test-plan/matchers';
 import { throwError } from 'redux-saga-test-plan/providers';
 
-import AxiosResponseError from 'errors/AxiosResponseError';
-
-import PostListData from 'data/posts/get_1.json';
-
-import Exceptions from 'constants/Exceptions';
-
-import { rootReducer } from 'modules';
-import { postListAction } from 'modules/PostListModule';
-
-import { fetchPostListApi, PostListSaga } from 'sagas/PostListSaga';
+import Exceptions from '~/constants/Exceptions';
+import PostListData from '~/data/posts/get_1.json';
+import AxiosResponseError from '~/errors/AxiosResponseError';
+import { rootReducer } from '~/modules';
+import { postListAction } from '~/modules/PostListModule';
+import { fetchPostListApi, PostListSaga } from '~/sagas/PostListSaga';
 
 describe('Sagas | PostListSaga', () => {
     it('게시글 리스트 조회 성공', async () => {

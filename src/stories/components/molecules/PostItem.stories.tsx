@@ -1,18 +1,16 @@
 import styled from '@emotion/styled';
 import { Story } from '@storybook/react';
 
-import Post from 'types/api/response/Post';
-
-import postsResponse from 'data/posts/get_1.json';
-
 import PostItemBase, {
     LoadablePostItemProps
-} from 'components/molecules/post/PostItem';
+} from '~/components/molecules/post/PostItem';
+import postsResponse from '~/data/posts/get_1.json';
+import Post from '~/types/api/response/Post';
 
 const postData = postsResponse.data[0];
 
 export default {
-    title: 'Components/Molecules/PostItem',
+    title: '~/Components/Molecules/PostItem',
     component: PostItemBase,
     parameters: {
         docs: {
@@ -51,9 +49,11 @@ const PostItem = styled(PostItemBase)`
 
 /**
  * 기본 게시글 story
- * @param post
- * @param loading
- * @constructor
+ *
+ * @param props
+ * @param props.post
+ * @param props.loading
+ * @class
  */
 export const DefaultPostItem: Story<LoadablePostItemProps> = ({
     post,
@@ -66,19 +66,22 @@ export const DefaultPostItem: Story<LoadablePostItemProps> = ({
 
 DefaultPostItem.storyName = 'Default';
 
-/**
- * 게시글 예시 story
- * @param title
- * @param content
- * @param created_at
- * @param group
- * @param idx
- * @param images
- * @param url
- * @constructor
- */
 interface ExamplePostProps extends Post {}
 
+/**
+ * 게시글 예시 story
+ *
+ * @param props
+ * @param props.title
+ * @param props.content
+ * @param props.created_at
+ * @param props.group
+ * @param props.idx
+ * @param props.images
+ * @param props.url
+ * @param props.like_cnt
+ * @param props.comment_cnt
+ */
 export const ExamplePostItem: Story<ExamplePostProps> = ({
     title,
     content,

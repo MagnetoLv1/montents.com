@@ -1,8 +1,7 @@
-import { ApiMock } from 'mocks/index';
-
-import groupsResponse1 from 'data/groups/get_1.json';
-import groupsResponse2 from 'data/groups/get_2.json';
-import groupsResponse3 from 'data/groups/get_3.json';
+import groupsResponse1 from '~/data/groups/get_1.json';
+import groupsResponse2 from '~/data/groups/get_2.json';
+import groupsResponse3 from '~/data/groups/get_3.json';
+import { ApiMock } from '~/mocks/index';
 
 const groups: ApiMock = (mock) => {
     mock.onGet('/groups').reply(({ params }) => {

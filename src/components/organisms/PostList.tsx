@@ -1,15 +1,12 @@
+import styled from '@emotion/styled';
 import { FC, useCallback, useEffect } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import styled from '@emotion/styled';
 
-import useInfinityScroll from 'libs/hooks/useInfinityScroll';
-
-import ApiStatus from 'constants/ApiStatus';
-
-import { RootReducerState } from 'modules';
-import { postListAction } from 'modules/PostListModule';
-
-import PostItemBase from 'components/molecules/post/PostItem';
+import PostItemBase from '~/components/molecules/post/PostItem';
+import ApiStatus from '~/constants/ApiStatus';
+import useInfinityScroll from '~/libs/hooks/useInfinityScroll';
+import { RootReducerState } from '~/modules';
+import { postListAction } from '~/modules/PostListModule';
 
 const PostListStyle = styled.div`
     display: flex;

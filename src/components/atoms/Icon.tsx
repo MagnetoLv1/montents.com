@@ -1,10 +1,9 @@
+import styled from '@emotion/styled';
 import { HTMLAttributes } from 'react';
 import { FC, ImgHTMLAttributes } from 'react';
-import styled from '@emotion/styled';
 
-import withLoading, { LoadableComponentProps } from 'libs/hoc/withLoading';
-
-import Image from 'components/atoms/Image';
+import Image from '~/components/atoms/Image';
+import withLoading, { LoadableComponentProps } from '~/libs/hoc/withLoading';
 
 const IconStyle = styled.div`
     position: relative;

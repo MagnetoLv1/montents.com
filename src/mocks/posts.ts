@@ -1,10 +1,9 @@
-import { ApiMock } from 'mocks/index';
-
-import postsResponseGroup1 from 'data/posts/1/get_1.json';
-import postsResponse1 from 'data/posts/get_1.json';
-import postsResponse2 from 'data/posts/get_2.json';
-import postsResponse3 from 'data/posts/get_3.json';
-import postsResponse4 from 'data/posts/get_4.json';
+import postsResponseGroup1 from '~/data/posts/1/get_1.json';
+import postsResponse1 from '~/data/posts/get_1.json';
+import postsResponse2 from '~/data/posts/get_2.json';
+import postsResponse3 from '~/data/posts/get_3.json';
+import postsResponse4 from '~/data/posts/get_4.json';
+import { ApiMock } from '~/mocks/index';
 
 const posts: ApiMock = (mock) => {
     mock.onGet('/posts').reply(({ params }) => {

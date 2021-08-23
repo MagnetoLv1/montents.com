@@ -1,8 +1,7 @@
 import LogoSvg from 'assets/images/logo.svg';
 
-import render from 'libs/testUtils';
-
-import Logo from 'components/atoms/Logo';
+import Logo from '~/components/atoms/Logo';
+import render from '~/libs/testUtils';
 
 describe('Components | Atoms | <Logo />', () => {
     it('아이콘 노출 확인', () => {

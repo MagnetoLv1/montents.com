@@ -1,6 +1,5 @@
-import render from 'libs/testUtils';
-
-import MainGnb from 'components/layouts/MainGnb';
+import MainGnb from '~/components/layouts/MainGnb';
+import render from '~/libs/testUtils';
 
 describe('templates | <MainGnb/>', () => {
     const testChildrenText = 'Test Children';

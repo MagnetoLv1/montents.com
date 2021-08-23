@@ -1,8 +1,7 @@
 import { fireEvent } from '@testing-library/dom';
 
-import render from 'libs/testUtils';
-
-import Button, { ButtonIcon, ButtonText } from 'components/atoms/Button';
+import Button, { ButtonIcon, ButtonText } from '~/components/atoms/Button';
+import render from '~/libs/testUtils';
 
 describe('Components | Atoms | <Button />', () => {
     it('텍스트 children 노출 확인', () => {

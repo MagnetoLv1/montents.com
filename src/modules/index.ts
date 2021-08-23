@@ -3,11 +3,10 @@ import { ActionFromReducer, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 
-import { groupsReducer } from 'modules/GroupsModule';
-import { postListReducer } from 'modules/PostListModule';
-import { storeAction, storeReducer } from 'modules/StoreModule';
-
-import { rootSaga } from 'sagas';
+import { groupsReducer } from '~/modules/GroupsModule';
+import { postListReducer } from '~/modules/PostListModule';
+import { storeAction, storeReducer } from '~/modules/StoreModule';
+import { rootSaga } from '~/sagas';
 
 // combined reducer
 export const combinedReducer = combineReducers({

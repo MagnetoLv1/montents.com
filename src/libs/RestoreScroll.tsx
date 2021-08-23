@@ -2,7 +2,7 @@ import { FC, useEffect, useMemo } from 'react';
 import { useHistory } from 'react-router';
 import { debounce, throttle } from 'underscore';
 
-import { isJSON } from 'types/JSON';
+import { isJSON } from '~/types/JSON';
 
 interface ScrollState {
     [key: string]: unknown;

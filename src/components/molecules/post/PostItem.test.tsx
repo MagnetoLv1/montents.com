@@ -1,8 +1,6 @@
-import posts from 'data/posts/get_1.json';
-
-import render from 'libs/testUtils';
-
-import PostItem from 'components/molecules/post/PostItem';
+import PostItem from '~/components/molecules/post/PostItem';
+import posts from '~/data/posts/get_1.json';
+import render from '~/libs/testUtils';
 
 const post = posts.data[0];
 

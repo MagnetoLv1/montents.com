@@ -1,8 +1,7 @@
 import { fireEvent } from '@testing-library/dom';
 
-import render from 'libs/testUtils';
-
-import MoreButton from 'components/molecules/MoreButton';
+import MoreButton from '~/components/molecules/MoreButton';
+import render from '~/libs/testUtils';
 
 describe('Components | Molecules | <MoreButton />', () => {
     it('더보기 버튼 클릭', () => {

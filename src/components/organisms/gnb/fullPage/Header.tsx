@@ -1,11 +1,10 @@
-import { FC, HTMLAttributes, MouseEventHandler } from 'react';
 import styled from '@emotion/styled';
-
 import CloseSvg from 'assets/images/close.svg';
+import { FC, HTMLAttributes, MouseEventHandler } from 'react';
 
-import HeaderStyle from 'components/atoms/Header';
-import Icon from 'components/atoms/Icon';
-import Logo from 'components/atoms/Logo';
+import HeaderStyle from '~/components/atoms/Header';
+import Icon from '~/components/atoms/Icon';
+import Logo from '~/components/atoms/Logo';
 
 const CloseIcon = styled(Icon)`
     cursor: pointer;

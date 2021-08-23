@@ -1,12 +1,10 @@
-import { FC } from 'react';
 import styled from '@emotion/styled';
+import { FC } from 'react';
 
-import ClassName from 'types/ClassName';
-import ImageInfo from 'types/ImageInfo';
-
-import ApiStatus from 'constants/ApiStatus';
-
-import ImageBase from 'components/atoms/Image';
+import ImageBase from '~/components/atoms/Image';
+import ApiStatus from '~/constants/ApiStatus';
+import ClassName from '~/types/ClassName';
+import ImageInfo from '~/types/ImageInfo';
 
 const LoadingImage = styled.div`
     background: ${({ theme }) => theme.colors.loadingBackground};

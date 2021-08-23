@@ -1,6 +1,5 @@
-import render from 'libs/testUtils';
-
-import Text from 'components/atoms/Text';
+import Text from '~/components/atoms/Text';
+import render from '~/libs/testUtils';
 
 describe('Components | Atoms | <Text />', () => {
     it('텍스트 노출 확인 ', () => {

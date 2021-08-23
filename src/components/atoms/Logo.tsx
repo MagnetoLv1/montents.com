@@ -1,10 +1,9 @@
+import styled from '@emotion/styled';
+import LogoSvg from 'assets/images/logo.svg';
 import { FC } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
-import styled from '@emotion/styled';
 
-import LogoSvg from 'assets/images/logo.svg';
-
-import Icon from 'components/atoms/Icon';
+import Icon from '~/components/atoms/Icon';
 
 const IconLink = styled(Link)`
     width: 4rem;

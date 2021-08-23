@@ -1,12 +1,11 @@
-import { FC } from 'react';
 import styled from '@emotion/styled';
-
 import NotFoundSvg from 'assets/images/not_found.svg';
+import { FC } from 'react';
 
-import MainGnb from 'components/layouts/MainGnb';
-import { ButtonText } from 'components/atoms/Button';
-import IconBase from 'components/atoms/Icon';
-import LinkButtonBase from 'components/atoms/LinkButton';
+import { ButtonText } from '~/components/atoms/Button';
+import IconBase from '~/components/atoms/Icon';
+import LinkButtonBase from '~/components/atoms/LinkButton';
+import MainGnb from '~/components/layouts/MainGnb';
 
 const NotFoundStyle = styled.div`
     display: flex;

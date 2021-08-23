@@ -1,9 +1,7 @@
-import posts from 'data/posts/get_1.json';
-
-import render from 'libs/testUtils';
-
-import Footer from 'components/molecules/post/Footer';
-import PostItemContext from 'components/molecules/post/PostItem.context';
+import Footer from '~/components/molecules/post/Footer';
+import PostItemContext from '~/components/molecules/post/PostItem.context';
+import posts from '~/data/posts/get_1.json';
+import render from '~/libs/testUtils';
 
 const post = posts.data[0];
 

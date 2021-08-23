@@ -1,5 +1,9 @@
 import { css } from '@emotion/react';
-
+import NanumGothicEot from 'assets/fonts/Nanum-Gothic.eot';
+import NanumGothicSvg from 'assets/fonts/Nanum-Gothic.svg';
+import NanumGothicTtf from 'assets/fonts/Nanum-Gothic.ttf';
+import NanumGothicWoff from 'assets/fonts/Nanum-Gothic.woff';
+import NanumGothicWoff2 from 'assets/fonts/Nanum-Gothic.woff2';
 import NanumGothicBoldEot from 'assets/fonts/Nanum-Gothic-Bold.eot';
 import NanumGothicBoldSvg from 'assets/fonts/Nanum-Gothic-Bold.svg';
 import NanumGothicBoldTtf from 'assets/fonts/Nanum-Gothic-Bold.ttf';
@@ -10,13 +14,8 @@ import NanumGothicExtraBoldSvg from 'assets/fonts/Nanum-Gothic-Extra-Bold.svg';
 import NanumGothicExtraBoldTtf from 'assets/fonts/Nanum-Gothic-Extra-Bold.ttf';
 import NanumGothicExtraBoldWoff from 'assets/fonts/Nanum-Gothic-Extra-Bold.woff';
 import NanumGothicExtraBoldWoff2 from 'assets/fonts/Nanum-Gothic-Extra-Bold.woff2';
-import NanumGothicEot from 'assets/fonts/Nanum-Gothic.eot';
-import NanumGothicSvg from 'assets/fonts/Nanum-Gothic.svg';
-import NanumGothicTtf from 'assets/fonts/Nanum-Gothic.ttf';
-import NanumGothicWoff from 'assets/fonts/Nanum-Gothic.woff';
-import NanumGothicWoff2 from 'assets/fonts/Nanum-Gothic.woff2';
 
-import { Theme } from 'styles/theme';
+import { Theme } from '~/styles/theme';
 
 export const GlobalStyle = (theme: Theme): ReturnType<typeof css> => css`
     @font-face {

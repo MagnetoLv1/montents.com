@@ -1,6 +1,5 @@
-import render from 'libs/testUtils';
-
-import Icon from 'components/atoms/Icon';
+import Icon from '~/components/atoms/Icon';
+import render from '~/libs/testUtils';
 
 describe('Components | Atoms | <Icon />', () => {
     const alt = 'logo',

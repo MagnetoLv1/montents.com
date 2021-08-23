@@ -1,6 +1,5 @@
-import render from 'libs/testUtils';
-
-import FullPageGnb from 'components/layouts/FullPageGnb';
+import FullPageGnb from '~/components/layouts/FullPageGnb';
+import render from '~/libs/testUtils';
 
 describe('Components | Layouts | <FullPageGnb />', () => {
     it('header 노출 확인', () => {

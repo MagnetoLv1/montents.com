@@ -1,16 +1,15 @@
 import styled from '@emotion/styled';
 import { Story } from '@storybook/react';
 
-import groupResponse from 'data/groups/get_1.json';
-
 import GroupItem, {
     LoadableGroupItemProps
-} from 'components/molecules/group/GroupItem';
+} from '~/components/molecules/group/GroupItem';
+import groupResponse from '~/data/groups/get_1.json';
 
 const groupData = groupResponse.data[0];
 
 export default {
-    title: 'Components/Molecules/GroupItem',
+    title: '~/Components/Molecules/GroupItem',
     component: GroupItem,
     parameters: {
         docs: {
@@ -45,9 +44,11 @@ const GroupList = styled.ul`
 
 /**
  * 기본 그룹 story
- * @param group
- * @param loading
- * @constructor
+ *
+ * @param params
+ * @param params.group
+ * @param params.loading
+ * @class
  */
 export const DefaultGroupItem: Story<LoadableGroupItemProps> = ({
     group,
@@ -62,7 +63,8 @@ DefaultGroupItem.storyName = 'Default';
 
 /**
  * 그룹 로딩 중 story
- * @constructor
+ *
+ * @class
  */
 export const LoadingGroupItem: Story = () => (
     <GroupList>

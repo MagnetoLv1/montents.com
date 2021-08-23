@@ -8,6 +8,8 @@ declare global {
 if (!Number.prototype.addSeparator) {
     /**
      * 숫자에 컴마 추가
+     *
+     * @returns {string}
      */
     Number.prototype.addSeparator = function () {
         const numberText = String(this);
@@ -28,6 +30,8 @@ if (!Number.prototype.addSeparator) {
 if (!Number.prototype.convertKorean) {
     /**
      * 숫자를 한국 표현식으로 변경
+     *
+     * @returns {string}
      */
     Number.prototype.convertKorean = function () {
         const koreanSeparator = [

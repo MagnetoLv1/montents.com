@@ -11,7 +11,7 @@ const withLoading = <O, L>(
     const LoadableComponent: FC<LoadableComponentProps<O | L>> = ({
         loading = false,
         ...props
-    }) =>
+    }: LoadableComponentProps<O | L>) =>
         loading ? (
             <LoadingComponent {...(props as L)} />
         ) : (

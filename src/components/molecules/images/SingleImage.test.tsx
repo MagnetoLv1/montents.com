@@ -1,10 +1,8 @@
 import { clone } from 'underscore';
 
-import render from 'libs/testUtils';
-
-import ApiStatus from 'constants/ApiStatus';
-
-import SingleImage from 'components/molecules/images/SingleImage';
+import SingleImage from '~/components/molecules/images/SingleImage';
+import ApiStatus from '~/constants/ApiStatus';
+import render from '~/libs/testUtils';
 
 describe('Components | Molecules | Image | <SingleImage />', () => {
     const imagesInfo = [

@@ -1,4 +1,4 @@
-import ApiStatus from 'constants/ApiStatus';
+import ApiStatus from '~/constants/ApiStatus';
 
 interface ImageInfo {
     src: string;

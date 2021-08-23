@@ -1,9 +1,9 @@
-import { FC, PropsWithChildren } from 'react';
 import styled from '@emotion/styled';
+import { FC, PropsWithChildren } from 'react';
 
 import HeaderBase, {
     HeaderProps
-} from 'components/organisms/gnb/fullPage/Header';
+} from '~/components/organisms/gnb/fullPage/Header';
 
 const FullPageGnbStyle = styled.div`
     width: 100vw;

@@ -1,11 +1,9 @@
 import moment from 'moment';
 
-import posts from 'data/posts/get_1.json';
-
-import render from 'libs/testUtils';
-
-import Header from 'components/molecules/post/Header';
-import PostItemContext from 'components/molecules/post/PostItem.context';
+import Header from '~/components/molecules/post/Header';
+import PostItemContext from '~/components/molecules/post/PostItem.context';
+import posts from '~/data/posts/get_1.json';
+import render from '~/libs/testUtils';
 
 describe('Components | Molecules | post | <Header />', () => {
     const post = posts.data[0],

@@ -1,6 +1,5 @@
-import render from 'libs/testUtils';
-
-import TextContent from 'components/atoms/TextContent';
+import TextContent from '~/components/atoms/TextContent';
+import render from '~/libs/testUtils';
 
 const newLineRegExp = /(\r\n|\r|\n)/g;
 

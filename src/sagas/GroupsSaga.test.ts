@@ -2,18 +2,13 @@ import { expectSaga } from 'redux-saga-test-plan';
 import { call } from 'redux-saga-test-plan/matchers';
 import { dynamic, throwError } from 'redux-saga-test-plan/providers';
 
-import AxiosResponseError from 'errors/AxiosResponseError';
-
-import GroupData from 'data/groups/get_1.json';
-
-import { delay } from 'libs/utils';
-
-import Exceptions from 'constants/Exceptions';
-
-import { rootReducer } from 'modules';
-import { groupsAction } from 'modules/GroupsModule';
-
-import { fetchGroupsApi, GroupsSaga } from 'sagas/GroupsSaga';
+import Exceptions from '~/constants/Exceptions';
+import GroupData from '~/data/groups/get_1.json';
+import AxiosResponseError from '~/errors/AxiosResponseError';
+import { delay } from '~/libs/utils';
+import { rootReducer } from '~/modules';
+import { groupsAction } from '~/modules/GroupsModule';
+import { fetchGroupsApi, GroupsSaga } from '~/sagas/GroupsSaga';
 
 describe('Sagas | GroupSaga', () => {
     it('그룹 리스트 조회 성공', async () => {

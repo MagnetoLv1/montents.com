@@ -1,21 +1,17 @@
-import { FC, HTMLAttributes, useContext, useMemo } from 'react';
 import styled from '@emotion/styled';
-import moment from 'moment';
-
 import RightArrowSvg from 'assets/images/right_filled_arrow.svg';
+import moment from 'moment';
+import { FC, HTMLAttributes, useContext, useMemo } from 'react';
 
-import TypeError from 'errors/TypeError';
-
-import { isPost } from 'types/api/response/Post';
-
-import { useRebuild } from 'libs/react-tooltip';
-import withLoading, { LoadableComponentProps } from 'libs/hoc/withLoading';
-
-import PostItemContext from 'components/molecules/post/PostItem.context';
-import Anchor from 'components/atoms/Anchor';
-import Icon from 'components/atoms/Icon';
-import Image from 'components/atoms/Image';
-import Text from 'components/atoms/Text';
+import Anchor from '~/components/atoms/Anchor';
+import Icon from '~/components/atoms/Icon';
+import Image from '~/components/atoms/Image';
+import Text from '~/components/atoms/Text';
+import PostItemContext from '~/components/molecules/post/PostItem.context';
+import TypeError from '~/errors/TypeError';
+import withLoading, { LoadableComponentProps } from '~/libs/hoc/withLoading';
+import { useRebuild } from '~/libs/react-tooltip';
+import { isPost } from '~/types/api/response/Post';
 
 const HeaderStyle = styled.div`
     display: flex;

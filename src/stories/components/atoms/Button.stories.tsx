@@ -6,11 +6,11 @@ import Button, {
     ButtonIcon,
     ButtonProps,
     ButtonText
-} from 'components/atoms/Button';
-import ImageBase from 'components/atoms/Image';
+} from '~/components/atoms/Button';
+import ImageBase from '~/components/atoms/Image';
 
 export default {
-    title: 'Components/Atoms/Button',
+    title: '~/Components/Atoms/Button',
     component: Button,
     parameters: {
         docs: {
@@ -31,8 +31,10 @@ const StoryButton = styled(Button)<StoryButtonProps>`
 
 /**
  * 기본 버튼 story
- * @param children
- * @constructor
+ *
+ * @param props
+ * @param props.children
+ * @class
  */
 export const DefaultButton: Story<ButtonProps> = ({
     children
@@ -53,9 +55,10 @@ DefaultButton.args = {
 
 /**
  * 텍스트 버튼 story
+ *
  * @param color
  * @param text
- * @constructor
+ * @class
  */
 interface TextButtonProps {
     text: string;
@@ -96,9 +99,10 @@ const Image = styled(ImageBase)`
 
 /**
  * 아이콘 버튼 story
+ *
  * @param text
  * @param color
- * @constructor
+ * @class
  */
 interface IconButtonProps {
     text: string;

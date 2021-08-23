@@ -1,9 +1,8 @@
-import { FC, HTMLAttributes } from 'react';
 import styled from '@emotion/styled';
+import { FC, HTMLAttributes } from 'react';
 
-import ImageInfo from 'types/ImageInfo';
-
-import ConditionalImageBase from 'components/molecules/images/ConditionalImage';
+import ConditionalImageBase from '~/components/molecules/images/ConditionalImage';
+import ImageInfo from '~/types/ImageInfo';
 
 interface SingleImageStyleProps {
     ratio: number;

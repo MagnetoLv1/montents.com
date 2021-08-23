@@ -1,8 +1,8 @@
-import ReactDom from 'react-dom';
-
 import 'regenerator-runtime/runtime';
 
-import App from 'pages/App';
+import ReactDom from 'react-dom';
+
+import App from '~/pages/App';
 
 const root = document.getElementById('root');
 

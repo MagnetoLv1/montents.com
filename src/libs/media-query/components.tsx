@@ -4,7 +4,7 @@ import {
     useBrowserSize,
     useMobileSize,
     useTabletSize
-} from 'libs/media-query/hooks';
+} from '~/libs/media-query/hooks';
 
 export const BrowserView: FC = ({ children }) => {
     const isBrowser = useBrowserSize();

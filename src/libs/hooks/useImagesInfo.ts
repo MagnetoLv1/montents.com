@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
 import produce from 'immer';
+import { useEffect, useState } from 'react';
 
-import ImageInfo from 'types/ImageInfo';
-
-import ApiStatus from 'constants/ApiStatus';
+import ApiStatus from '~/constants/ApiStatus';
+import ImageInfo from '~/types/ImageInfo';
 
 const defaultImageInfo: ImageInfo = {
     src: '',

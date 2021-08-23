@@ -1,8 +1,8 @@
+import { History, Path } from 'history';
 import { FC, MouseEventHandler } from 'react';
 import { useHistory } from 'react-router';
-import { History, Path } from 'history';
 
-import Button, { ButtonProps } from 'components/atoms/Button';
+import Button, { ButtonProps } from '~/components/atoms/Button';
 
 export interface LinkButtonProps extends ButtonProps {
     path: Path;

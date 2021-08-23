@@ -1,14 +1,11 @@
-import { FC, HTMLAttributes, useContext } from 'react';
 import styled from '@emotion/styled';
-
 import LikeSvg from 'assets/images/like.svg';
+import { FC, HTMLAttributes, useContext } from 'react';
 
-import TypeError from 'errors/TypeError';
-
-import { isPost } from 'types/api/response/Post';
-
-import PostItemContext from 'components/molecules/post/PostItem.context';
-import Icon from 'components/atoms/Icon';
+import Icon from '~/components/atoms/Icon';
+import PostItemContext from '~/components/molecules/post/PostItem.context';
+import TypeError from '~/errors/TypeError';
+import { isPost } from '~/types/api/response/Post';
 
 const FooterStyle = styled.section`
     display: flex;

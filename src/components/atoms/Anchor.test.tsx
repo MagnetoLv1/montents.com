@@ -1,8 +1,7 @@
 import { fireEvent } from '@testing-library/dom';
 
-import render from 'libs/testUtils';
-
-import Anchor from 'components/atoms/Anchor';
+import Anchor from '~/components/atoms/Anchor';
+import render from '~/libs/testUtils';
 
 describe('Components | Atoms | <Anchor />', () => {
     const text = 'test anchor',

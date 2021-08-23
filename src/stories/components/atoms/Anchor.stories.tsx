@@ -1,10 +1,10 @@
 import { action } from '@storybook/addon-actions';
 import { Story } from '@storybook/react';
 
-import Anchor, { AnchorProps } from 'components/atoms/Anchor';
+import Anchor, { AnchorProps } from '~/components/atoms/Anchor';
 
 export default {
-    title: 'Components/Atoms/Anchor',
+    title: '~/Components/Atoms/Anchor',
     component: Anchor,
     argTypes: {
         href: {

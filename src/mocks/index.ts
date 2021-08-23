@@ -1,9 +1,8 @@
 import MockAdapter from 'axios-mock-adapter';
 
-import groups from 'mocks/groups';
-import posts from 'mocks/posts';
-
-import { axiosMock, MockAdapterOptions } from 'libs/axios';
+import { axiosMock, MockAdapterOptions } from '~/libs/axios';
+import groups from '~/mocks/groups';
+import posts from '~/mocks/posts';
 
 export type ApiMock = (apiMock: MockAdapter) => void;
 
@@ -14,6 +13,7 @@ type InitApiMock = (options: MockAdapterOptions) => void;
 
 /**
  * api mock 실행
+ *
  * @param options
  */
 export const initApiMock: InitApiMock = (options) => {

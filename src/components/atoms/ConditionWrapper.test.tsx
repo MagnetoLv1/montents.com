@@ -1,6 +1,5 @@
-import render from 'libs/testUtils';
-
-import ConditionWrapper from 'components/atoms/ConditionWrapper';
+import ConditionWrapper from '~/components/atoms/ConditionWrapper';
+import render from '~/libs/testUtils';
 
 describe('Components | Atoms | <ConditionWrapper />', () => {
     const childrenText = 'childrenText';

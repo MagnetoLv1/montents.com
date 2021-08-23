@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import render from 'libs/testUtils';
-import withLoading from 'libs/hoc/withLoading';
+import withLoading from '~/libs/hoc/withLoading';
+import render from '~/libs/testUtils';
 
 describe('Libs | HOC | withLoading', () => {
     const loadingText = 'loading...';
