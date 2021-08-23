@@ -16,11 +16,8 @@ jobs:
         with:
           node-version: 14.x
 
-      - name: Cache node modules      # node modules 캐싱
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
+      - name: Cache node modules
+        uses: c-hive/gha-yarn-cache@v2
             
             
       - name: Install Dependencies    # 의존 파일 설치
@@ -31,7 +28,7 @@ jobs:
 
       - name: make env file
         run: |
-          echo 'USE_API_MOCK=true' > .env
+          echo 'USE_API_MOCK=true' > dist/.env
 
       #PutObject, PutObjectAcl 권한필요
       - name: Deploy                  # S3에 배포하기2
