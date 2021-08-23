@@ -41,4 +41,4 @@ jobs:
           aws s3 cp \
             --recursive \
             --region ap-northeast-2 \
-            out s3://montents.com --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
+            dist s3://montents.com --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
