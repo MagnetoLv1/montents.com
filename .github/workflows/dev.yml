@@ -30,6 +30,9 @@ jobs:
       - name: Build                   # React Build
         run: yarn build
 
+      - name: copy temp image
+        run: cp -r assets/images/temp dist/assets/images/temp
+
       #PutObject, PutObjectAcl 권한필요
       - name: Deploy                  # S3에 배포하기2
         env:
