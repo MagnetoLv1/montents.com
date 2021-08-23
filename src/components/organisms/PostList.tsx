@@ -1,4 +1,4 @@
-import { useInfinityScroll } from '@choseohwan/react-utils/hooks';
+import { useInfinityScroll } from '@choseohwan/react-utils';
 import styled from '@emotion/styled';
 import { FC, useCallback, useEffect } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
