@@ -1860,6 +1860,11 @@
   dependencies:
     "@tsconfig/recommended" "^1.0.1"
 
+"@choseohwan/utils@^1.0.26-alpha-30.72adb3086eeb3de3729f4b96115a9bbf63db1406.0":
+  version "1.0.26-alpha-30.72adb3086eeb3de3729f4b96115a9bbf63db1406.0"
+  resolved "https://registry.yarnpkg.com/@choseohwan/utils/-/utils-1.0.26-alpha-30.72adb3086eeb3de3729f4b96115a9bbf63db1406.0.tgz#121bf885200609fc96c446dd4f6149f1a9732da5"
+  integrity sha512-W64VlW553VeqKAE3t09Sywf8f/1St6GVeGIPJkWIghk1Ui9hE1cF906pWTMTYAKBz3TK6Qdb03ariBdppFPqyA==
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"

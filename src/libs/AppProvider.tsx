@@ -1,5 +1,5 @@
 import '~/config/moment/locale';
-import '~/libs/prototypes';
+import '@choseohwan/utils';
 
 import { Global, ThemeProvider } from '@emotion/react';
 import { FC } from 'react';
