@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/extend-expect';
-import {store} from "modules";
-import {storeAction} from "modules/StoreModule";
+import {store} from "~/modules";
+import {storeAction} from "~/modules/StoreModule";
 
 // jest 타입아웃 30초로 설정
 jest.setTimeout(30000);

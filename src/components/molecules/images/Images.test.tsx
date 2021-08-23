@@ -1,5 +1,5 @@
 import { waitFor } from '@testing-library/dom';
-import { mocked } from 'ts-jest';
+import { mocked } from 'ts-jest/utils';
 
 import Images from '~/components/molecules/images/Images';
 import ApiStatus from '~/constants/ApiStatus';

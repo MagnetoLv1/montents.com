@@ -20,10 +20,7 @@ describe('Components | Organisms | <GroupList />', () => {
         const { data: groups } = groupsResponse;
 
         // 로딩 중 버튼 노출 확인
-        await waitFor(
-            () => expect(getAllByTestId('loading-group-item').length).toBe(3),
-            { timeout: 300 }
-        );
+        expect(getAllByTestId('loading-group-item').length).toBe(3);
 
         // 그룹 리스트 로딩 후 리스트 노출 확인
         for (const group of groups) {

@@ -9,7 +9,7 @@
 .pnp.js
 
 # testing
-/report
+/.jest/report.html
 /coverage
 
 # production

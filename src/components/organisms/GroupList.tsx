@@ -22,7 +22,7 @@ const GroupList: FC<GroupListProps> = ({ ...props }) => {
 
     const { status, data, more } = useSelector<
         RootReducerState,
-        Pick<RootReducerState['groupsReducer'], '~/data' | 'status'> &
+        Pick<RootReducerState['groupsReducer'], 'data' | 'status'> &
             Pick<RootReducerState['groupsReducer']['meta'], 'more'>
     >(
         ({ groupsReducer }) => ({
