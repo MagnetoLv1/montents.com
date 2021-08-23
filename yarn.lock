@@ -1853,6 +1853,13 @@
   resolved "https://registry.yarnpkg.com/@choseohwan/prettier-config-base/-/prettier-config-base-1.0.7.tgz#a36b2d55dc515dce33753cf291b074ad5cf9cd33"
   integrity sha512-d/H27XuxCfBst0MO/fBbMrcZv5QAhLIWnmSvcYGE4dKXrtn0PlMlUb6QvpzZ8AuvtqMW/b2r/yRHsjJC04XJDg==
 
+"@choseohwan/tsconfig-base@^1.0.12-alpha-30.30c14ad87bfa9629ebe76ca829ff35014ecf9632.0":
+  version "1.0.12-alpha-30.30c14ad87bfa9629ebe76ca829ff35014ecf9632.0"
+  resolved "https://registry.yarnpkg.com/@choseohwan/tsconfig-base/-/tsconfig-base-1.0.12-alpha-30.30c14ad87bfa9629ebe76ca829ff35014ecf9632.0.tgz#1336053481255ae84ebb8a71fc6abb43dc054670"
+  integrity sha512-rvefK09TB73SlDifKPqJpvAsIfrn/NjOxn0Lxh22BR8E76M6rcr6a82cOUsE5XFAASkB2tRPGzGgrcipuF6ACA==
+  dependencies:
+    "@tsconfig/recommended" "^1.0.1"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -3088,6 +3095,11 @@
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
+
+"@tsconfig/recommended@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@tsconfig/recommended/-/recommended-1.0.1.tgz#7619bad397e06ead1c5182926c944e0ca6177f52"
+  integrity sha512-2xN+iGTbPBEzGSnVp/Hd64vKJCJWxsi9gfs88x4PPMyEjHJoA3o5BY9r5OLPHIZU2pAQxkSAsJFqn6itClP8mQ==
 
 "@types/anymatch@*":
   version "1.3.1"

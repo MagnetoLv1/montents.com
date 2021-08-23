@@ -1,11 +1,9 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const webpack = require('webpack');
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const dotenv = require('dotenv');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-/* eslint-enable @typescript-eslint/no-var-requires */
 
 module.exports = {
     entry: path.join(__dirname, 'src', 'index.tsx'),
