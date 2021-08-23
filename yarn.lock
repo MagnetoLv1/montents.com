@@ -1848,6 +1848,11 @@
     jest-html-reporters "^2.1.6"
     ts-jest "^27.0.3"
 
+"@choseohwan/prettier-config-base@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@choseohwan/prettier-config-base/-/prettier-config-base-1.0.7.tgz#a36b2d55dc515dce33753cf291b074ad5cf9cd33"
+  integrity sha512-d/H27XuxCfBst0MO/fBbMrcZv5QAhLIWnmSvcYGE4dKXrtn0PlMlUb6QvpzZ8AuvtqMW/b2r/yRHsjJC04XJDg==
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
