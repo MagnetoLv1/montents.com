@@ -11,21 +11,26 @@ jobs:
       - name: Checkout source code.   # 레포지토리 체크아웃
         uses: actions/checkout@master
 
+      - name: setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
       - name: Cache node modules      # node modules 캐싱
         uses: actions/cache@v1
         with:
           path: node_modules
           key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
-            
-            
+
       - name: Install Dependencies    # 의존 파일 설치
         run: yarn install
 
       - name: Build                   # React Build
         run: yarn build
 
-      - name: Export                   # React Export
-        run: yarn export
+      - name: make env file
+        run: |
+          echo 'USE_API_MOCK=true' > .env
 
       #PutObject, PutObjectAcl 권한필요
       - name: Deploy                  # S3에 배포하기2
