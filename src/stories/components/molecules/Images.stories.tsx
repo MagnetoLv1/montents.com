@@ -191,6 +191,6 @@ MultipleImagesStory.args = {
         '/assets/images/temp/board_image_3.jpg',
         '/assets/images/temp/board_image_4.jpg',
         '/assets/images/temp/board_image_5.png',
-        '/assets/images/temp/board_image_6.png'
+        '/assets/images/temp/board_image_6.jpeg'
     ]
 };
